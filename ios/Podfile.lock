@@ -1,0 +1,21 @@
+PODS:
+  - ViroKit_static_lib (1.0)
+  - ViroReact (1.0)
+
+DEPENDENCIES:
+  - ViroKit_static_lib (from `../node_modules/react-viro/ios/dist/ViroRenderer/static_lib`)
+  - ViroReact (from `../node_modules/react-viro/ios/`)
+
+EXTERNAL SOURCES:
+  ViroKit_static_lib:
+    :path: "../node_modules/react-viro/ios/dist/ViroRenderer/static_lib"
+  ViroReact:
+    :path: "../node_modules/react-viro/ios/"
+
+SPEC CHECKSUMS:
+  ViroKit_static_lib: ae9c112ac4b128f8d4466fc581c7b07a0264754d
+  ViroReact: 7ec32276dcd1883662b4587eaedfff67f7fc3625
+
+PODFILE CHECKSUM: a7df164dc7cb3a41ccd2912e363997fbea877733
+
+COCOAPODS: 1.7.3

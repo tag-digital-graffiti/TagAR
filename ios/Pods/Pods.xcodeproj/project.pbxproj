@@ -1,0 +1,754 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		1842D09058AC77D80758E04FD74CB6B7 /* ViroKit_static_lib */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 98F5C103924448E10573D58EA72D970D /* Build configuration list for PBXAggregateTarget "ViroKit_static_lib" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = ViroKit_static_lib;
+		};
+		7A6C27B7627BF95E3D1B75D331186634 /* ViroReact */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = A232D182F37F204A9EB1B6DC5BBA6C44 /* Build configuration list for PBXAggregateTarget "ViroReact" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = ViroReact;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		ACDD89443D533D2E1D8D68B80397DC9C /* Pods-TagAR-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2C47B1FA2F00F8F175F08BF3CD2FB3 /* Pods-TagAR-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0E298C681957B53D35AF2CDDD13A9824 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A6C27B7627BF95E3D1B75D331186634;
+			remoteInfo = ViroReact;
+		};
+		C874FD09F17586D3563BB7E5772A5197 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1842D09058AC77D80758E04FD74CB6B7;
+			remoteInfo = ViroKit_static_lib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		018728A44CE88012243606778A7344E7 /* VRTCameraManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTCameraManager.h; path = dist/include/VRTCameraManager.h; sourceTree = "<group>"; };
+		02CBB8B0ADF62134B5C9AF471AB583E2 /* VRTPortalManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTPortalManager.h; path = dist/include/VRTPortalManager.h; sourceTree = "<group>"; };
+		06EDFF3ACA0DAFB37A64C25EB8107504 /* VRTAnimatedComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTAnimatedComponent.h; path = dist/include/VRTAnimatedComponent.h; sourceTree = "<group>"; };
+		0933280CC34B89295FE9E27E5CBE9409 /* VRTText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTText.h; path = dist/include/VRTText.h; sourceTree = "<group>"; };
+		094628C7D5C9F2990A2B5DE5518DB958 /* VRTLight.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTLight.h; path = dist/include/VRTLight.h; sourceTree = "<group>"; };
+		0A9E6CE4C68BF7E2A376FE1EE8C12BC5 /* VRTARPlane.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTARPlane.h; path = dist/include/VRTARPlane.h; sourceTree = "<group>"; };
+		0B1865BA249D0AC730DE378D0A0012C2 /* VRTSoundModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTSoundModule.h; path = dist/include/VRTSoundModule.h; sourceTree = "<group>"; };
+		0C45ADD4C94314C82CA209B575AA1EEC /* VRTARSceneNavigatorModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTARSceneNavigatorModule.h; path = dist/include/VRTARSceneNavigatorModule.h; sourceTree = "<group>"; };
+		0CBBB9A16B35AE6BA86307E8EA7B90CC /* VRTView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTView.h; path = dist/include/VRTView.h; sourceTree = "<group>"; };
+		0D8F9B8D45F390BF77EF8D55D7C46AE7 /* VRTNodeContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTNodeContainer.h; path = dist/include/VRTNodeContainer.h; sourceTree = "<group>"; };
+		0D94419FDE334429F29247E7E621832B /* ViroViewManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ViroViewManager.h; path = dist/include/ViroViewManager.h; sourceTree = "<group>"; };
+		122D27F6BD04D8B8AA6DC050DB63AE3E /* VRTBundleURLProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTBundleURLProvider.h; path = dist/include/VRTBundleURLProvider.h; sourceTree = "<group>"; };
+		165B5748F501821178AF5B8897E25238 /* Pods-TagAR-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TagAR-acknowledgements.markdown"; sourceTree = "<group>"; };
+		17BD55EEAD994013420F6D3DF5444468 /* VRTSceneShadowView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTSceneShadowView.h; path = dist/include/VRTSceneShadowView.h; sourceTree = "<group>"; };
+		17D94862A0A2C4C956791C7BBAF5104F /* VRTARSceneNavigatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTARSceneNavigatorManager.h; path = dist/include/VRTARSceneNavigatorManager.h; sourceTree = "<group>"; };
+		18C9FA31848F7AB31D1AE53B0D98327F /* VRTCubeMap.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTCubeMap.h; path = dist/include/VRTCubeMap.h; sourceTree = "<group>"; };
+		1A225621A37E5AC31B14EDD150925F80 /* VRTNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTNode.h; path = dist/include/VRTNode.h; sourceTree = "<group>"; };
+		1AE978C81A866CF75D50CB83E125A2F6 /* VRTHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTHUD.h; path = dist/include/VRTHUD.h; sourceTree = "<group>"; };
+		1B94E7418EF292DCD7F1C2ED99FF0E9E /* VRTController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTController.h; path = dist/include/VRTController.h; sourceTree = "<group>"; };
+		1CA1A436A71ED87DDDC0348B3A264796 /* VRTCamera.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTCamera.h; path = dist/include/VRTCamera.h; sourceTree = "<group>"; };
+		1F0B6F0E545402968F48DB48E1D9243D /* VRTSphere.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTSphere.h; path = dist/include/VRTSphere.h; sourceTree = "<group>"; };
+		1FDDF5D68D1344D8E2ACC10392CA9D92 /* VRTARSceneNavigator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTARSceneNavigator.h; path = dist/include/VRTARSceneNavigator.h; sourceTree = "<group>"; };
+		2A05CEBA6484838A62D308DADEBBA84F /* Pods-TagAR-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TagAR-frameworks.sh"; sourceTree = "<group>"; };
+		2C25D42CFB16751273A74789BBF9B295 /* VRTSkybox.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTSkybox.h; path = dist/include/VRTSkybox.h; sourceTree = "<group>"; };
+		2D2734D6DE03EDEC715930238F117215 /* VRTPortalFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTPortalFrame.h; path = dist/include/VRTPortalFrame.h; sourceTree = "<group>"; };
+		2D2C47B1FA2F00F8F175F08BF3CD2FB3 /* Pods-TagAR-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TagAR-dummy.m"; sourceTree = "<group>"; };
+		2EA5DAE2E4AE07A4FB152BB35E049D41 /* VRTAnimatedComponentShadowView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTAnimatedComponentShadowView.h; path = dist/include/VRTAnimatedComponentShadowView.h; sourceTree = "<group>"; };
+		2FF296FFFC24A8DED0EF8E9B9028631C /* VRTBoxManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTBoxManager.h; path = dist/include/VRTBoxManager.h; sourceTree = "<group>"; };
+		32F965ECEDB5EB3F57A21B719246CEEF /* VRTSceneNavigatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTSceneNavigatorManager.h; path = dist/include/VRTSceneNavigatorManager.h; sourceTree = "<group>"; };
+		35D2C645B902EE790E90F8E9AFEB2C55 /* VRTARSceneManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTARSceneManager.h; path = dist/include/VRTARSceneManager.h; sourceTree = "<group>"; };
+		360FBBE02B6B619750D9B20E4EFA2FA3 /* VRTShadowView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTShadowView.h; path = dist/include/VRTShadowView.h; sourceTree = "<group>"; };
+		37CB5B85643ADA1B85E9BB424B8AF7CD /* VRTPolylineManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTPolylineManager.h; path = dist/include/VRTPolylineManager.h; sourceTree = "<group>"; };
+		3DCAB2A01C910CF1BDEDAA36A7EDF386 /* VRT360Video.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRT360Video.h; path = dist/include/VRT360Video.h; sourceTree = "<group>"; };
+		40E2B3D9242D518325A50FD66DC25794 /* VRTPortalScene.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTPortalScene.h; path = dist/include/VRTPortalScene.h; sourceTree = "<group>"; };
+		41506CC5CE725DB2BAB84FA008E78E67 /* VRTCameraModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTCameraModule.h; path = dist/include/VRTCameraModule.h; sourceTree = "<group>"; };
+		42872210A03D5718D18B38A9DCCD27C8 /* VRTOrbitCameraManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTOrbitCameraManager.h; path = dist/include/VRTOrbitCameraManager.h; sourceTree = "<group>"; };
+		490B8E5DE72E603D54B22EED663B92F7 /* VRTSceneManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTSceneManager.h; path = dist/include/VRTSceneManager.h; sourceTree = "<group>"; };
+		4F0FF714A5CC72FF08EA1550BF247C1A /* ViroKit_static_lib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ViroKit_static_lib.framework; sourceTree = "<group>"; };
+		54E11F7446B9E52E772CECE48F59573B /* VRTARAnchorNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTARAnchorNode.h; path = dist/include/VRTARAnchorNode.h; sourceTree = "<group>"; };
+		55EF330244AFAE5E81AE567C7F209F5F /* VRTBox.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTBox.h; path = dist/include/VRTBox.h; sourceTree = "<group>"; };
+		5B2F924A860DC4721B4940AF15278F2E /* Pods-TagAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TagAR.debug.xcconfig"; sourceTree = "<group>"; };
+		5C114E8C59D70CAE5EB389F4210E790D /* VRTARSceneModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTARSceneModule.h; path = dist/include/VRTARSceneModule.h; sourceTree = "<group>"; };
+		5D0FCB4E89FF74BF9AFC84C7B9B07BED /* VRTImageManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTImageManager.h; path = dist/include/VRTImageManager.h; sourceTree = "<group>"; };
+		60AB3258DAF375CD7CEA57BDFC6142C1 /* VRT360ImageManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRT360ImageManager.h; path = dist/include/VRT360ImageManager.h; sourceTree = "<group>"; };
+		616A781326AA306CC158C16F1F8CA612 /* libViroReact.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libViroReact.a; path = dist/lib/libViroReact.a; sourceTree = "<group>"; };
+		63BF80BE4D8EB5C7C2122C9C4495FC08 /* VRTControllerModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTControllerModule.h; path = dist/include/VRTControllerModule.h; sourceTree = "<group>"; };
+		66EDDBFD5FC405987CC0780CCED94866 /* VRTAnimationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTAnimationManager.h; path = dist/include/VRTAnimationManager.h; sourceTree = "<group>"; };
+		6B983A4B6B53EA748CA2FFDEE2622D0D /* VRTSkyboxManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTSkyboxManager.h; path = dist/include/VRTSkyboxManager.h; sourceTree = "<group>"; };
+		6CC46567E6446C5F0EDD1C86CE7CFA88 /* VRTQuad.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTQuad.h; path = dist/include/VRTQuad.h; sourceTree = "<group>"; };
+		6DDC6DBE9C139F1C81EECE6B28ED392F /* VRTControllerManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTControllerManager.h; path = dist/include/VRTControllerManager.h; sourceTree = "<group>"; };
+		6EBED50F777CB472EA2481A15E83A1DD /* VRTImageAsyncLoader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTImageAsyncLoader.h; path = dist/include/VRTImageAsyncLoader.h; sourceTree = "<group>"; };
+		6F049B40EDAD24843011C2DAE6002431 /* libPods-TagAR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-TagAR.a"; path = "libPods-TagAR.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7123B7C6C8954465BDDBE6B92C6D6EB9 /* VRTAnimatedComponentManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTAnimatedComponentManager.h; path = dist/include/VRTAnimatedComponentManager.h; sourceTree = "<group>"; };
+		729E85322C759AB4E5A143D4AC7DEDA7 /* VRTSurface.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTSurface.h; path = dist/include/VRTSurface.h; sourceTree = "<group>"; };
+		73C86E91B2079C245DA9C5FA6AE140DE /* VRTPortalSceneManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTPortalSceneManager.h; path = dist/include/VRTPortalSceneManager.h; sourceTree = "<group>"; };
+		75F97863F4EA2F4A70A736E0702E95FD /* VRTScene.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTScene.h; path = dist/include/VRTScene.h; sourceTree = "<group>"; };
+		799258AB25CE5456C2BA019518A0FC11 /* VRT360VideoManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRT360VideoManager.h; path = dist/include/VRT360VideoManager.h; sourceTree = "<group>"; };
+		7F5584FADB21DC58D717892A2D451C9F /* VRTVideoSurfaceManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTVideoSurfaceManager.h; path = dist/include/VRTVideoSurfaceManager.h; sourceTree = "<group>"; };
+		816F6D88E904031839DC3099CF355BCA /* VRTHUDComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTHUDComponent.h; path = dist/include/VRTHUDComponent.h; sourceTree = "<group>"; };
+		81D68471E4CD7891BAEF07227CD769E5 /* VRTPolyline.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTPolyline.h; path = dist/include/VRTPolyline.h; sourceTree = "<group>"; };
+		823ADD98CEFD33374036F4516B339008 /* VRT3DObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRT3DObject.h; path = dist/include/VRT3DObject.h; sourceTree = "<group>"; };
+		82C0F37A8FDB7FA91C436DC82DAAF7C1 /* VRTMaterialManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTMaterialManager.h; path = dist/include/VRTMaterialManager.h; sourceTree = "<group>"; };
+		82EDF2DCAF35271F45B92B7B72F0131C /* VRTPortal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTPortal.h; path = dist/include/VRTPortal.h; sourceTree = "<group>"; };
+		833DE2E41A5F57625A7B6CF03BFC68EB /* VROHUDManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VROHUDManager.h; path = dist/include/VROHUDManager.h; sourceTree = "<group>"; };
+		857272A2350C11D2D35F577B16C5DEF3 /* VRTLightManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTLightManager.h; path = dist/include/VRTLightManager.h; sourceTree = "<group>"; };
+		89F3918483ACD7EA6E8DEB81A144DC41 /* VRTLabelShadowView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTLabelShadowView.h; path = dist/include/VRTLabelShadowView.h; sourceTree = "<group>"; };
+		8AA0A6A209789B090E81BDC401BC62CC /* ViroReact.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ViroReact.xcconfig; sourceTree = "<group>"; };
+		8CD26B03C3C7755A06AF8BDEA182BA58 /* VRTVideoSurface.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTVideoSurface.h; path = dist/include/VRTVideoSurface.h; sourceTree = "<group>"; };
+		8DC28FB8F4D5FF21A18BB99C90540BF3 /* VRTImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTImage.h; path = dist/include/VRTImage.h; sourceTree = "<group>"; };
+		8E7E6B67A3C1A34C4016AB0014A0D349 /* ViroReact.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = ViroReact.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9FAFC43314C338641DB1B57BAA97230B /* VRTPortalFrameManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTPortalFrameManager.h; path = dist/include/VRTPortalFrameManager.h; sourceTree = "<group>"; };
+		A00A32B427CFE9179483D0A75AD54B6D /* VRTARScene.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTARScene.h; path = dist/include/VRTARScene.h; sourceTree = "<group>"; };
+		A019F841181CC33456E5DF514E03FF23 /* VRTTreeNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTTreeNode.h; path = dist/include/VRTTreeNode.h; sourceTree = "<group>"; };
+		A3D663EEE4E10E71697EEDB6D4107A4D /* VRTSphereManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTSphereManager.h; path = dist/include/VRTSphereManager.h; sourceTree = "<group>"; };
+		A6BAF04007E8CD9B49BAF7C8E694405D /* VRT3DObjectManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRT3DObjectManager.h; path = dist/include/VRT3DObjectManager.h; sourceTree = "<group>"; };
+		AAF727D66FC3D28A0633E54AD2FCC910 /* VRTQuadEmitterManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTQuadEmitterManager.h; path = dist/include/VRTQuadEmitterManager.h; sourceTree = "<group>"; };
+		AB7D63960291A455B7DB6904F6825965 /* VRTQuadManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTQuadManager.h; path = dist/include/VRTQuadManager.h; sourceTree = "<group>"; };
+		ACFBDC786552CF2E0FE593EE7EC37D31 /* VRTViewContainerManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTViewContainerManager.h; path = dist/include/VRTViewContainerManager.h; sourceTree = "<group>"; };
+		AE10AA88DA53BD750D6CD7CFC5879CB8 /* ViroKit_static_lib.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = ViroKit_static_lib.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AF79C63DFA38E31B5DBB11A6167D0AC4 /* VRTNodeContainerShadowView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTNodeContainerShadowView.h; path = dist/include/VRTNodeContainerShadowView.h; sourceTree = "<group>"; };
+		B3F8D04A9B727D7A73029125C4313E8D /* VRTFlexViewManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTFlexViewManager.h; path = dist/include/VRTFlexViewManager.h; sourceTree = "<group>"; };
+		B43FCAE9D9E7B5AB9AAE0539374CE828 /* VRTUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTUtils.h; path = dist/include/VRTUtils.h; sourceTree = "<group>"; };
+		B4CABB6698E706F40E60C140335EA414 /* VRTSceneNavigatorModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTSceneNavigatorModule.h; path = dist/include/VRTSceneNavigatorModule.h; sourceTree = "<group>"; };
+		B8F68C2FF10D1AFA3501217D3A8EEC2A /* VRTQuadEmitter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTQuadEmitter.h; path = dist/include/VRTQuadEmitter.h; sourceTree = "<group>"; };
+		BAA066FFDFF1BB4270B0496FF029889A /* VRTSound.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTSound.h; path = dist/include/VRTSound.h; sourceTree = "<group>"; };
+		BBB3ACA601BDC32E01BA330A713AEA3A /* VRTHDRImageAsyncLoader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTHDRImageAsyncLoader.h; path = dist/include/VRTHDRImageAsyncLoader.h; sourceTree = "<group>"; };
+		BE53095222BE48DE8AF8D5BD3B5CA304 /* VRTFlexView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTFlexView.h; path = dist/include/VRTFlexView.h; sourceTree = "<group>"; };
+		BEF68567B5F63834EFCCC9CAFA6377DE /* VRTSurfaceManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTSurfaceManager.h; path = dist/include/VRTSurfaceManager.h; sourceTree = "<group>"; };
+		C81AFFEE1D58904775B5238C019B4B7C /* VRTNotifications.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTNotifications.h; path = dist/include/VRTNotifications.h; sourceTree = "<group>"; };
+		C8637893C34C595F9B68E30AA0B830A8 /* Pods-TagAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TagAR.release.xcconfig"; sourceTree = "<group>"; };
+		CC2A573B4EC0A97E4F793B629C9AFA4A /* VRTSoundManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTSoundManager.h; path = dist/include/VRTSoundManager.h; sourceTree = "<group>"; };
+		D31063E39828930E093F162F76DDDD2C /* Pods-TagAR-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TagAR-acknowledgements.plist"; sourceTree = "<group>"; };
+		D32A3F3DBA45663BDBC2447FFB00C6E1 /* VRT360Image.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRT360Image.h; path = dist/include/VRT360Image.h; sourceTree = "<group>"; };
+		D46C409CEAEF41D36316B53881D9B4CF /* VRTPolygonManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTPolygonManager.h; path = dist/include/VRTPolygonManager.h; sourceTree = "<group>"; };
+		D836CE986705C55EDA35D063812C0BAC /* README.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = README.txt; sourceTree = "<group>"; };
+		D978C46DB5E9596BD43A730A518B3A91 /* VRTShadowFlexView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTShadowFlexView.h; path = dist/include/VRTShadowFlexView.h; sourceTree = "<group>"; };
+		DB474A690F548C624CABC4C95404416F /* VRTPerfMonitor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTPerfMonitor.h; path = dist/include/VRTPerfMonitor.h; sourceTree = "<group>"; };
+		E160CB262920969174B522B6C3ADEAF8 /* VRTNodeModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTNodeModule.h; path = dist/include/VRTNodeModule.h; sourceTree = "<group>"; };
+		E18D283A0FC819FD72A66439E8FD9A8A /* ViroKit_static_lib.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ViroKit_static_lib.xcconfig; sourceTree = "<group>"; };
+		E72B1369F4C8F90600E288E9FC91ECA7 /* VRTMaterialChangedDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTMaterialChangedDelegate.h; path = dist/include/VRTMaterialChangedDelegate.h; sourceTree = "<group>"; };
+		EA21DEFC6D19150278ECC6EE935AF415 /* VRTARPlaneManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTARPlaneManager.h; path = dist/include/VRTARPlaneManager.h; sourceTree = "<group>"; };
+		ED313603C7B12E4FBCAF8A659D11BE8A /* VRTControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTControl.h; path = dist/include/VRTControl.h; sourceTree = "<group>"; };
+		F0893987FF57133B433ADA5E95B46565 /* VRTTextManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTTextManager.h; path = dist/include/VRTTextManager.h; sourceTree = "<group>"; };
+		F1DD82052BDBFE95045848A533D82175 /* VRTLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTLog.h; path = dist/include/VRTLog.h; sourceTree = "<group>"; };
+		F80499C0C5ABE7C62757785C71AEACBA /* VRTSceneModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTSceneModule.h; path = dist/include/VRTSceneModule.h; sourceTree = "<group>"; };
+		FA12C43E443C43B6BB09E17C11976DED /* VRTSceneNavigator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTSceneNavigator.h; path = dist/include/VRTSceneNavigator.h; sourceTree = "<group>"; };
+		FDE2DB6BA05A1FAFDB98729395D9498C /* VRTOrbitCamera.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VRTOrbitCamera.h; path = dist/include/VRTOrbitCamera.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		224F47A019C31A586C65836D6C303C2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		236B4904CF12EF7D1FEAEDF408195B92 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				AE10AA88DA53BD750D6CD7CFC5879CB8 /* ViroKit_static_lib.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		27D6E268456B183629012830C87A143C /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				90D6FE5115AC63F4944462C3D56C94B8 /* Pods-TagAR */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		53D7D1E8DDE2471C2E3BA760F8A80E42 /* ViroReact */ = {
+			isa = PBXGroup;
+			children = (
+				0D94419FDE334429F29247E7E621832B /* ViroViewManager.h */,
+				833DE2E41A5F57625A7B6CF03BFC68EB /* VROHUDManager.h */,
+				D32A3F3DBA45663BDBC2447FFB00C6E1 /* VRT360Image.h */,
+				60AB3258DAF375CD7CEA57BDFC6142C1 /* VRT360ImageManager.h */,
+				3DCAB2A01C910CF1BDEDAA36A7EDF386 /* VRT360Video.h */,
+				799258AB25CE5456C2BA019518A0FC11 /* VRT360VideoManager.h */,
+				823ADD98CEFD33374036F4516B339008 /* VRT3DObject.h */,
+				A6BAF04007E8CD9B49BAF7C8E694405D /* VRT3DObjectManager.h */,
+				06EDFF3ACA0DAFB37A64C25EB8107504 /* VRTAnimatedComponent.h */,
+				7123B7C6C8954465BDDBE6B92C6D6EB9 /* VRTAnimatedComponentManager.h */,
+				2EA5DAE2E4AE07A4FB152BB35E049D41 /* VRTAnimatedComponentShadowView.h */,
+				66EDDBFD5FC405987CC0780CCED94866 /* VRTAnimationManager.h */,
+				54E11F7446B9E52E772CECE48F59573B /* VRTARAnchorNode.h */,
+				0A9E6CE4C68BF7E2A376FE1EE8C12BC5 /* VRTARPlane.h */,
+				EA21DEFC6D19150278ECC6EE935AF415 /* VRTARPlaneManager.h */,
+				A00A32B427CFE9179483D0A75AD54B6D /* VRTARScene.h */,
+				35D2C645B902EE790E90F8E9AFEB2C55 /* VRTARSceneManager.h */,
+				5C114E8C59D70CAE5EB389F4210E790D /* VRTARSceneModule.h */,
+				1FDDF5D68D1344D8E2ACC10392CA9D92 /* VRTARSceneNavigator.h */,
+				17D94862A0A2C4C956791C7BBAF5104F /* VRTARSceneNavigatorManager.h */,
+				0C45ADD4C94314C82CA209B575AA1EEC /* VRTARSceneNavigatorModule.h */,
+				55EF330244AFAE5E81AE567C7F209F5F /* VRTBox.h */,
+				2FF296FFFC24A8DED0EF8E9B9028631C /* VRTBoxManager.h */,
+				122D27F6BD04D8B8AA6DC050DB63AE3E /* VRTBundleURLProvider.h */,
+				1CA1A436A71ED87DDDC0348B3A264796 /* VRTCamera.h */,
+				018728A44CE88012243606778A7344E7 /* VRTCameraManager.h */,
+				41506CC5CE725DB2BAB84FA008E78E67 /* VRTCameraModule.h */,
+				ED313603C7B12E4FBCAF8A659D11BE8A /* VRTControl.h */,
+				1B94E7418EF292DCD7F1C2ED99FF0E9E /* VRTController.h */,
+				6DDC6DBE9C139F1C81EECE6B28ED392F /* VRTControllerManager.h */,
+				63BF80BE4D8EB5C7C2122C9C4495FC08 /* VRTControllerModule.h */,
+				18C9FA31848F7AB31D1AE53B0D98327F /* VRTCubeMap.h */,
+				BE53095222BE48DE8AF8D5BD3B5CA304 /* VRTFlexView.h */,
+				B3F8D04A9B727D7A73029125C4313E8D /* VRTFlexViewManager.h */,
+				BBB3ACA601BDC32E01BA330A713AEA3A /* VRTHDRImageAsyncLoader.h */,
+				1AE978C81A866CF75D50CB83E125A2F6 /* VRTHUD.h */,
+				816F6D88E904031839DC3099CF355BCA /* VRTHUDComponent.h */,
+				8DC28FB8F4D5FF21A18BB99C90540BF3 /* VRTImage.h */,
+				6EBED50F777CB472EA2481A15E83A1DD /* VRTImageAsyncLoader.h */,
+				5D0FCB4E89FF74BF9AFC84C7B9B07BED /* VRTImageManager.h */,
+				89F3918483ACD7EA6E8DEB81A144DC41 /* VRTLabelShadowView.h */,
+				094628C7D5C9F2990A2B5DE5518DB958 /* VRTLight.h */,
+				857272A2350C11D2D35F577B16C5DEF3 /* VRTLightManager.h */,
+				F1DD82052BDBFE95045848A533D82175 /* VRTLog.h */,
+				E72B1369F4C8F90600E288E9FC91ECA7 /* VRTMaterialChangedDelegate.h */,
+				82C0F37A8FDB7FA91C436DC82DAAF7C1 /* VRTMaterialManager.h */,
+				1A225621A37E5AC31B14EDD150925F80 /* VRTNode.h */,
+				0D8F9B8D45F390BF77EF8D55D7C46AE7 /* VRTNodeContainer.h */,
+				AF79C63DFA38E31B5DBB11A6167D0AC4 /* VRTNodeContainerShadowView.h */,
+				E160CB262920969174B522B6C3ADEAF8 /* VRTNodeModule.h */,
+				C81AFFEE1D58904775B5238C019B4B7C /* VRTNotifications.h */,
+				FDE2DB6BA05A1FAFDB98729395D9498C /* VRTOrbitCamera.h */,
+				42872210A03D5718D18B38A9DCCD27C8 /* VRTOrbitCameraManager.h */,
+				DB474A690F548C624CABC4C95404416F /* VRTPerfMonitor.h */,
+				D46C409CEAEF41D36316B53881D9B4CF /* VRTPolygonManager.h */,
+				81D68471E4CD7891BAEF07227CD769E5 /* VRTPolyline.h */,
+				37CB5B85643ADA1B85E9BB424B8AF7CD /* VRTPolylineManager.h */,
+				82EDF2DCAF35271F45B92B7B72F0131C /* VRTPortal.h */,
+				2D2734D6DE03EDEC715930238F117215 /* VRTPortalFrame.h */,
+				9FAFC43314C338641DB1B57BAA97230B /* VRTPortalFrameManager.h */,
+				02CBB8B0ADF62134B5C9AF471AB583E2 /* VRTPortalManager.h */,
+				40E2B3D9242D518325A50FD66DC25794 /* VRTPortalScene.h */,
+				73C86E91B2079C245DA9C5FA6AE140DE /* VRTPortalSceneManager.h */,
+				6CC46567E6446C5F0EDD1C86CE7CFA88 /* VRTQuad.h */,
+				B8F68C2FF10D1AFA3501217D3A8EEC2A /* VRTQuadEmitter.h */,
+				AAF727D66FC3D28A0633E54AD2FCC910 /* VRTQuadEmitterManager.h */,
+				AB7D63960291A455B7DB6904F6825965 /* VRTQuadManager.h */,
+				75F97863F4EA2F4A70A736E0702E95FD /* VRTScene.h */,
+				490B8E5DE72E603D54B22EED663B92F7 /* VRTSceneManager.h */,
+				F80499C0C5ABE7C62757785C71AEACBA /* VRTSceneModule.h */,
+				FA12C43E443C43B6BB09E17C11976DED /* VRTSceneNavigator.h */,
+				32F965ECEDB5EB3F57A21B719246CEEF /* VRTSceneNavigatorManager.h */,
+				B4CABB6698E706F40E60C140335EA414 /* VRTSceneNavigatorModule.h */,
+				17BD55EEAD994013420F6D3DF5444468 /* VRTSceneShadowView.h */,
+				D978C46DB5E9596BD43A730A518B3A91 /* VRTShadowFlexView.h */,
+				360FBBE02B6B619750D9B20E4EFA2FA3 /* VRTShadowView.h */,
+				2C25D42CFB16751273A74789BBF9B295 /* VRTSkybox.h */,
+				6B983A4B6B53EA748CA2FFDEE2622D0D /* VRTSkyboxManager.h */,
+				BAA066FFDFF1BB4270B0496FF029889A /* VRTSound.h */,
+				CC2A573B4EC0A97E4F793B629C9AFA4A /* VRTSoundManager.h */,
+				0B1865BA249D0AC730DE378D0A0012C2 /* VRTSoundModule.h */,
+				1F0B6F0E545402968F48DB48E1D9243D /* VRTSphere.h */,
+				A3D663EEE4E10E71697EEDB6D4107A4D /* VRTSphereManager.h */,
+				729E85322C759AB4E5A143D4AC7DEDA7 /* VRTSurface.h */,
+				BEF68567B5F63834EFCCC9CAFA6377DE /* VRTSurfaceManager.h */,
+				0933280CC34B89295FE9E27E5CBE9409 /* VRTText.h */,
+				F0893987FF57133B433ADA5E95B46565 /* VRTTextManager.h */,
+				A019F841181CC33456E5DF514E03FF23 /* VRTTreeNode.h */,
+				B43FCAE9D9E7B5AB9AAE0539374CE828 /* VRTUtils.h */,
+				8CD26B03C3C7755A06AF8BDEA182BA58 /* VRTVideoSurface.h */,
+				7F5584FADB21DC58D717892A2D451C9F /* VRTVideoSurfaceManager.h */,
+				0CBBB9A16B35AE6BA86307E8EA7B90CC /* VRTView.h */,
+				ACFBDC786552CF2E0FE593EE7EC37D31 /* VRTViewContainerManager.h */,
+				DC4DD6010C2B1497DA8F7C0245BB3454 /* Frameworks */,
+				8D351033F9B53D87BCDB88F901DBD4E7 /* Pod */,
+				69356E865E647BC7A79052C2022E8EB1 /* Support Files */,
+			);
+			name = ViroReact;
+			path = "../../node_modules/react-viro/ios";
+			sourceTree = "<group>";
+		};
+		579F827006AEC29A4A666FE20C5335B3 /* ViroKit_static_lib */ = {
+			isa = PBXGroup;
+			children = (
+				6EBA32A4B0B156B86CCA7C996237CCF5 /* Frameworks */,
+				236B4904CF12EF7D1FEAEDF408195B92 /* Pod */,
+				ED4DB916888DC591550CA8377FB05A6F /* Support Files */,
+			);
+			name = ViroKit_static_lib;
+			path = "../../node_modules/react-viro/ios/dist/ViroRenderer/static_lib";
+			sourceTree = "<group>";
+		};
+		69356E865E647BC7A79052C2022E8EB1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8AA0A6A209789B090E81BDC401BC62CC /* ViroReact.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../ios/Pods/Target Support Files/ViroReact";
+			sourceTree = "<group>";
+		};
+		6E4518EAE697E084153F38289E12391E /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				579F827006AEC29A4A666FE20C5335B3 /* ViroKit_static_lib */,
+				53D7D1E8DDE2471C2E3BA760F8A80E42 /* ViroReact */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		6EBA32A4B0B156B86CCA7C996237CCF5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F0FF714A5CC72FF08EA1550BF247C1A /* ViroKit_static_lib.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8D351033F9B53D87BCDB88F901DBD4E7 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				D836CE986705C55EDA35D063812C0BAC /* README.txt */,
+				8E7E6B67A3C1A34C4016AB0014A0D349 /* ViroReact.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		90D6FE5115AC63F4944462C3D56C94B8 /* Pods-TagAR */ = {
+			isa = PBXGroup;
+			children = (
+				165B5748F501821178AF5B8897E25238 /* Pods-TagAR-acknowledgements.markdown */,
+				D31063E39828930E093F162F76DDDD2C /* Pods-TagAR-acknowledgements.plist */,
+				2D2C47B1FA2F00F8F175F08BF3CD2FB3 /* Pods-TagAR-dummy.m */,
+				2A05CEBA6484838A62D308DADEBBA84F /* Pods-TagAR-frameworks.sh */,
+				5B2F924A860DC4721B4940AF15278F2E /* Pods-TagAR.debug.xcconfig */,
+				C8637893C34C595F9B68E30AA0B830A8 /* Pods-TagAR.release.xcconfig */,
+			);
+			name = "Pods-TagAR";
+			path = "Target Support Files/Pods-TagAR";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				6E4518EAE697E084153F38289E12391E /* Development Pods */,
+				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
+				E0248F17EA8452978DC138254A23BD5E /* Products */,
+				27D6E268456B183629012830C87A143C /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D89477F20FB1DE18A04690586D7808C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC4DD6010C2B1497DA8F7C0245BB3454 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				616A781326AA306CC158C16F1F8CA612 /* libViroReact.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E0248F17EA8452978DC138254A23BD5E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6F049B40EDAD24843011C2DAE6002431 /* libPods-TagAR.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ED4DB916888DC591550CA8377FB05A6F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E18D283A0FC819FD72A66439E8FD9A8A /* ViroKit_static_lib.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../../../../ios/Pods/Target Support Files/ViroKit_static_lib";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BA8E10AB76AB0D8E40AF9C923280EEC3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		82AB0B19D597D561B2A065D316781CA7 /* Pods-TagAR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5512B3BB10DA8CCC6F60E7BF742C97E7 /* Build configuration list for PBXNativeTarget "Pods-TagAR" */;
+			buildPhases = (
+				BA8E10AB76AB0D8E40AF9C923280EEC3 /* Headers */,
+				ECD1DC98CA0BEF487D92D981E34767A4 /* Sources */,
+				224F47A019C31A586C65836D6C303C2E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EEC1DE93C94A618416F6AB4AB623412E /* PBXTargetDependency */,
+				0951A86E1E81FD1E9CDDB1E255A13B9A /* PBXTargetDependency */,
+			);
+			name = "Pods-TagAR";
+			productName = "Pods-TagAR";
+			productReference = 6F049B40EDAD24843011C2DAE6002431 /* libPods-TagAR.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = E0248F17EA8452978DC138254A23BD5E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				82AB0B19D597D561B2A065D316781CA7 /* Pods-TagAR */,
+				1842D09058AC77D80758E04FD74CB6B7 /* ViroKit_static_lib */,
+				7A6C27B7627BF95E3D1B75D331186634 /* ViroReact */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECD1DC98CA0BEF487D92D981E34767A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACDD89443D533D2E1D8D68B80397DC9C /* Pods-TagAR-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0951A86E1E81FD1E9CDDB1E255A13B9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ViroReact;
+			target = 7A6C27B7627BF95E3D1B75D331186634 /* ViroReact */;
+			targetProxy = 0E298C681957B53D35AF2CDDD13A9824 /* PBXContainerItemProxy */;
+		};
+		EEC1DE93C94A618416F6AB4AB623412E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ViroKit_static_lib;
+			target = 1842D09058AC77D80758E04FD74CB6B7 /* ViroKit_static_lib */;
+			targetProxy = C874FD09F17586D3563BB7E5772A5197 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		131356BE54884448CA49C07BEDF4BB2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		98F8B12FED86670ECB73A67AFE830591 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B2F924A860DC4721B4940AF15278F2E /* Pods-TagAR.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A07BC264CA39E6908BD395360FEB9B9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E18D283A0FC819FD72A66439E8FD9A8A /* ViroKit_static_lib.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE5B539676E1C233374D8E32D193A0F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AA0A6A209789B090E81BDC401BC62CC /* ViroReact.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C6F93A5CCC84CCC02D29372E0EE35081 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E18D283A0FC819FD72A66439E8FD9A8A /* ViroKit_static_lib.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DFCE8F9299496AF81850C8794B3133C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8637893C34C595F9B68E30AA0B830A8 /* Pods-TagAR.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EFCEF46EF484F5C1B4F213083C6CEC03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AA0A6A209789B090E81BDC401BC62CC /* ViroReact.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F090CD07A80273D5A73C8EA19224ADDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				131356BE54884448CA49C07BEDF4BB2A /* Debug */,
+				F090CD07A80273D5A73C8EA19224ADDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5512B3BB10DA8CCC6F60E7BF742C97E7 /* Build configuration list for PBXNativeTarget "Pods-TagAR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98F8B12FED86670ECB73A67AFE830591 /* Debug */,
+				DFCE8F9299496AF81850C8794B3133C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98F5C103924448E10573D58EA72D970D /* Build configuration list for PBXAggregateTarget "ViroKit_static_lib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6F93A5CCC84CCC02D29372E0EE35081 /* Debug */,
+				A07BC264CA39E6908BD395360FEB9B9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A232D182F37F204A9EB1B6DC5BBA6C44 /* Build configuration list for PBXAggregateTarget "ViroReact" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFCEF46EF484F5C1B4F213083C6CEC03 /* Debug */,
+				BE5B539676E1C233374D8E32D193A0F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
