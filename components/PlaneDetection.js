@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getNearbyGraffiti } from '../store/graffiti';
+import { getSelectedTag } from '../store/graffiti';
 import { StyleSheet } from 'react-native';
 
 import {
@@ -12,12 +12,10 @@ import {
   ViroImage
 } from 'react-viro';
 
-
 class PlaneDetection extends Component {
   render() {
-    console.log(this.props.myGraffiti);
-    if (this.props.myGraffiti[0]) {
-
+    console.log(this.props.selectedTag);
+    if (this.props.selectedTag) {
       //change this to selectedGraffiti
       return (
         <ViroARScene
@@ -29,7 +27,7 @@ class PlaneDetection extends Component {
           <ViroARPlaneSelector
             minHeight={0.2}
             minWidth={0.2}
-            alignment='Vertical'
+            alignment="Vertical"
           >
             <ViroImage
               height={0.5}
@@ -62,14 +60,10 @@ class PlaneDetection extends Component {
 }
 
 const mapStateToProps = state => ({
-  myGraffiti: state.graffiti.nearByTags
-});
-
-const mapDispatchToProps = dispatch => ({
-  getNearbyGraffiti: (lat, long) => dispatch(getNearbyGraffiti(lat, long))
+  selectedTag: state.graffiti.selectedTag
 });
 
 module.exports = connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(PlaneDetection);

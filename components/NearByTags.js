@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
-import { getNearbyGraffiti } from '../store/graffiti';
+import { Text, View, StyleSheet, Button, FlatList } from 'react-native';
+import { getNearbyTags } from '../store/graffiti';
 import { connect } from 'react-redux';
+import SingleTag from './SingleTag';
 
 let styles = StyleSheet.create({
   outer: {
@@ -21,7 +22,7 @@ export default class NearbyTags extends Component {
     this.state = {
       deviceLat: 0,
       deviceLong: 0,
-      initialLoading: false
+      loaded: false
     };
   }
   async componentDidMount() {
@@ -34,7 +35,7 @@ export default class NearbyTags extends Component {
             error: null
           },
           () => {
-            this.props.getNearbyGraffiti(
+            this.props.getNearbyTags(
               this.state.deviceLat,
               this.state.deviceLong
             );
@@ -46,7 +47,7 @@ export default class NearbyTags extends Component {
     );
     console.log(this.state.deviceLat);
 
-    this.setState({ initialLoading: true });
+    this.setState({ loaded: true });
   }
 
   _toAR = () => {
@@ -54,26 +55,36 @@ export default class NearbyTags extends Component {
   };
 
   render() {
-    const { history } = this.props;
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <View style={styles.outer}>
-          <Text style={{ backgroundColor: '#ffff00' }}>
-            TEST HOME PAGE GOES HERE
-          </Text>
-          <Button title="Go" onPress={this._toAR} />
+    if (this.props.tags.length) {
+      return (
+        <View
+          style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+        >
+          <FlatList
+            data={this.props.tags}
+            renderItem={({ item }) => <SingleTag image={item.arTagUrl} />}
+            keyExtractor={index => {
+              return index;
+            }}
+          />
         </View>
-      </View>
-    );
+      );
+    } else {
+      return (
+        <View>
+          <Text>No Local Images</Text>
+        </View>
+      );
+    }
   }
 }
 
 const mapStateToProps = state => ({
-  myGraffiti: state.graffiti.nearByTags
+  tags: state.graffiti.nearByTags
 });
 
 const mapDispatchToProps = dispatch => ({
-  getNearbyGraffiti: (lat, long) => dispatch(getNearbyGraffiti(lat, long))
+  getNearbyTags: (lat, long) => dispatch(getNearbyTags(lat, long))
 });
 
 module.exports = connect(
