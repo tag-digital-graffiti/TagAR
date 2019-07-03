@@ -14,43 +14,11 @@ import {
 
 
 class PlaneDetection extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      deviceLat: 0,
-      deviceLong: 0,
-      initialLoading: false
-    };
-  }
-  async componentDidMount() {
-    await navigator.geolocation.getCurrentPosition(
-      position => {
-        this.setState(
-          {
-            deviceLat: position.coords.latitude,
-            deviceLong: position.coords.longitude,
-            error: null
-          },
-          () => {
-            this.props.getNearbyGraffiti(
-              this.state.deviceLat,
-              this.state.deviceLong
-            );
-          }
-        );
-      },
-      error => this.setState({ error: error.message }),
-      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
-    );
-    console.log(this.state.deviceLat);
-
-    this.setState({ initialLoading: true });
-  }
-
   render() {
     console.log(this.props.myGraffiti);
-    if (this.state.initialLoading && this.props.myGraffiti[0]) {
+    if (this.props.myGraffiti[0]) {
+
+      //change this to selectedGraffiti
       return (
         <ViroARScene
           // onTrackingUpdated={() => {

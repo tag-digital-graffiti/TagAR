@@ -13,7 +13,7 @@ const ARNavigator = createStackNavigator({
 })
 
 const TabNavigator = createBottomTabNavigator({
-  Home: HomeScreen,
+  Test: HomeScreen,
   NearByTags: ARNavigator,
   Draw: DrawScreen
 });

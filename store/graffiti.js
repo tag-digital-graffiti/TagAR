@@ -3,15 +3,22 @@ import axios from 'axios';
 const server = 'http://tag-sever-ar.herokuapp.com';
 
 const GET_NEARBY_GRAFFITI = 'GET_NEARBY_GRAFFITI';
+const GET_SELECTED_TAG = 'GET_SELECTED_TAG';
 
 const initialState = {
   nearByTags: [],
+  selectedTag: {}
 };
 
 const gotNearbyGraffiti = graffitis => ({
   type: GET_NEARBY_GRAFFITI,
 
-  graffitis,
+  graffitis
+});
+
+const gotSingleGraffiti = tag => ({
+  type: GET_SELECTED_TAG,
+  tag
 });
 
 export const getNearbyGraffiti = (lat, long) => {
@@ -27,12 +34,27 @@ export const getNearbyGraffiti = (lat, long) => {
   };
 };
 
-export default function (state = initialState, action) {
+export const getSelectedTag = (id) => {
+  return async dispatch => {
+    try {
+      let { data } = await axios.get(
+        `${server}/api/tags/${id}`
+      );
+      dispatch(getSelectedTag(data));
+    } catch (error) {
+      console.warn(error);
+    }
+  };
+};
+
+export default function(state = initialState, action) {
   let stateCopy = { ...state };
   switch (action.type) {
     case GET_NEARBY_GRAFFITI:
       stateCopy.nearByTags = action.graffitis;
       return stateCopy;
+    case GET_SINGLE_TAG:
+      return { ...state, selectedTag: action.tag };
     default:
       return state;
   }
