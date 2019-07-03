@@ -14,12 +14,13 @@ let styles = StyleSheet.create({
 
 export default class Home extends Component {
   render() {
-    const { history } = this.props;
     return (
-      <View style={styles.outer}>
-        <Text style={{ backgroundColor: '#ffff00' }}>
-          TEST HOME PAGE GOES HERE
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={styles.outer}>
+          <Text style={{ backgroundColor: '#ffff00' }}>
+            TEST HOME PAGE GOES HERE
         </Text>
+        </View>
       </View>
     );
   }

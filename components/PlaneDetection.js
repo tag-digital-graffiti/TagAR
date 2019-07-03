@@ -11,7 +11,6 @@ import {
   ViroARPlaneSelector,
   ViroImage
 } from 'react-viro';
-// import console = require('console');
 
 
 class PlaneDetection extends Component {
@@ -93,16 +92,6 @@ class PlaneDetection extends Component {
     }
   }
 }
-
-var styles = StyleSheet.create({
-  helloWorldTextStyle: {
-    fontFamily: 'Arial',
-    fontSize: 30,
-    color: '#ee82ee',
-    textAlignVertical: 'center',
-    textAlign: 'center'
-  }
-});
 
 const mapStateToProps = state => ({
   myGraffiti: state.graffiti.nearByTags
