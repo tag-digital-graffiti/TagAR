@@ -1,7 +1,7 @@
 const router = require('express').Router()
 module.exports = router
 
-router.use('/tags', require('./location'))
+router.use('/tags', require('./tag'))
 
 router.use((req, res, next) => {
   const error = new Error('Not Found')
