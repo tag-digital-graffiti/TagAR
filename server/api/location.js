@@ -1,10 +1,11 @@
-const router = require('express').Router()
-const { Tag } = require('../db/models')
-const sequelize = require('sequelize')
-const Op = sequelize.Op
+const router = require('express').Router();
+const { Tag } = require('../db/models');
+const sequelize = require('sequelize');
+const Op = sequelize.Op;
+
 router.get('/', async (req, res, next) => {
-  const lat = parseFloat(req.query.lat)
-  const long = parseFloat(req.query.long)
+  const lat = parseFloat(req.query.lat);
+  const long = parseFloat(req.query.long);
 
   try {
     const getNearByTag = await Tag.findAll({
@@ -16,24 +17,39 @@ router.get('/', async (req, res, next) => {
           [Op.between]: [long - 0.0002, long + 0.0002]
         }
       }
-    }
-    )
-    res.json(getNearByTag)
+    });
+    res.json(getNearByTag);
   } catch (error) {
-    next(error)
+    next(error);
   }
-})
+});
 
+router.get('/:id', async (req, res, next) => {
+  try {
+    const selectedTag = await Tag.findOne({
+      where: {
+        id: req.params.id
+      }
+    });
+    if (selectedTag) {
+      res.json(selectedTag);
+    } else {
+      next();
+    }
+  } catch (error) {
+    next(error);
+  }
+});
 
 router.post('/', async (req, res, next) => {
   try {
     let lat = req.body.lat;
     let long = req.body.long;
-    let arTagUrl = req.body.arTagUrl
+    let arTagUrl = req.body.arTagUrl;
 
-    await Tag.create({ lat, long, arTagUrl })
+    await Tag.create({ lat, long, arTagUrl });
   } catch (error) {
-    next(error)
+    next(error);
   }
-})
-module.exports = router
+});
+module.exports = router;
