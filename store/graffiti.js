@@ -34,12 +34,10 @@ export const getNearbyTags = (lat, long) => {
   };
 };
 
-export const getSelectedTag = (id) => {
+export const getSelectedTag = id => {
   return async dispatch => {
     try {
-      let { data } = await axios.get(
-        `${server}/api/tags/${id}`
-      );
+      let { data } = await axios.get(`${server}/api/tags/${id}`);
       dispatch(gotSelectedTag(data));
     } catch (error) {
       console.warn(error);
@@ -48,11 +46,12 @@ export const getSelectedTag = (id) => {
 };
 
 export default function(state = initialState, action) {
-  let stateCopy = { ...state };
+  // let stateCopy = { ...state };
   switch (action.type) {
     case GET_NEARBY_TAGS:
-      stateCopy.nearByTags = action.tags;
-      return stateCopy;
+      return { ...state, nearByTags: [...state.nearByTags, action.tags] };
+    // stateCopy.nearByTags = action.tags;
+    // return stateCopy;
     case GET_SELECTED_TAG:
       return { ...state, selectedTag: action.tag };
     default:
