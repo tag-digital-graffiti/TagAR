@@ -37,12 +37,19 @@ router.post('/', async (req, res, next) => {
   try {
     let lat = req.body.lat;
     let long = req.body.long;
-    let imageUri = req.body.imageUri;
+    let imageData = req.body.imageData;
 
-    cloudinary.uploader.upload('ph://62964EE6-3BAB-49CE-A6DF-A7F27F37D921/L0/001.png', function (error, result) {
-      console.log(result, error)
+    await cloudinary.uploader.upload(`data:image/png;base64,${imageData}`, async function (error, result) {
+      if (result) {
+        const arTagUrl = result.url
+        try {
+          await Tag.create({ lat, long, arTagUrl })
+        } catch (error) {
+          next(error)
+        }
+      }
     })
-    await Tag.create({ lat, long })
+    res.end();
   } catch (error) {
     next(error)
   }
