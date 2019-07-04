@@ -4,17 +4,17 @@ const sequelize = require('sequelize');
 const Op = sequelize.Op;
 
 router.get('/', async (req, res, next) => {
-  const lat = parseFloat(req.query.lat);
-  const long = parseFloat(req.query.long);
-
+  const reqLat = parseFloat(req.query.lat);
+  const reqLong = parseFloat(req.query.long);
+  console.log(reqLat, 'request lat', reqLong, 'request long');
   try {
     const getNearByTag = await Tag.findAll({
       where: {
         lat: {
-          [Op.between]: [lat - 0.0002, lat + 0.0002]
+          [Op.between]: [reqLat - 0.02, reqLat + 0.02]
         },
         long: {
-          [Op.between]: [long - 0.0002, long + 0.0002]
+          [Op.between]: [reqLong - 0.02, reqLong + 0.02]
         }
       }
     });

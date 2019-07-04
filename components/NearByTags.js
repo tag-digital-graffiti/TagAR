@@ -45,7 +45,7 @@ export default class NearbyTags extends Component {
       error => this.setState({ error: error.message }),
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
     );
-    console.log(this.state.deviceLat);
+    // console.log(this.state.deviceLat);
 
     this.setState({ loaded: true });
   }
