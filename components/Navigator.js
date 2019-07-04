@@ -12,7 +12,12 @@ const HomeNavigator = createStackNavigator({
 })
 
 const DrawNavigator = createStackNavigator({
-  Draw: DrawScreen
+  Draw: {
+    screen: DrawScreen,
+    navigationOptions: () => ({
+      title: `Create`,
+    }),
+  }
 })
 
 const ARNavigator = createStackNavigator({
