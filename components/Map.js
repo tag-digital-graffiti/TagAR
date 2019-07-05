@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import MapView from 'react-native-maps';
-import { StyleSheet, Dimensions, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-let { height, width } = Dimensions.get('window');
+
 const styles = StyleSheet.create({
   container: {
-    height: height,
-    width: width
+    flex: 1
   },
   map: {
-    ...StyleSheet.absoluteFillObject
+    flex: 1
   }
 });
 

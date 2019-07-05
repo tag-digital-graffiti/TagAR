@@ -59,7 +59,6 @@
 		CF4165F0A69F4A54AC59E58A /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91B94E6025074F468B371422 /* Feather.ttf */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
-		EDCFECE822CFDC52007EF1D6 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDCFECBD22CFDB4F007EF1D6 /* libAirMaps.a */; };
 		F3F88DD9646A468C97FAF852 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17476D04D4644F629C23B0F4 /* MaterialCommunityIcons.ttf */; };
 		F76CA2F29BDE4C879F6C97C2 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A97DEA318402460A99A7E4C1 /* FontAwesome5_Regular.ttf */; };
 		FBD050577ABF4984B0CBEBC5 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6462DFEEAEE9408581BB58CC /* Zocial.ttf */; };
@@ -454,7 +453,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDCFECE822CFDC52007EF1D6 /* libAirMaps.a in Frameworks */,
 				4AFAEE1C22CFB4710068C47B /* libRCTCameraRoll.a in Frameworks */,
 				B2D6D4FE22CD733800E78463 /* libRNFetchBlob.a in Frameworks */,
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
@@ -833,6 +831,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				5F73EAD58656D33B3F270C7D /* [CP] Embed Pods Frameworks */,
+				1B1CB59A8C7045E43373F3B4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1369,6 +1368,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		1B1CB59A8C7045E43373F3B4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TagAR/Pods-TagAR-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TagAR/Pods-TagAR-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
