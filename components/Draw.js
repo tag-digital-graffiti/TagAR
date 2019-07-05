@@ -39,12 +39,13 @@ export default class example extends Component {
 
   onSave = async (success, path) => {
     if (!success) return;
-    const server = 'http://192.168.0.110:8080'
+    const server = 'http://172.16.25.113:8080'
     const lat = this.state.deviceLat;
     const long = this.state.deviceLong;
     const tempPath = path;
     try {
-      let imageData = await RNFetchBlob.fs.readFile(tempPath, 'base64')
+      let base64 = await RNFetchBlob.fs.readFile(tempPath, 'base64')
+      const imageData = `data:image/png;base64,${base64}`
       const body = { lat, long, imageData }
       try {
         await axios.post(`${server}/api/tags`, body)
