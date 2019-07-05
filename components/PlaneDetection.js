@@ -1,9 +1,7 @@
 'use strict';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getSelectedTag } from '../store/graffiti';
-import { StyleSheet } from 'react-native';
+
 
 import {
   ViroARScene,
@@ -13,15 +11,31 @@ import {
 } from 'react-viro';
 
 class PlaneDetection extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      scale: [1, 1, 0]
+    }
+    this._onPinch = this._onPinch.bind(this)
+  }
+
+  _onPinch(pinchState, scaleFactor, source) {
+    if (pinchState == 3) {
+      this.setState({
+        scale: [
+          this.state.scale[0] * scaleFactor,
+          this.state.scale[1] * scaleFactor,
+          this.state.scale[2] * scaleFactor,
+        ],
+      });
+    }
+  }
   render() {
     console.log(this.props.selectedTag);
     if (this.props.selectedTag) {
       //change this to selectedGraffiti
       return (
         <ViroARScene
-          // onTrackingUpdated={() => {
-          //   this.setState({ text: `CONGRATULATIONS LIOR <3 <3` });
-          // }}
           anchorDetectionTypes={['PlanesVertical']} //['PlanesHorizontal', 'PlanesVertical'] props on VIROARPlaneSelector: alignment="Horizontal"
         >
           <ViroARPlaneSelector
@@ -34,15 +48,10 @@ class PlaneDetection extends Component {
               width={0.5}
               rotation={[-90, 0, 0]}
               source={{ uri: this.props.selectedTag.arTagUrl }}
+              onPinch={this._onPinch}
+              scale={this.state.scale}
             />
           </ViroARPlaneSelector>
-          {/* <ViroImage
-            height={0.5}
-            width={0.5}
-            rotation={[-90, 0, 0]}
-            // placeholderSource={require('../res/monitor.jpg')}
-            source={{ uri: this.props.myGraffiti[0].arTagUrl }}
-          /> */}
         </ViroARScene>
       );
     } else {
