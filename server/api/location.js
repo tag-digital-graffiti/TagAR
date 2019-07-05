@@ -13,32 +13,45 @@ const Op = sequelize.Op
 router.get('/', async (req, res, next) => {
   const lat = parseFloat(req.query.lat)
   const long = parseFloat(req.query.long)
-
   try {
     const getNearByTag = await Tag.findAll({
       where: {
         lat: {
-          [Op.between]: [lat - 0.0002, lat + 0.0002]
+          [Op.between]: [lat - 0.002, lat + 0.002]
         },
         long: {
-          [Op.between]: [long - 0.0002, long + 0.0002]
+          [Op.between]: [long - 0.002, long + 0.002]
         }
       }
-    }
-    )
-    res.json(getNearByTag)
+    });
+    res.json(getNearByTag);
   } catch (error) {
-    next(error)
+    next(error);
   }
-})
+});
 
+router.get('/:id', async (req, res, next) => {
+  try {
+    const selectedTag = await Tag.findOne({
+      where: {
+        id: req.params.id
+      }
+    });
+    if (selectedTag) {
+      res.json(selectedTag);
+    } else {
+      next();
+    }
+  } catch (error) {
+    next(error);
+  }
+});
 
 router.post('/', async (req, res, next) => {
   try {
     let lat = req.body.lat;
     let long = req.body.long;
     let imageData = req.body.imageData;
-
     await cloudinary.uploader.upload(`data:image/png;base64,${imageData}`, async function (error, result) {
       if (result) {
         const arTagUrl = result.url
@@ -50,8 +63,9 @@ router.post('/', async (req, res, next) => {
       }
     })
     res.end();
+
   } catch (error) {
-    next(error)
+    next(error);
   }
-})
-module.exports = router
+});
+module.exports = router;
