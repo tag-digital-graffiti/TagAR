@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Button, FlatList } from 'react-native';
-import { getNearbyTags } from '../store/graffiti';
+import {
+  Text,
+  Image,
+  View,
+  StyleSheet,
+  FlatList,
+  TouchableHighlight
+} from 'react-native';
+import { getNearbyTags, getSelectedTag } from '../store/graffiti';
 import { connect } from 'react-redux';
 import SingleTag from './SingleTag';
 
@@ -45,15 +52,13 @@ export default class NearbyTags extends Component {
       error => this.setState({ error: error.message }),
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
     );
-    // console.log(this.state.deviceLat);
 
     this.setState({ loaded: true });
   }
-
-  _toAR = () => {
+  _toAR = id => {
+    this.props.getSelectedTag(id);
     this.props.navigation.navigate('EntryARScene');
   };
-
   render() {
     if (this.props.tags.length) {
       return (
@@ -62,10 +67,33 @@ export default class NearbyTags extends Component {
         >
           <FlatList
             data={this.props.tags}
-            renderItem={({ item }) => <SingleTag image={item.arTagUrl} />}
-            keyExtractor={index => {
-              return index;
+            renderItem={({ item }) => (
+              <View
+                style={{
+                  flexDirection: 'row',
+                  padding: 25,
+                  backgroundColor: '#F0F0F0'
+                }}
+              >
+                <TouchableHighlight onPress={() => this._toAR(item.id)}>
+                  <View>
+                    <Image
+                      style={{
+                        width: 280,
+                        height: 280,
+                        borderRadius: 25,
+                        backgroundColor: '#FFFFFF'
+                      }}
+                      source={{ uri: `${item.arTagUrl}` }}
+                    />
+                  </View>
+                </TouchableHighlight>
+              </View>
+            )}
+            keyExtractor={item => {
+              return item.id;
             }}
+            style={{ flex: 1, marginTop: 20 }}
           />
         </View>
       );
@@ -84,7 +112,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getNearbyTags: (lat, long) => dispatch(getNearbyTags(lat, long))
+  getNearbyTags: (lat, long) => dispatch(getNearbyTags(lat, long)),
+  getSelectedTag: id => dispatch(getSelectedTag(id))
 });
 
 module.exports = connect(

@@ -27,13 +27,13 @@ class PlaneDetection extends Component {
           <ViroARPlaneSelector
             minHeight={0.2}
             minWidth={0.2}
-            alignment="Vertical"
+            alignment='Vertical'
           >
             <ViroImage
               height={0.5}
               width={0.5}
               rotation={[-90, 0, 0]}
-              source={{ uri: this.props.myGraffiti[0].arTagUrl }}
+              source={{ uri: this.props.selectedTag.arTagUrl }}
             />
           </ViroARPlaneSelector>
           {/* <ViroImage
@@ -49,7 +49,7 @@ class PlaneDetection extends Component {
       return (
         <ViroARScene>
           <ViroText
-            text={'Hello'}
+            text={'no artwork to view'}
             scale={[0.5, 0.5, 0]}
             position={[0, 0, -1]}
           />

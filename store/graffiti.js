@@ -46,11 +46,9 @@ export const getSelectedTag = id => {
 };
 
 export default function(state = initialState, action) {
-  let stateCopy = { ...state };
   switch (action.type) {
     case GET_NEARBY_TAGS:
-      stateCopy.nearByTags = action.tags;
-      return stateCopy;
+      return { ...state, nearByTags: action.tags };
     case GET_SELECTED_TAG:
       return { ...state, selectedTag: action.tag };
     default:
