@@ -39,7 +39,7 @@ export default class example extends Component {
 
   onSave = async (success, path) => {
     if (!success) return;
-    const server = 'http://10.167.20.72:8080'
+    const server = 'http://192.168.0.110:8080'
     const lat = this.state.deviceLat;
     const long = this.state.deviceLong;
     const tempPath = path;
