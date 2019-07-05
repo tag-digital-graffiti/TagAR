@@ -2,11 +2,18 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
+<<<<<<< HEAD
   View,
   CameraRoll
 } from 'react-native';
+=======
+  View
+} from 'react-native';
+import { Icon } from 'react-native-elements'
+>>>>>>> 5a1e8712cb7ab15f5616ce05583d3f131755ee25
 import axios from 'axios';
 import RNSketchCanvas from '@terrylinla/react-native-sketch-canvas';
+import RNFetchBlob from 'react-native-fetch-blob'
 
 export default class example extends Component {
   constructor() {
@@ -14,7 +21,13 @@ export default class example extends Component {
     this.state = {
       deviceLat: 0,
       deviceLong: 0,
+<<<<<<< HEAD
       loaded: false
+=======
+      loaded: false,
+      error: null,
+      color: null
+>>>>>>> 5a1e8712cb7ab15f5616ce05583d3f131755ee25
     }
   }
 
@@ -36,14 +49,13 @@ export default class example extends Component {
 
   onSave = async (success, path) => {
     if (!success) return;
-    const server = 'http://172.16.25.113:8080'
+    const server = 'http://10.167.20.72:8080'
     const lat = this.state.deviceLat;
     const long = this.state.deviceLong;
+    const tempPath = path;
     try {
-      const image = await CameraRoll.getPhotos({ first: 1, assetType: "Photos", groupTypes: "All" })
-      const imageUri = image.edges[0].node.image.uri
-      console.log(image)
-      const body = { lat, long, imageUri }
+      let imageData = await RNFetchBlob.fs.readFile(tempPath, 'base64')
+      const body = { lat, long, imageData }
       try {
         await axios.post(`${server}/api/tags`, body)
       } catch (e) {
@@ -52,7 +64,7 @@ export default class example extends Component {
     } catch (e) {
       console.error(e);
     }
-
+    this.props.navigation.navigate('Home')
   }
   render() {
     if (this.state.loaded) {
@@ -64,13 +76,14 @@ export default class example extends Component {
               canvasStyle={{ backgroundColor: 'transparent', flex: 1 }}
               defaultStrokeIndex={0}
               defaultStrokeWidth={5}
-              undoComponent={<View style={styles.functionButton}><Text style={{ color: 'white' }}>Undo</Text></View>}
-              clearComponent={<View style={styles.functionButton}><Text style={{ color: 'white' }}>Clear</Text></View>}
-              eraseComponent={<View style={styles.functionButton}><Text style={{ color: 'white' }}>Eraser</Text></View>}
+              undoComponent={<View style={styles.functionButton}><Icon raised name='undo-variant' type='material-community' color='#39579A' /></View>}
+              clearComponent={<View style={styles.functionButton}><Icon raised name='clear' type='material' color='#39579A' /></View>}
+              eraseComponent={<View style={styles.functionButton}><Icon raised name='eraser' type='material-community' color='#39579A' /></View>}
               strokeComponent={color => (
                 <View style={[{ backgroundColor: color }, styles.strokeColorButton]} />
               )}
               strokeSelectedComponent={(color, index, changed) => {
+                this.setState({ color: color })
                 return (
                   <View style={[{ backgroundColor: color, borderWidth: 2 }, styles.strokeColorButton]} />
                 )
@@ -78,16 +91,16 @@ export default class example extends Component {
               strokeWidthComponent={(w) => {
                 return (<View style={styles.strokeWidthButton}>
                   <View style={{
-                    backgroundColor: 'white', marginHorizontal: 2.5,
+                    backgroundColor: `${this.state.color}`, marginHorizontal: 1,
                     width: Math.sqrt(w / 3) * 10, height: Math.sqrt(w / 3) * 10, borderRadius: Math.sqrt(w / 3) * 10 / 2
                   }} />
                 </View>
                 )
               }}
-              saveComponent={<View style={styles.functionButton}><Text style={{ color: 'white' }}>Save</Text></View>}
+              saveComponent={<View style={styles.functionButton}><Icon raised name='content-save' type='material-community' color='#39579A' /></View>}
               savePreference={() => {
                 return {
-                  filename: null,
+                  filename: String(Math.ceil(Math.random() * 100000000)),
                   transparent: true,
                   imageType: 'png',
                 }
@@ -112,14 +125,14 @@ const styles = StyleSheet.create({
     flex: 0, justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5FCFF',
   },
   strokeColorButton: {
-    marginHorizontal: 2.5, marginVertical: 8, width: 30, height: 30, borderRadius: 15,
+    marginHorizontal: 2, marginVertical: 8, width: 50, height: 50, borderRadius: 15, borderColor: '#E6ECF0', borderWidth: 1
   },
   strokeWidthButton: {
-    marginHorizontal: 2.5, marginVertical: 8, width: 30, height: 30, borderRadius: 15,
-    justifyContent: 'center', alignItems: 'center', backgroundColor: '#39579A'
+    marginHorizontal: 1, marginVertical: 8, width: 30, height: 30, borderRadius: 15,
+    justifyContent: 'center', alignItems: 'center'
   },
   functionButton: {
-    marginHorizontal: 2.5, marginVertical: 8, height: 30, width: 60,
-    backgroundColor: '#39579A', justifyContent: 'center', alignItems: 'center', borderRadius: 5,
+    marginHorizontal: 1, marginVertical: 8, height: 30, width: 60,
+    justifyContent: 'center', alignItems: 'center', borderRadius: 5,
   }
 });

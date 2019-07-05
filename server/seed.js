@@ -29,7 +29,6 @@ const seed = async () => {
     long: -74.0091771,
     assetUrl: 'https://i.imgur.com/qUS6CBj.jpg',
     arTagUrl: 'https://i.imgur.com/p99IbXG.png'
-
   });
 
   const tagTwo = await Tag.create({
@@ -38,7 +37,6 @@ const seed = async () => {
     long: -74.0091772,
     assetUrl: 'https://i.imgur.com/IiDUaeJ.png',
     arTagUrl: 'https://i.imgur.com/IiDUaeJ.png'
-
   });
 
   const tagThree = await Tag.create({
@@ -47,7 +45,30 @@ const seed = async () => {
     long: -74.0091773,
     assetUrl: 'https://i.imgur.com/7QqWk03.png',
     arTagUrl: 'https://i.imgur.com/7QqWk03.png'
+  });
 
+  const tagFour = await Tag.create({
+    imageUrl: 'Lawrence, NJ',
+    lat: 40.2937992,
+    long: -74.7268619,
+    assetUrl: 'https://i.imgur.com/qUS6CBj.jpg',
+    arTagUrl: 'https://i.imgur.com/p99IbXG.png'
+  });
+
+  const tagFive = await Tag.create({
+    imageUrl: 'Lawrence, NJ',
+    lat: 40.2937992,
+    long: -74.7268619,
+    assetUrl: 'https://i.imgur.com/IiDUaeJ.png',
+    arTagUrl: 'https://i.imgur.com/IiDUaeJ.png'
+  });
+
+  const tagSix = await Tag.create({
+    imageUrl: 'Lawrence, NJ',
+    lat: 40.2937992,
+    long: -74.7268619,
+    assetUrl: 'https://i.imgur.com/7QqWk03.png',
+    arTagUrl: 'https://i.imgur.com/7QqWk03.png'
   });
 
   console.log(green('Seeding success!'));

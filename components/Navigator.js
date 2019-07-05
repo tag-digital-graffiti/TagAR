@@ -1,40 +1,38 @@
 /* eslint-disable react/no-multi-comp */
-import React from 'react';
-import { Text, View } from 'react-native';
+import React from "react";
+import { Text, View } from "react-native";
 import {
   createBottomTabNavigator,
   createStackNavigator,
-  createAppContainer,
-  createNavigator,
-} from 'react-navigation';
-import ARScreen from './EntryARScene';
-import HomeScreen from './Home';
-import DrawScreen from './Draw';
-import NearByTagsScreen from './NearByTags';
-import Authentication from './Authentication';
+  createAppContainer
+} from "react-navigation";
+import ARScreen from "./EntryARScene";
+import HomeScreen from "./Home";
+import DrawScreen from "./Draw";
+import NearByTagsScreen from "./NearByTags";
 
 const HomeNavigator = createStackNavigator({
-  Home: HomeScreen,
+  Home: HomeScreen
 });
 
 const DrawNavigator = createStackNavigator({
-  Draw: DrawScreen,
+  Draw: {
+    screen: DrawScreen,
+    navigationOptions: () => ({
+      title: `Create`
+    })
+  }
 });
 
 const ARNavigator = createStackNavigator({
   NearByTags: NearByTagsScreen,
-  EntryARScene: ARScreen,
-});
-
-const Login = createStackNavigator({
-  Authentication: Authentication,
+  EntryARScene: ARScreen
 });
 
 const TabNavigator = createBottomTabNavigator({
   Home: HomeNavigator,
   NearByTags: ARNavigator,
-  Draw: DrawNavigator,
-  Login: Authentication,
+  Draw: DrawNavigator
 });
 
 export default createAppContainer(TabNavigator);
