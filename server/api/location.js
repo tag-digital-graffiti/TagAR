@@ -1,20 +1,26 @@
-const router = require('express').Router();
-const { Tag } = require('../db/models');
-const sequelize = require('sequelize');
-const Op = sequelize.Op;
+const router = require('express').Router()
+const { Tag } = require('../db/models')
+const sequelize = require('sequelize')
+const cloudinary = require('cloudinary').v2
 
+cloudinary.config({
+  cloud_name: 'coolcaps',
+  api_key: '851696833748766',
+  api_secret: '6xc3M9VoKgFxcLO2apfGdu6e0xs'
+})
+
+const Op = sequelize.Op
 router.get('/', async (req, res, next) => {
-  const reqLat = parseFloat(req.query.lat);
-  const reqLong = parseFloat(req.query.long);
-  console.log(reqLat, 'request lat', reqLong, 'request long');
+  const lat = parseFloat(req.query.lat)
+  const long = parseFloat(req.query.long)
   try {
     const getNearByTag = await Tag.findAll({
       where: {
         lat: {
-          [Op.between]: [reqLat - 0.02, reqLat + 0.02]
+          [Op.between]: [lat - 0.002, lat + 0.002]
         },
         long: {
-          [Op.between]: [reqLong - 0.02, reqLong + 0.02]
+          [Op.between]: [long - 0.002, long + 0.002]
         }
       }
     });
@@ -45,9 +51,19 @@ router.post('/', async (req, res, next) => {
   try {
     let lat = req.body.lat;
     let long = req.body.long;
-    let arTagUrl = req.body.arTagUrl;
+    let imageData = req.body.imageData;
+    await cloudinary.uploader.upload(`data:image/png;base64,${imageData}`, async function (error, result) {
+      if (result) {
+        const arTagUrl = result.url
+        try {
+          await Tag.create({ lat, long, arTagUrl })
+        } catch (error) {
+          next(error)
+        }
+      }
+    })
+    res.end();
 
-    await Tag.create({ lat, long, arTagUrl });
   } catch (error) {
     next(error);
   }

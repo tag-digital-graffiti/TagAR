@@ -11,15 +11,23 @@ import HomeScreen from './Home';
 import DrawScreen from './Draw';
 import NearByTagsScreen from './NearByTags';
 
+const HomeNavigator = createStackNavigator({
+  Home: HomeScreen
+})
+
+const DrawNavigator = createStackNavigator({
+  Draw: DrawScreen
+})
+
 const ARNavigator = createStackNavigator({
   NearByTags: NearByTagsScreen,
   EntryARScene: ARScreen
 });
 
 const TabNavigator = createBottomTabNavigator({
-  Home: HomeScreen,
+  Home: HomeNavigator,
   NearByTags: ARNavigator,
-  Draw: DrawScreen
+  Draw: DrawNavigator
 });
 
 export default createAppContainer(TabNavigator);
