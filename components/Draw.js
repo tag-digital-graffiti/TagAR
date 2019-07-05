@@ -59,7 +59,7 @@ class Draw extends Component {
     }
 
     await this.props.getNearbyTags(this.state.deviceLat, this.state.deviceLong);
-    this.props.navigation.push('Draw')
+    this.currentCanvas.clear();
     this.props.navigation.navigate('Home')
   }
   render() {
@@ -68,6 +68,7 @@ class Draw extends Component {
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <View style={{ flex: 1, flexDirection: 'row' }}>
             <RNSketchCanvas
+              ref={ref => this.currentCanvas = ref}
               containerStyle={{ backgroundColor: 'transparent', flex: 1 }}
               canvasStyle={{ backgroundColor: 'transparent', flex: 1 }}
               defaultStrokeIndex={0}
