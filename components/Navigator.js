@@ -12,7 +12,12 @@ import DrawScreen from './Draw';
 import NearByTagsScreen from './NearByTags';
 
 const HomeNavigator = createStackNavigator({
-  Home: HomeScreen
+  Home: {
+    screen: HomeScreen,
+    navigationOptions: () => ({
+      title: `Home`,
+    }),
+  }
 })
 
 const DrawNavigator = createStackNavigator({
@@ -25,13 +30,23 @@ const DrawNavigator = createStackNavigator({
 })
 
 const ARNavigator = createStackNavigator({
-  NearByTags: NearByTagsScreen,
-  EntryARScene: ARScreen
+  NearByTags: {
+    screen: NearByTagsScreen,
+    navigationOptions: () => ({
+      title: `Nearby Tags`,
+    }),
+  },
+  EntryARScene: {
+    screen: ARScreen,
+    navigationOptions: () => ({
+      title: `Find a Vertical Plane`,
+    }),
+  }
 });
 
 const TabNavigator = createBottomTabNavigator({
   Home: HomeNavigator,
-  NearByTags: ARNavigator,
+  Explore: ARNavigator,
   Draw: DrawNavigator
 });
 

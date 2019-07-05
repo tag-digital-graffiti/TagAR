@@ -59,6 +59,7 @@ class Draw extends Component {
     }
 
     await this.props.getNearbyTags(this.state.deviceLat, this.state.deviceLong);
+    this.props.navigation.push('Draw')
     this.props.navigation.navigate('Home')
   }
   render() {
