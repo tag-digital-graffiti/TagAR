@@ -1,89 +1,103 @@
 'use strict';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getNearbyGraffiti } from '../store/graffiti';
-import { StyleSheet } from 'react-native';
+
 
 import {
   ViroARScene,
   ViroText,
   ViroARPlaneSelector,
-  ViroImage
+  ViroImage,
+  ViroARPlane
 } from 'react-viro';
-
 
 class PlaneDetection extends Component {
   constructor(props) {
-    super(props);
-
+    super(props)
     this.state = {
-      deviceLat: 0,
-      deviceLong: 0,
-      initialLoading: false
-    };
+      scale: [1, 1, 0],
+      position: [0, 0, 0],
+      planeVisiblity: true,
+      imageVisibility: false,
+    }
+    this._onPinch = this._onPinch.bind(this)
+    this._onTap = this._onTap.bind(this)
+    // this._onDrag = this._onDrag.bind(this)
   }
-  async componentDidMount() {
-    await navigator.geolocation.getCurrentPosition(
-      position => {
-        this.setState(
-          {
-            deviceLat: position.coords.latitude,
-            deviceLong: position.coords.longitude,
-            error: null
-          },
-          () => {
-            this.props.getNearbyGraffiti(
-              this.state.deviceLat,
-              this.state.deviceLong
-            );
-          }
-        );
-      },
-      error => this.setState({ error: error.message }),
-      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
-    );
-    console.log(this.state.deviceLat);
 
-    this.setState({ initialLoading: true });
+  _onPinch(pinchState, scaleFactor, source) {
+    if (pinchState == 3) {
+      this.setState({
+        scale: [
+          this.state.scale[0] * scaleFactor,
+          this.state.scale[1] * scaleFactor,
+          this.state.scale[2] * scaleFactor,
+        ],
+      });
+    }
   }
+
+  _onTap() {
+    this.setState({
+      planeVisibility: false,
+      imageVisibility: true
+    })
+  }
+
+  // _onDrag(dragToPos, source) {
+  //   this.setState({
+  //     position: [
+  //       dragToPos[0],
+  //       dragToPos[1],
+  //       dragToPos[2]
+  //     ]
+  //   })
+
+  // }
 
   render() {
-    console.log(this.props.myGraffiti);
-    if (this.state.initialLoading && this.props.myGraffiti[0]) {
+    console.log(this.props.selectedTag);
+    if (this.props.selectedTag) {
+      //change this to selectedGraffiti
       return (
         <ViroARScene
-          // onTrackingUpdated={() => {
-          //   this.setState({ text: `CONGRATULATIONS LIOR <3 <3` });
-          // }}
           anchorDetectionTypes={['PlanesVertical']} //['PlanesHorizontal', 'PlanesVertical'] props on VIROARPlaneSelector: alignment="Horizontal"
         >
-          <ViroARPlaneSelector
-            minHeight={0.2}
-            minWidth={0.2}
+          <ViroARPlane
+            minHeight={0.05}
+            minWidth={0.05}
             alignment='Vertical'
+            dragType="FixedToWorld"
+            position={this.state.position}
+          // onDrag={this._onDrag}
           >
             <ViroImage
               height={0.5}
               width={0.5}
               rotation={[-90, 0, 0]}
-              source={{ uri: this.props.myGraffiti[0].arTagUrl }}
+              source={require("../res/tap.png")}
+              visible={this.state.planeVisibility}
+              scale={[0.5, 0.5, 0]}
+              opacity={0.5}
+              onClick={this._onTap}
             />
-          </ViroARPlaneSelector>
-          {/* <ViroImage
-            height={0.5}
-            width={0.5}
-            rotation={[-90, 0, 0]}
-            // placeholderSource={require('../res/monitor.jpg')}
-            source={{ uri: this.props.myGraffiti[0].arTagUrl }}
-          /> */}
+            <ViroImage
+              height={0.5}
+              width={0.5}
+              rotation={[-90, 0, 0]}
+              source={{ uri: this.props.selectedTag.arTagUrl }}
+              onPinch={this._onPinch}
+              scale={this.state.scale}
+              visible={this.state.imageVisibility}
+            />
+          </ViroARPlane>
         </ViroARScene>
       );
     } else {
       return (
         <ViroARScene>
           <ViroText
-            text={'Hello'}
+            text={'no artwork to view'}
             scale={[0.5, 0.5, 0]}
             position={[0, 0, -1]}
           />
@@ -94,14 +108,10 @@ class PlaneDetection extends Component {
 }
 
 const mapStateToProps = state => ({
-  myGraffiti: state.graffiti.nearByTags
-});
-
-const mapDispatchToProps = dispatch => ({
-  getNearbyGraffiti: (lat, long) => dispatch(getNearbyGraffiti(lat, long))
+  selectedTag: state.graffiti.selectedTag
 });
 
 module.exports = connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(PlaneDetection);

@@ -1,26 +1,46 @@
 import axios from 'axios';
 
-const server = 'http://172.16.25.113:8080'
 
-const GET_NEARBY_GRAFFITI = 'GET_NEARBY_GRAFFITI';
+// const server = 'http://tag-sever-ar.herokuapp.com';
+const server = 'http://192.168.0.110:8080';
+
+
+const GET_NEARBY_TAGS = 'GET_NEARBY_TAG';
+const GET_SELECTED_TAG = 'GET_SELECTED_TAG';
 
 const initialState = {
   nearByTags: [],
+  selectedTag: {}
 };
 
-const gotNearbyGraffiti = graffitis => ({
-  type: GET_NEARBY_GRAFFITI,
-
-  graffitis,
+const gotNearbyTags = tags => ({
+  type: GET_NEARBY_TAGS,
+  tags
 });
 
-export const getNearbyGraffiti = (lat, long) => {
+const gotSelectedTag = tag => ({
+  type: GET_SELECTED_TAG,
+  tag
+});
+
+export const getNearbyTags = (lat, long) => {
   return async dispatch => {
     try {
       let { data } = await axios.get(
         `${server}/api/tags/?lat=${lat}&long=${long}`
       );
-      dispatch(gotNearbyGraffiti(data));
+      dispatch(gotNearbyTags(data));
+    } catch (error) {
+      console.warn(error);
+    }
+  };
+};
+
+export const getSelectedTag = id => {
+  return async dispatch => {
+    try {
+      let { data } = await axios.get(`${server}/api/tags/${id}`);
+      dispatch(gotSelectedTag(data));
     } catch (error) {
       console.warn(error);
     }
@@ -28,11 +48,11 @@ export const getNearbyGraffiti = (lat, long) => {
 };
 
 export default function (state = initialState, action) {
-  let stateCopy = { ...state };
   switch (action.type) {
-    case GET_NEARBY_GRAFFITI:
-      stateCopy.nearByTags = action.graffitis;
-      return stateCopy;
+    case GET_NEARBY_TAGS:
+      return { ...state, nearByTags: action.tags };
+    case GET_SELECTED_TAG:
+      return { ...state, selectedTag: action.tag };
     default:
       return state;
   }

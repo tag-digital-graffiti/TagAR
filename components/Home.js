@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Image } from 'react-native';
 
 let styles = StyleSheet.create({
   outer: {
@@ -17,9 +17,15 @@ export default class Home extends Component {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <View style={styles.outer}>
-          <Text style={{ backgroundColor: '#ffff00' }}>
-            TEST HOME PAGE GOES HERE
-        </Text>
+          <Image
+            style={{
+              width: 315,
+              height: 315,
+              borderRadius: 25,
+              backgroundColor: '#FFFFFF'
+            }}
+            source={require('./tagLogo.png')}
+          />
         </View>
       </View>
     );

@@ -4,12 +4,15 @@ import {
   Text,
   View
 } from 'react-native';
+import { connect } from 'react-redux'
 import { Icon } from 'react-native-elements'
 import axios from 'axios';
 import RNSketchCanvas from '@terrylinla/react-native-sketch-canvas';
 import RNFetchBlob from 'react-native-fetch-blob'
+import { getNearbyTags } from '../store/graffiti';
 
-export default class example extends Component {
+
+class Draw extends Component {
   constructor() {
     super();
     this.state = {
@@ -39,7 +42,9 @@ export default class example extends Component {
 
   onSave = async (success, path) => {
     if (!success) return;
-    const server = 'http://172.16.25.113:8080'
+    const server = 'http://192.168.0.110:8080'
+    // const server = 'http://tag-sever-ar.herokuapp.com';
+
     const lat = this.state.deviceLat;
     const long = this.state.deviceLong;
     const tempPath = path;
@@ -55,6 +60,9 @@ export default class example extends Component {
     } catch (e) {
       console.error(e);
     }
+
+    await this.props.getNearbyTags(this.state.deviceLat, this.state.deviceLong);
+    this.currentCanvas.clear();
     this.props.navigation.navigate('Home')
   }
   render() {
@@ -63,6 +71,7 @@ export default class example extends Component {
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <View style={{ flex: 1, flexDirection: 'row' }}>
             <RNSketchCanvas
+              ref={ref => this.currentCanvas = ref}
               containerStyle={{ backgroundColor: 'transparent', flex: 1 }}
               canvasStyle={{ backgroundColor: 'transparent', flex: 1 }}
               defaultStrokeIndex={0}
@@ -127,3 +136,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center', alignItems: 'center', borderRadius: 5,
   }
 });
+
+const mapDispatchToProps = dispatch => ({
+  getNearbyTags: (lat, long) => dispatch(getNearbyTags(lat, long)),
+});
+
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Draw);

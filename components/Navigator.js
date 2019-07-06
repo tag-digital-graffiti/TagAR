@@ -1,15 +1,27 @@
 /* eslint-disable react/no-multi-comp */
-import { createBottomTabNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
-import React, { Component } from 'react';
+
+import React from 'react';
+import { Text, View } from 'react-native';
+import {
+  createBottomTabNavigator,
+  createStackNavigator,
+  createAppContainer
+} from 'react-navigation';
 import AntIcons from 'react-native-vector-icons/AntDesign';
+
 import ARScreen from './EntryARScene';
 import HomeScreen from './Home';
 import DrawScreen from './Draw';
-import NearByTagsScreen from './NearByTags'
+import NearByTagsScreen from './NearByTags';
 import UploadScreen from './Upload'
 
 const HomeNavigator = createStackNavigator({
-  Home: HomeScreen
+  Home: {
+    screen: HomeScreen,
+    navigationOptions: () => ({
+      title: `Home`,
+    }),
+  }
 })
 
 const DrawNavigator = createStackNavigator({
@@ -28,13 +40,23 @@ const DrawNavigator = createStackNavigator({
 })
 
 const ARNavigator = createStackNavigator({
-  NearByTags: NearByTagsScreen,
-  EntryARScene: ARScreen,
-})
+  NearByTags: {
+    screen: NearByTagsScreen,
+    navigationOptions: () => ({
+      title: `Select a Tag`,
+    }),
+  },
+  EntryARScene: {
+    screen: ARScreen,
+    navigationOptions: () => ({
+      title: `Find a Wall`,
+    }),
+  }
+});
 
 const TabNavigator = createBottomTabNavigator({
   Home: HomeNavigator,
-  NearByTags: ARNavigator,
+  Explore: ARNavigator,
   Add: {
     screen: DrawNavigator,
     navigationOptions: {
@@ -52,6 +74,7 @@ const TabNavigator = createBottomTabNavigator({
     }
   },
 );
+
 
 export default createAppContainer(TabNavigator);
 
