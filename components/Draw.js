@@ -49,7 +49,8 @@ class Draw extends Component {
     const long = this.state.deviceLong;
     const tempPath = path;
     try {
-      let imageData = await RNFetchBlob.fs.readFile(tempPath, 'base64')
+      let base64 = await RNFetchBlob.fs.readFile(tempPath, 'base64')
+      const imageData = `data:image/png;base64,${base64}`
       const body = { lat, long, imageData }
       try {
         await axios.post(`${server}/api/tags`, body)

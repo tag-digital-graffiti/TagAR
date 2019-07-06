@@ -52,7 +52,8 @@ router.post('/', async (req, res, next) => {
     let lat = req.body.lat;
     let long = req.body.long;
     let imageData = req.body.imageData;
-    await cloudinary.uploader.upload(`data:image/png;base64,${imageData}`, async function (error, result) {
+
+    await cloudinary.uploader.upload(imageData, async function (error, result) {
       if (result) {
         const arTagUrl = result.url
         try {
