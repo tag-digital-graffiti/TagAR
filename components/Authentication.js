@@ -8,7 +8,9 @@ import {
   Keyboard,
   AsyncStorage,
 } from 'react-native';
-
+import Axios from 'axios';
+let server = 'http://146.245.240.26:8080';
+let showFrom = true;
 let styles = StyleSheet.create({
   inputContainer: {
     paddingTop: 20,
@@ -31,13 +33,34 @@ export default class Authentication extends Component {
       username: null,
       password: null,
     };
+    this.userSignup = this.userSignup.bind(this);
   }
-
-  async saveTime(item, selectedValue) {
+  async saveToken(item, selectedValue) {
     try {
       await AsyncStorage.setItem(item, selectedValue);
     } catch (error) {
       console.error('AsyncStorage error:' + error.message);
+    }
+  }
+
+  async userSignup() {
+    if (!this.state.username || !this.state.password) return undefined;
+    console.log('hi');
+    await Axios.post(`${server}/api/user`, this.state);
+    this.saveToken('id_token', JSON.stringify(this.state));
+    this.getToken();
+    this.setState({ username: '', password: '' });
+    _toNearByTags();
+  }
+  async getToken() {
+    try {
+      let userData = await AsyncStorage.getItem('id_token');
+      let data = JSON.parse(userData);
+      if (data.username && data.password) {
+        showFrom = false;
+      }
+    } catch (error) {
+      console.log('Something went wrong', error);
     }
   }
   render() {
@@ -71,7 +94,7 @@ export default class Authentication extends Component {
             onBlur={Keyboard.dismiss}
           />
           <TouchableOpacity style={styles.inputContainer}>
-            <Text>Save</Text>
+            <Text onPress={() => this.userSignup()}>Sign Up</Text>
           </TouchableOpacity>
         </View>
       </View>

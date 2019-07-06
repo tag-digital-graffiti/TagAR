@@ -9,10 +9,6 @@
   "dependencies": {
     "@terrylinla/react-native-sketch-canvas": "^0.8.0",
     "axios": "^0.19.0",
-<<<<<<< HEAD
-    "body-parser": "^1.19.0",
-=======
->>>>>>> 5a1e8712cb7ab15f5616ce05583d3f131755ee25
     "cloudinary": "^1.14.0",
     "express": "^4.17.1",
     "morgan": "^1.9.1",
@@ -24,11 +20,7 @@
     "react-native-elements": "^1.1.0",
     "react-native-fetch-blob": "^0.10.8",
     "react-native-gesture-handler": "^1.3.0",
-<<<<<<< HEAD
-    "react-native-router-flux": "^4.0.6",
-=======
     "react-native-vector-icons": "^6.6.0",
->>>>>>> 5a1e8712cb7ab15f5616ce05583d3f131755ee25
     "react-navigation": "^3.11.0",
     "react-redux": "^7.1.0",
     "react-viro": "2.14.0",
