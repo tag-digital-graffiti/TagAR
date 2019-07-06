@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ViroARSceneNavigator } from 'react-viro';
-import { View } from 'react-native'
+import { View, Text, Dimensions, StyleSheet } from 'react-native'
+import { Overlay } from 'react-native-elements'
 /*
  TODO: Insert your API key below
  */
@@ -14,18 +15,45 @@ export default class EntryARScene extends Component {
   constructor() {
     super();
     this.state = {
-      sharedProps: sharedProps
+      sharedProps: sharedProps,
+      visible: true
     };
+  }
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        visible: false
+      })
+    }, 8000)
   }
 
   render() {
     return (
-      <ViroARSceneNavigator
-        {...this.state.sharedProps}
-        initialScene={{ scene: InitialARScene }}
-      />
+      <View style={styles.outer}>
+        <ViroARSceneNavigator
+          {...this.state.sharedProps}
+          initialScene={{ scene: InitialARScene }}
+        />
+        {this.state.visible && (<View style={styles.instructions}>
+          <Text>Find a Textured Surface and Hold Still</Text>
+        </View>)}
+
+      </View>
     );
   }
 }
+const styles = StyleSheet.create({
+  outer: {
+    flex: 1
+  },
+  instructions: {
+    flex: 1,
+    alignSelf: "center",
+    position: "absolute",
+    top: 20,
+    backgroundColor: '#ffffff',
+    alignContent: "center"
+  }
+})
 
 module.exports = EntryARScene;

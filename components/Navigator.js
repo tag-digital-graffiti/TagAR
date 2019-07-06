@@ -33,13 +33,13 @@ const ARNavigator = createStackNavigator({
   NearByTags: {
     screen: NearByTagsScreen,
     navigationOptions: () => ({
-      title: `Nearby Tags`,
+      title: `Select a Tag`,
     }),
   },
   EntryARScene: {
     screen: ARScreen,
     navigationOptions: () => ({
-      title: `Find a Vertical Plane`,
+      title: `Find a Wall`,
     }),
   }
 });

@@ -7,16 +7,22 @@ import {
   ViroARScene,
   ViroText,
   ViroARPlaneSelector,
-  ViroImage
+  ViroImage,
+  ViroARPlane
 } from 'react-viro';
 
 class PlaneDetection extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      scale: [1, 1, 0]
+      scale: [1, 1, 0],
+      position: [0, 0, 0],
+      planeVisiblity: true,
+      imageVisibility: false,
     }
     this._onPinch = this._onPinch.bind(this)
+    this._onTap = this._onTap.bind(this)
+    // this._onDrag = this._onDrag.bind(this)
   }
 
   _onPinch(pinchState, scaleFactor, source) {
@@ -30,6 +36,25 @@ class PlaneDetection extends Component {
       });
     }
   }
+
+  _onTap() {
+    this.setState({
+      planeVisibility: false,
+      imageVisibility: true
+    })
+  }
+
+  // _onDrag(dragToPos, source) {
+  //   this.setState({
+  //     position: [
+  //       dragToPos[0],
+  //       dragToPos[1],
+  //       dragToPos[2]
+  //     ]
+  //   })
+
+  // }
+
   render() {
     console.log(this.props.selectedTag);
     if (this.props.selectedTag) {
@@ -38,11 +63,24 @@ class PlaneDetection extends Component {
         <ViroARScene
           anchorDetectionTypes={['PlanesVertical']} //['PlanesHorizontal', 'PlanesVertical'] props on VIROARPlaneSelector: alignment="Horizontal"
         >
-          <ViroARPlaneSelector
-            minHeight={0.2}
-            minWidth={0.2}
+          <ViroARPlane
+            minHeight={0.05}
+            minWidth={0.05}
             alignment='Vertical'
+            dragType="FixedToWorld"
+            position={this.state.position}
+          // onDrag={this._onDrag}
           >
+            <ViroImage
+              height={0.5}
+              width={0.5}
+              rotation={[-90, 0, 0]}
+              source={require("../res/tap.png")}
+              visible={this.state.planeVisibility}
+              scale={[0.5, 0.5, 0]}
+              opacity={0.5}
+              onClick={this._onTap}
+            />
             <ViroImage
               height={0.5}
               width={0.5}
@@ -50,8 +88,9 @@ class PlaneDetection extends Component {
               source={{ uri: this.props.selectedTag.arTagUrl }}
               onPinch={this._onPinch}
               scale={this.state.scale}
+              visible={this.state.imageVisibility}
             />
-          </ViroARPlaneSelector>
+          </ViroARPlane>
         </ViroARScene>
       );
     } else {
