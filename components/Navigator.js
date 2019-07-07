@@ -13,69 +13,72 @@ import ARScreen from './EntryARScene';
 import HomeScreen from './Home';
 import DrawScreen from './Draw';
 import NearByTagsScreen from './NearByTags';
-import UploadScreen from './Upload'
+import SingleTagScreen from './SingleTag';
+import UploadScreen from './Upload';
 
 const HomeNavigator = createStackNavigator({
   Home: {
     screen: HomeScreen,
     navigationOptions: () => ({
-      title: `Home`,
-    }),
+      title: `Home`
+    })
   }
-})
+});
 
 const DrawNavigator = createStackNavigator({
   Add: {
     screen: UploadScreen,
     navigationOptions: () => ({
-      title: `Add`,
-    }),
+      title: `Add`
+    })
   },
   Draw: {
     screen: DrawScreen,
     navigationOptions: () => ({
-      title: `Create`,
-    }),
+      title: `Create`
+    })
   }
-})
+});
 
 const ARNavigator = createStackNavigator({
   NearByTags: {
     screen: NearByTagsScreen,
     navigationOptions: () => ({
-      title: `Select a Tag`,
-    }),
+      title: `Select a Tag`
+    })
+  },
+  SingleTagScreen: {
+    screen: SingleTagScreen,
+    navigationOptions: () => ({
+      title: `Tag Details`
+    })
   },
   EntryARScene: {
     screen: ARScreen,
     navigationOptions: () => ({
-      title: `Find a Wall`,
-    }),
+      title: `Find a Wall`
+    })
   }
 });
 
-const TabNavigator = createBottomTabNavigator({
-  Home: HomeNavigator,
-  Explore: ARNavigator,
-  Add: {
-    screen: DrawNavigator,
-    navigationOptions: {
-      tabBarLabel: "Add",
-      tabBarIcon: () => (
-        <AntIcons name="plus" size={30} />
-      )
-    },
-  }
-},
+const TabNavigator = createBottomTabNavigator(
+  {
+    Home: HomeNavigator,
+    Explore: ARNavigator,
+    Add: {
+      screen: DrawNavigator,
+      navigationOptions: {
+        tabBarLabel: 'Add',
+        tabBarIcon: () => <AntIcons name='plus' size={30} />
+      }
+    }
+  },
   {
     tabBarOptions: {
       showIcon: true,
       showLabel: true
     }
-  },
+  }
 );
 
-
 export default createAppContainer(TabNavigator);
-
-

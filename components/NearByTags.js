@@ -7,6 +7,8 @@ import {
   FlatList,
   TouchableHighlight
 } from 'react-native';
+import { Card, CardItem } from 'react-native-elements';
+
 import { getNearbyTags, getSelectedTag } from '../store/graffiti';
 import { connect } from 'react-redux';
 import SingleTag from './SingleTag';
@@ -55,53 +57,76 @@ export default class NearbyTags extends Component {
 
     this.setState({ loaded: true });
   }
-  _toAR = id => {
-    this.props.getSelectedTag(id);
-    this.props.navigation.navigate('EntryARScene');
+
+  _toDetails = async id => {
+    await this.props.getSelectedTag(id);
+    this.props.navigation.navigate('SingleTagScreen');
   };
+
   render() {
     if (this.props.tags.length) {
       return (
         <View
-          style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: '#F0F0F0'
+          }}
         >
+          <Text>
+            There are {this.props.tags.length} discoverable artworks nearby
+          </Text>
+
           <FlatList
             data={this.props.tags}
             renderItem={({ item }) => (
               <View
                 style={{
                   flexDirection: 'row',
-                  padding: 25,
-                  backgroundColor: '#F0F0F0'
+                  paddingVertical: 5,
+                  paddingHorizontal: 30
                 }}
               >
-                <TouchableHighlight onPress={() => this._toAR(item.id)}>
-                  <View>
+                <TouchableHighlight onPress={() => this._toDetails(item.id)}>
+                  <Card containerStyle={{ borderRadius: 10, padding: 0 }}>
+                    <View
+                      style={{
+                        backgroundColor: 'grey',
+                        padding: 10,
+                        borderTopLeftRadius: 10,
+                        borderTopRightRadius: 10
+                      }}
+                    >
+                      <Text style={{ color: 'white' }}>USER ID</Text>
+                    </View>
                     <Image
                       style={{
                         width: 280,
-                        height: 280,
-                        borderRadius: 25,
-                        backgroundColor: '#FFFFFF'
+                        height: 280
                       }}
                       source={{ uri: `${item.arTagUrl}` }}
                     />
-                  </View>
+                  </Card>
                 </TouchableHighlight>
               </View>
             )}
             keyExtractor={item => {
               return item.id;
             }}
-            style={{ flex: 1, marginTop: 20 }}
           />
         </View>
       );
     } else {
       return (
-        <View>
-          <Text>No Local Images</Text>
-        </View>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: '#F0F0F0'
+          }}
+        />
       );
     }
   }

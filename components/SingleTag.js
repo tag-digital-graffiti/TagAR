@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Image, TouchableHighlight } from 'react-native';
-import { NavigationActions } from 'react-navigation';
+import {
+  View,
+  StyleSheet,
+  Image,
+  TouchableHighlight,
+  Text
+} from 'react-native';
 import { connect } from 'react-redux';
-import { getSelectedTag } from '../store/graffiti';
 
 let styles = StyleSheet.create({
   outer: {
@@ -14,46 +18,45 @@ let styles = StyleSheet.create({
     fontWeight: 'bold'
   }
 });
-const navigateAction = NavigationActions.navigate({
-  routeName: 'EntryARScene'
-});
 
 export default class SingleTag extends Component {
   constructor(props) {
     super(props);
   }
 
+  _toAR = () => {
+    this.props.navigation.navigate('EntryARScene');
+  };
+
   render() {
     return (
       <View
         style={{
-          flexDirection: 'row',
-          padding: 25,
-          backgroundColor: '#F0F0F0'
+          padding: 25
         }}
       >
-        <TouchableHighlight onPress={() => this.props._toAR(this.props.id)}>
+        <TouchableHighlight onPress={() => this._toAR()}>
           <View>
             <Image
               style={{
-                width: 280,
-                height: 280,
-                borderRadius: 25,
-                backgroundColor: '#FFFFFF'
+                width: 300,
+                height: 300,
+                borderRadius: 25
               }}
-              source={{ uri: `${this.props.image}` }}
+              source={{ uri: `${this.props.selectedTag.arTagUrl}` }}
             />
           </View>
         </TouchableHighlight>
+        <Text> Click to add artwork to wall</Text>
       </View>
     );
   }
 }
-const mapDispatchToProps = dispatch => ({
-  getSelectedTag: id => dispatch(getSelectedTag(id))
+const mapStateToProps = state => ({
+  selectedTag: state.graffiti.selectedTag
 });
 
 module.exports = connect(
-  null,
-  mapDispatchToProps
+  mapStateToProps,
+  null
 )(SingleTag);
