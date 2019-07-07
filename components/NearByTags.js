@@ -8,7 +8,7 @@ import {
   TouchableHighlight,
   Modal
 } from 'react-native';
-import { Card, CardItem } from 'react-native-elements';
+import { Card } from 'react-native-elements';
 
 import { getNearbyTags, getSelectedTag } from '../store/graffiti';
 import { connect } from 'react-redux';

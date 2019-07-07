@@ -7,15 +7,32 @@ import {
   Text
 } from 'react-native';
 import { connect } from 'react-redux';
+import { Card } from 'react-native-elements';
 
 let styles = StyleSheet.create({
-  outer: {
-    fontSize: 20,
-    fontWeight: 'bold'
+  cardContainer: {
+    borderRadius: 10,
+    padding: 0,
+    shadowColor: '#808080',
+    shadowOffset: {
+      width: 0,
+      height: 4
+    },
+    shadowRadius: 5,
+    shadowOpacity: 1.0
   },
-  text: {
-    fontSize: 40,
-    fontWeight: 'bold'
+  cardHeader: {
+    backgroundColor: '#DCDCDC',
+    padding: 15,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10
+  },
+  cardText: {
+    color: 'white'
+  },
+  cardImage: {
+    width: 280,
+    height: 280
   }
 });
 
@@ -37,17 +54,18 @@ export default class SingleTag extends Component {
       >
         <TouchableHighlight onPress={() => this._toAR()}>
           <View>
-            <Image
-              style={{
-                width: 300,
-                height: 300,
-                borderRadius: 25
-              }}
-              source={{ uri: `${this.props.selectedTag.arTagUrl}` }}
-            />
+            <Card containerStyle={styles.cardContainer}>
+              <View style={styles.cardHeader}>
+                <Text style={styles.cardText}>USER ID</Text>
+              </View>
+              <Image
+                style={styles.cardImage}
+                source={{ uri: `${this.props.selectedTag.arTagUrl}` }}
+              />
+              <Text> Click to add artwork to wall</Text>
+            </Card>
           </View>
         </TouchableHighlight>
-        <Text> Click to add artwork to wall</Text>
       </View>
     );
   }
