@@ -1,3 +1,4 @@
+/* eslint-disable handle-callback-err */
 const router = require('express').Router();
 const { Tag } = require('../db/models');
 const sequelize = require('sequelize');
