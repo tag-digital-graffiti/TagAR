@@ -5,7 +5,8 @@ import {
   View,
   StyleSheet,
   FlatList,
-  TouchableHighlight
+  TouchableHighlight,
+  Modal
 } from 'react-native';
 import { Card, CardItem } from 'react-native-elements';
 
@@ -31,9 +32,12 @@ export default class NearbyTags extends Component {
     this.state = {
       deviceLat: 0,
       deviceLong: 0,
-      loaded: false
+      loaded: false,
+      modalVisible: true
     };
+    this._closeModal = this._closeModal.bind(this);
   }
+
   async componentDidMount() {
     await navigator.geolocation.getCurrentPosition(
       position => {
@@ -63,20 +67,48 @@ export default class NearbyTags extends Component {
     this.props.navigation.navigate('SingleTagScreen');
   };
 
+  _closeModal = () => {
+    setTimeout(() => {
+      this.setState({ modalVisible: false });
+    }, 800);
+  };
+
   render() {
     if (this.props.tags.length) {
       return (
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: '#F0F0F0'
-          }}
-        >
-          <Text>
-            There are {this.props.tags.length} discoverable artworks nearby
-          </Text>
+        <View style={{ flex: 1 }}>
+          <Modal
+            animationType='slide'
+            backdropOpacity={0.1}
+            transparent={true}
+            visible={this.state.modalVisible}
+            onShow={this._closeModal}
+          >
+            <View
+              style={{
+                marginTop: 26,
+                justifyContent: 'flex-start',
+                alignItems: 'center',
+                width: 400,
+                height: 100,
+                backgroundColor: '#DCDCDC'
+              }}
+            >
+              <Text
+                style={{
+                  textAlign: 'center',
+
+                  justifyContent: 'center',
+                  padding: 10,
+                  color: 'white',
+                  width: 225,
+                  fontSize: 20
+                }}
+              >
+                There are {this.props.tags.length} discoverable artworks nearby
+              </Text>
+            </View>
+          </Modal>
 
           <FlatList
             data={this.props.tags}
@@ -89,11 +121,23 @@ export default class NearbyTags extends Component {
                 }}
               >
                 <TouchableHighlight onPress={() => this._toDetails(item.id)}>
-                  <Card containerStyle={{ borderRadius: 10, padding: 0 }}>
+                  <Card
+                    containerStyle={{
+                      borderRadius: 10,
+                      padding: 0,
+                      shadowColor: '#808080',
+                      shadowOffset: {
+                        width: 0,
+                        height: 4
+                      },
+                      shadowRadius: 5,
+                      shadowOpacity: 1.0
+                    }}
+                  >
                     <View
                       style={{
-                        backgroundColor: 'grey',
-                        padding: 10,
+                        backgroundColor: '#DCDCDC',
+                        padding: 15,
                         borderTopLeftRadius: 10,
                         borderTopRightRadius: 10
                       }}
