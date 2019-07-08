@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 // const server = 'http://tag-sever-ar.herokuapp.com';
+const server = 'http://172.16.25.113:8080';
 
-const server = 'http://172.16.26.173:8080';
 
 const GET_NEARBY_TAGS = 'GET_NEARBY_TAG';
 const GET_ALL_TAGS = 'GET_ALL_TAGS';
