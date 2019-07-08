@@ -68,6 +68,7 @@ class SignUp extends Component {
           buttonStyle={{ backgroundColor: 'grey' }}
           containerStyle={{ paddingTop: 30 }}
           onPress={this._signUp}
+          disabled={!this.state.username || !this.state.password}
         />
       </View>
     );
