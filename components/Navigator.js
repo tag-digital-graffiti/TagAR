@@ -53,7 +53,7 @@ const Logout = createBottomTabNavigator({
 //       screen: Authentication,
 //     },
 //     SignedOut: {
-//       screen: SignOut,
+//       screen: Navigator,
 //     },
 //   });
 // };

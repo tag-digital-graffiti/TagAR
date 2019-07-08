@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { loginUser } from '../store/user';
 import { Text, View, StyleSheet, Image, AsyncStorage } from 'react-native';
 
 let styles = StyleSheet.create({
@@ -12,7 +14,7 @@ let styles = StyleSheet.create({
   },
 });
 
-export default class Home extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,11 +23,11 @@ export default class Home extends Component {
     //this.getUser = this.getUser.bind(this);
   }
   async componentDidMount() {
+    //this.props.loginUser();
     try {
       let userData = await AsyncStorage.getItem('id_token');
       let data = JSON.parse(userData);
-      if (data.username && data.password) {
-        console.log('cool');
+      if (data.username) {
         let username = data.username;
         this.setState({ username });
       }
@@ -34,6 +36,7 @@ export default class Home extends Component {
     }
   }
   render() {
+    console.log(this.props.user);
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <View style={styles.outer}>
@@ -47,10 +50,20 @@ export default class Home extends Component {
             source={require('./tagLogo.png')}
           />
         </View>
-        {this.state.username === null && !this.props.logOut ? null : (
-          <Text>Welcome {this.state.username}</Text>
+        {this.props.username && !this.props.logOut ? null : (
+          <Text>Welcome {this.props.username}</Text>
         )}
       </View>
     );
   }
 }
+// const mapStateToProps = state => ({
+//   user: state.user.user,
+// });
+// const mapDispatchToProps = dispatch => ({
+//   loginUser: () => dispatch(loginUser()),
+// });
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(Home);

@@ -11,6 +11,9 @@ import {
 import Axios from 'axios';
 import SignOut from './SignOut';
 import Home from './Home';
+import { getLogInUser } from '../store/user';
+
+import { connect } from 'react-redux';
 let server = 'http://192.168.1.4:8080';
 
 let styles = StyleSheet.create({
@@ -28,7 +31,7 @@ let styles = StyleSheet.create({
   },
 });
 
-export default class Authentication extends Component {
+class Authentication extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -46,10 +49,10 @@ export default class Authentication extends Component {
     }
   }
 
-  async userSignUp() {
+  userSignUp() {
     if (!this.state.username || !this.state.password) return undefined;
-    console.log('hi');
-    await Axios.post(`${server}/api/user`, this.state);
+    this.props.getLogInUser(this.state);
+    console.log('this is the state', this.props.user.username);
     this.saveToken('id_token', JSON.stringify(this.state));
     this.getToken();
     _toNavigator();
@@ -60,7 +63,7 @@ export default class Authentication extends Component {
       let userData = await AsyncStorage.getItem('id_token');
       let data = JSON.parse(userData);
       if (data.username && data.password) {
-        console.log(data.username);
+        //console.log(data.username);
       }
     } catch (error) {
       console.log('Something went wrong', error);
@@ -101,7 +104,7 @@ export default class Authentication extends Component {
             <Text onPress={() => this.userSignUp()}>Sign Up</Text>
             <SignOut />
           </TouchableOpacity>
-          {this.state.username && this.state.password
+          {this.state.username
             ? this.props.navigation.navigate('Navigator')
             : null}
         </View>
@@ -109,3 +112,14 @@ export default class Authentication extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  user: state.user.user,
+});
+const mapDispatchToProps = dispatch => ({
+  getLogInUser: userLogin => dispatch(getLogInUser(userLogin)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Authentication);
