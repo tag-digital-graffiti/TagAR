@@ -3,6 +3,8 @@ import { Text, View, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import ImagePicker from 'react-native-image-picker';
 import axios from 'axios'
+import { connect } from 'react-redux'
+
 
 let styles = StyleSheet.create({
   button: {
@@ -14,7 +16,7 @@ let styles = StyleSheet.create({
   }
 });
 
-export default class Home extends Component {
+class Upload extends Component {
   constructor() {
     super()
     this.state = {
@@ -62,12 +64,13 @@ export default class Home extends Component {
           imageData: source,
         });
 
-        const server = 'http://172.16.25.113:8080'
+        const server = 'http://192.168.0.110:8080'
         const lat = this.state.deviceLat;
         const long = this.state.deviceLong;
         const imageData = this.state.imageData
+        const userId = this.props.user.id
 
-        const body = { lat, long, imageData }
+        const body = { lat, long, imageData, userId }
         await axios.post(`${server}/api/tags`, body)
 
         this.props.navigation.navigate('Home')
@@ -94,3 +97,13 @@ export default class Home extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+
+
+export default connect(
+  mapStateToProps
+)(Upload);

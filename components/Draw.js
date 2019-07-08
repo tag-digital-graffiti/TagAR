@@ -51,7 +51,8 @@ class Draw extends Component {
     try {
       let base64 = await RNFetchBlob.fs.readFile(tempPath, 'base64')
       const imageData = `data:image/png;base64,${base64}`
-      const body = { lat, long, imageData }
+      const userId = this.props.user.id
+      const body = { lat, long, imageData, userId }
       try {
         await axios.post(`${server}/api/tags`, body)
       } catch (e) {
@@ -137,12 +138,16 @@ const styles = StyleSheet.create({
   }
 });
 
+const mapStateToProps = state => ({
+  user: state.user
+});
+
 const mapDispatchToProps = dispatch => ({
   getNearbyTags: (lat, long) => dispatch(getNearbyTags(lat, long)),
 });
 
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Draw);

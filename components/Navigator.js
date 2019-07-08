@@ -5,7 +5,8 @@ import { Text, View } from 'react-native';
 import {
   createBottomTabNavigator,
   createStackNavigator,
-  createAppContainer
+  createAppContainer,
+  createSwitchNavigator
 } from 'react-navigation';
 import AntIcons from 'react-native-vector-icons/AntDesign';
 
@@ -14,6 +15,9 @@ import HomeScreen from './Home';
 import DrawScreen from './Draw';
 import NearByTagsScreen from './NearByTags';
 import UploadScreen from './Upload'
+import AuthLoadingScreen from './AuthLoading'
+import SignInScreen from './SignIn'
+import SignUpScreen from './SignUp'
 
 const HomeNavigator = createStackNavigator({
   Home: {
@@ -54,7 +58,7 @@ const ARNavigator = createStackNavigator({
   }
 });
 
-const TabNavigator = createBottomTabNavigator({
+const AppNavigator = createBottomTabNavigator({
   Home: HomeNavigator,
   Explore: ARNavigator,
   Add: {
@@ -75,7 +79,31 @@ const TabNavigator = createBottomTabNavigator({
   },
 );
 
+const AuthNavigator = createStackNavigator({
+  SignIn: {
+    screen: SignInScreen,
+    navigationOptions: {
+      title: "Sign In",
 
-export default createAppContainer(TabNavigator);
+    }
+  },
+  SignUp: {
+    screen: SignUpScreen,
+    navigationOptions: {
+      title: "Sign Up",
+    }
+  }
+});
 
+
+export default createAppContainer(createSwitchNavigator(
+  {
+    AuthLoading: AuthLoadingScreen,
+    App: AppNavigator,
+    Auth: AuthNavigator,
+  },
+  {
+    initialRouteName: 'AuthLoading',
+  }
+));
 
