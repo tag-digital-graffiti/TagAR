@@ -17,37 +17,46 @@ import UploadScreen from './Upload';
 import AuthLoadingScreen from './AuthLoading';
 import SignInScreen from './SignIn';
 import SignUpScreen from './SignUp';
+import MapNavigator from './Map';
+import SingleTagScreen from './SingleTag';
+
 
 const HomeNavigator = createStackNavigator({
   Home: {
     screen: HomeScreen,
     navigationOptions: () => ({
-      title: `Home`,
-    }),
-  },
+      title: `Home`
+    })
+  }
 });
 
 const DrawNavigator = createStackNavigator({
   Add: {
     screen: UploadScreen,
     navigationOptions: () => ({
-      title: `Add`,
-    }),
+      title: `Add`
+    })
   },
   Draw: {
     screen: DrawScreen,
     navigationOptions: () => ({
-      title: `Create`,
-    }),
-  },
+      title: `Create`
+    })
+  }
 });
 
 const ARNavigator = createStackNavigator({
   NearByTags: {
     screen: NearByTagsScreen,
     navigationOptions: () => ({
-      title: `Select a Tag`,
-    }),
+      title: `Select a Tag`
+    })
+  },
+  SingleTagScreen: {
+    screen: SingleTagScreen,
+    navigationOptions: () => ({
+      title: `Tag Details`
+    })
   },
   EntryARScene: {
     screen: ARScreen,
@@ -61,13 +70,15 @@ const AppNavigator = createBottomTabNavigator(
   {
     Home: HomeNavigator,
     Explore: ARNavigator,
+    Map: MapNavigator,
+
     Add: {
       screen: DrawNavigator,
       navigationOptions: {
         tabBarLabel: 'Add',
-        tabBarIcon: () => <AntIcons name="plus" size={30} />,
-      },
-    },
+        tabBarIcon: () => <AntIcons name='plus' size={30} />
+      }
+    }
   },
   {
     tabBarOptions: {
@@ -104,3 +115,4 @@ export default createAppContainer(
     }
   )
 );
+

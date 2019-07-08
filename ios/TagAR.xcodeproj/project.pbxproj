@@ -55,8 +55,8 @@
 		992EDAAAC97D474EA7B23FA0 /* libRNSketchCanvas.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C439B5F1DEC4EC9B02ACBB8 /* libRNSketchCanvas.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B0AAC2AB8AFE46BEBD134F9E /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 804907C004CE406A9CA6A95E /* FontAwesome5_Brands.ttf */; };
-		B2F998C922CFE6F000B20181 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2F998C722CFE6DE00B20181 /* libRNImagePicker.a */; };
 		B2D6D4FE22CD733800E78463 /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D6D4FA22CD731100E78463 /* libRNFetchBlob.a */; };
+		B2F998C922CFE6F000B20181 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2F998C722CFE6DE00B20181 /* libRNImagePicker.a */; };
 		CF4165F0A69F4A54AC59E58A /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91B94E6025074F468B371422 /* Feather.ttf */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
@@ -833,6 +833,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				5F73EAD58656D33B3F270C7D /* [CP] Embed Pods Frameworks */,
+				5DB979FF815211F2D8408897 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1383,6 +1384,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		5DB979FF815211F2D8408897 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TagAR/Pods-TagAR-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TagAR/Pods-TagAR-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		5F73EAD58656D33B3F270C7D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

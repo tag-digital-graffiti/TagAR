@@ -33,8 +33,8 @@ const seed = async () => {
 
   const tagTwo = await Tag.create({
     imageUrl: '75 Wall St',
-    lat: 40.7049444,
-    long: -74.0091772,
+    lat: 40.716006,
+    long: -73.845722,
     assetUrl: 'https://i.imgur.com/IiDUaeJ.png',
     arTagUrl: 'https://i.imgur.com/IiDUaeJ.png'
   });
@@ -49,24 +49,24 @@ const seed = async () => {
 
   const tagFour = await Tag.create({
     imageUrl: 'Lawrence, NJ',
-    lat: 40.2937992,
-    long: -74.7268619,
+    lat: 40.629501,
+    long: -73.985001,
     assetUrl: 'https://i.imgur.com/qUS6CBj.jpg',
     arTagUrl: 'https://i.imgur.com/p99IbXG.png'
   });
 
   const tagFive = await Tag.create({
     imageUrl: 'Lawrence, NJ',
-    lat: 40.2937992,
-    long: -74.7268619,
+    lat: 40.753849,
+    long: -73.978435,
     assetUrl: 'https://i.imgur.com/IiDUaeJ.png',
     arTagUrl: 'https://i.imgur.com/IiDUaeJ.png'
   });
 
   const tagSix = await Tag.create({
     imageUrl: 'Lawrence, NJ',
-    lat: 40.2937992,
-    long: -74.7268619,
+    lat: 40.779756,
+    long: -73.955071,
     assetUrl: 'https://i.imgur.com/7QqWk03.png',
     arTagUrl: 'https://i.imgur.com/7QqWk03.png'
   });

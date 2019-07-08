@@ -1,21 +1,39 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Image, TouchableHighlight } from 'react-native';
-import { NavigationActions } from 'react-navigation';
+import {
+  View,
+  StyleSheet,
+  Image,
+  TouchableHighlight,
+  Text
+} from 'react-native';
 import { connect } from 'react-redux';
-import { getSelectedTag } from '../store/graffiti';
+import { Card } from 'react-native-elements';
 
 let styles = StyleSheet.create({
-  outer: {
-    fontSize: 20,
-    fontWeight: 'bold'
+  cardContainer: {
+    borderRadius: 10,
+    padding: 0,
+    shadowColor: '#808080',
+    shadowOffset: {
+      width: 0,
+      height: 4
+    },
+    shadowRadius: 5,
+    shadowOpacity: 1.0
   },
-  text: {
-    fontSize: 40,
-    fontWeight: 'bold'
+  cardHeader: {
+    backgroundColor: '#DCDCDC',
+    padding: 15,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10
+  },
+  cardText: {
+    color: 'white'
+  },
+  cardImage: {
+    width: 280,
+    height: 280
   }
-});
-const navigateAction = NavigationActions.navigate({
-  routeName: 'EntryARScene'
 });
 
 export default class SingleTag extends Component {
@@ -23,37 +41,40 @@ export default class SingleTag extends Component {
     super(props);
   }
 
+  _toAR = () => {
+    this.props.navigation.navigate('EntryARScene');
+  };
+
   render() {
     return (
       <View
         style={{
-          flexDirection: 'row',
-          padding: 25,
-          backgroundColor: '#F0F0F0'
+          padding: 25
         }}
       >
-        <TouchableHighlight onPress={() => this.props._toAR(this.props.id)}>
+        <TouchableHighlight onPress={() => this._toAR()}>
           <View>
-            <Image
-              style={{
-                width: 280,
-                height: 280,
-                borderRadius: 25,
-                backgroundColor: '#FFFFFF'
-              }}
-              source={{ uri: `${this.props.image}` }}
-            />
+            <Card containerStyle={styles.cardContainer}>
+              <View style={styles.cardHeader}>
+                <Text style={styles.cardText}>USER ID</Text>
+              </View>
+              <Image
+                style={styles.cardImage}
+                source={{ uri: `${this.props.selectedTag.arTagUrl}` }}
+              />
+              <Text> Click to add artwork to wall</Text>
+            </Card>
           </View>
         </TouchableHighlight>
       </View>
     );
   }
 }
-const mapDispatchToProps = dispatch => ({
-  getSelectedTag: id => dispatch(getSelectedTag(id))
+const mapStateToProps = state => ({
+  selectedTag: state.graffiti.selectedTag
 });
 
 module.exports = connect(
-  null,
-  mapDispatchToProps
+  mapStateToProps,
+  null
 )(SingleTag);
