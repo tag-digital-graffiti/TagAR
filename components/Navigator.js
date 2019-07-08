@@ -1,11 +1,11 @@
 /* eslint-disable react/no-multi-comp */
-
 import React from 'react';
 import { Text, View } from 'react-native';
 import {
   createBottomTabNavigator,
   createStackNavigator,
-  createAppContainer
+  createAppContainer,
+  createSwitchNavigator,
 } from 'react-navigation';
 import AntIcons from 'react-native-vector-icons/AntDesign';
 
@@ -13,9 +13,13 @@ import ARScreen from './EntryARScene';
 import HomeScreen from './Home';
 import DrawScreen from './Draw';
 import NearByTagsScreen from './NearByTags';
+import UploadScreen from './Upload';
+import AuthLoadingScreen from './AuthLoading';
+import SignInScreen from './SignIn';
+import SignUpScreen from './SignUp';
 import MapNavigator from './Map';
 import SingleTagScreen from './SingleTag';
-import UploadScreen from './Upload';
+
 
 const HomeNavigator = createStackNavigator({
   Home: {
@@ -57,16 +61,17 @@ const ARNavigator = createStackNavigator({
   EntryARScene: {
     screen: ARScreen,
     navigationOptions: () => ({
-      title: `Find a Wall`
-    })
-  }
+      title: `Find a Wall`,
+    }),
+  },
 });
 
-const TabNavigator = createBottomTabNavigator(
+const AppNavigator = createBottomTabNavigator(
   {
     Home: HomeNavigator,
     Explore: ARNavigator,
     Map: MapNavigator,
+
     Add: {
       screen: DrawNavigator,
       navigationOptions: {
@@ -78,9 +83,36 @@ const TabNavigator = createBottomTabNavigator(
   {
     tabBarOptions: {
       showIcon: true,
-      showLabel: true
-    }
+      showLabel: true,
+    },
   }
 );
 
-export default createAppContainer(TabNavigator);
+const AuthNavigator = createStackNavigator({
+  SignIn: {
+    screen: SignInScreen,
+    navigationOptions: {
+      title: 'Sign In',
+    },
+  },
+  SignUp: {
+    screen: SignUpScreen,
+    navigationOptions: {
+      title: 'Sign Up',
+    },
+  },
+});
+
+export default createAppContainer(
+  createSwitchNavigator(
+    {
+      AuthLoading: AuthLoadingScreen,
+      App: AppNavigator,
+      Auth: AuthNavigator,
+    },
+    {
+      initialRouteName: 'AuthLoading',
+    }
+  )
+);
+
