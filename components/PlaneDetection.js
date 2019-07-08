@@ -52,11 +52,9 @@ class PlaneDetection extends Component {
   //       dragToPos[2]
   //     ]
   //   })
-
   // }
 
   render() {
-    console.log(this.props.selectedTag);
     if (this.props.selectedTag) {
       //change this to selectedGraffiti
       return (
@@ -67,7 +65,7 @@ class PlaneDetection extends Component {
             minHeight={0.05}
             minWidth={0.05}
             alignment='Vertical'
-            dragType="FixedToWorld"
+            dragType="FixedToPlane"
             position={this.state.position}
           // onDrag={this._onDrag}
           >
