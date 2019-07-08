@@ -5,22 +5,12 @@ import {
   View,
   StyleSheet,
   FlatList,
-  TouchableHighlight
+  TouchableHighlight,
+  Modal
 } from 'react-native';
+import { Card } from 'react-native-elements';
 import { getNearbyTags, getSelectedTag } from '../store/graffiti';
 import { connect } from 'react-redux';
-import SingleTag from './SingleTag';
-
-let styles = StyleSheet.create({
-  outer: {
-    fontSize: 20,
-    fontWeight: 'bold'
-  },
-  text: {
-    fontSize: 40,
-    fontWeight: 'bold'
-  }
-});
 
 export default class NearbyTags extends Component {
   constructor(props) {
@@ -29,9 +19,12 @@ export default class NearbyTags extends Component {
     this.state = {
       deviceLat: 0,
       deviceLong: 0,
-      loaded: false
+      loaded: false,
+      modalVisible: true
     };
+    this._closeModal = this._closeModal.bind(this);
   }
+
   async componentDidMount() {
     await navigator.geolocation.getCurrentPosition(
       position => {
@@ -55,57 +48,119 @@ export default class NearbyTags extends Component {
 
     this.setState({ loaded: true });
   }
-  _toAR = id => {
-    this.props.getSelectedTag(id);
-    this.props.navigation.navigate('EntryARScene');
+
+  _toDetails = async id => {
+    await this.props.getSelectedTag(id);
+    this.props.navigation.navigate('SingleTagScreen');
   };
+
+  _closeModal = () => {
+    setTimeout(() => {
+      this.setState({ modalVisible: false });
+    }, 1200);
+  };
+
   render() {
     if (this.props.tags.length) {
       return (
-        <View
-          style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
-        >
+        <View style={styles.modalContainer}>
+          <Modal
+            animationType='slide'
+            backdropOpacity={0.1}
+            transparent={true}
+            visible={this.state.modalVisible}
+            onShow={this._closeModal}
+          >
+            <View style={styles.modalInnerContainer}>
+              <Text style={styles.modalText}>
+                There are {this.props.tags.length} discoverable artworks nearby
+              </Text>
+            </View>
+          </Modal>
+
           <FlatList
             data={this.props.tags}
             renderItem={({ item }) => (
-              <View
-                style={{
-                  flexDirection: 'row',
-                  padding: 25,
-                  backgroundColor: '#F0F0F0'
-                }}
-              >
-                <TouchableHighlight onPress={() => this._toAR(item.id)}>
-                  <View>
+              <View style={styles.flatListContainer}>
+                <TouchableHighlight onPress={() => this._toDetails(item.id)}>
+                  <Card containerStyle={styles.cardContainer}>
+                    <View style={styles.cardHeader}>
+                      <Text style={styles.cardText}>USER ID</Text>
+                    </View>
                     <Image
-                      style={{
-                        width: 280,
-                        height: 280,
-                        borderRadius: 25,
-                        backgroundColor: '#FFFFFF'
-                      }}
+                      style={styles.cardImage}
                       source={{ uri: `${item.arTagUrl}` }}
                     />
-                  </View>
+                  </Card>
                 </TouchableHighlight>
               </View>
             )}
             keyExtractor={item => {
               return item.id;
             }}
-            style={{ flex: 1, marginTop: 20 }}
           />
         </View>
       );
     } else {
-      return (
-        <View>
-          <Text>No Local Images</Text>
-        </View>
-      );
+      return <View style={styles.basicBacground} />;
     }
   }
 }
+
+let styles = StyleSheet.create({
+  modalContainer: { flex: 1 },
+  modalInnerContainer: {
+    marginTop: 26,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    width: 400,
+    height: 100,
+    backgroundColor: '#DCDCDC'
+  },
+  modalText: {
+    textAlign: 'center',
+    justifyContent: 'center',
+    padding: 10,
+    color: 'white',
+    width: 225,
+    fontSize: 20
+  },
+  flatListContainer: {
+    flexDirection: 'row',
+    paddingVertical: 5,
+    paddingHorizontal: 30
+  },
+  cardContainer: {
+    borderRadius: 10,
+    padding: 0,
+    shadowColor: '#808080',
+    shadowOffset: {
+      width: 0,
+      height: 4
+    },
+    shadowRadius: 5,
+    shadowOpacity: 1.0
+  },
+  cardHeader: {
+    backgroundColor: '#DCDCDC',
+    padding: 15,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10
+  },
+  cardText: {
+    color: 'white'
+  },
+  cardImage: {
+    width: 280,
+    height: 280
+  },
+  basicBacground: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F0F0F0'
+  }
+});
 
 const mapStateToProps = state => ({
   tags: state.graffiti.nearByTags
