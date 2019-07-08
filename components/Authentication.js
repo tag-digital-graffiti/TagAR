@@ -9,8 +9,10 @@ import {
   AsyncStorage,
 } from 'react-native';
 import Axios from 'axios';
-let server = 'http://146.245.240.26:8080';
-let showFrom = true;
+import SignOut from './SignOut';
+import Home from './Home';
+let server = 'http://192.168.1.4:8080';
+
 let styles = StyleSheet.create({
   inputContainer: {
     paddingTop: 20,
@@ -27,13 +29,14 @@ let styles = StyleSheet.create({
 });
 
 export default class Authentication extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       username: null,
       password: null,
+      showFrom: false,
     };
-    this.userSignup = this.userSignup.bind(this);
+    this.userSignup = this.userSignUp.bind(this);
   }
   async saveToken(item, selectedValue) {
     try {
@@ -43,30 +46,31 @@ export default class Authentication extends Component {
     }
   }
 
-  async userSignup() {
+  async userSignUp() {
     if (!this.state.username || !this.state.password) return undefined;
     console.log('hi');
     await Axios.post(`${server}/api/user`, this.state);
     this.saveToken('id_token', JSON.stringify(this.state));
     this.getToken();
+    _toNavigator();
     this.setState({ username: '', password: '' });
-    _toNearByTags();
   }
   async getToken() {
     try {
       let userData = await AsyncStorage.getItem('id_token');
       let data = JSON.parse(userData);
       if (data.username && data.password) {
-        showFrom = false;
+        console.log(data.username);
       }
     } catch (error) {
       console.log('Something went wrong', error);
     }
   }
   render() {
-    _toNearByTags = () => {
-      this.props.navigation.navigate('NearByTags');
+    _toNavigator = () => {
+      this.props.navigation.navigate('Navigator');
     };
+
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <View style={styles.inputContainer}>
@@ -94,8 +98,12 @@ export default class Authentication extends Component {
             onBlur={Keyboard.dismiss}
           />
           <TouchableOpacity style={styles.inputContainer}>
-            <Text onPress={() => this.userSignup()}>Sign Up</Text>
+            <Text onPress={() => this.userSignUp()}>Sign Up</Text>
+            <SignOut />
           </TouchableOpacity>
+          {this.state.username && this.state.password
+            ? this.props.navigation.navigate('Navigator')
+            : null}
         </View>
       </View>
     );

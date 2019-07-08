@@ -8,17 +8,17 @@ const GET_SELECTED_TAG = 'GET_SELECTED_TAG';
 
 const initialState = {
   nearByTags: [],
-  selectedTag: {}
+  selectedTag: {},
 };
 
 const gotNearbyTags = tags => ({
   type: GET_NEARBY_TAGS,
-  tags
+  tags,
 });
 
 const gotSelectedTag = tag => ({
   type: GET_SELECTED_TAG,
-  tag
+  tag,
 });
 
 export const getNearbyTags = (lat, long) => {
