@@ -52,12 +52,13 @@ router.post('/', async (req, res, next) => {
     let lat = req.body.lat;
     let long = req.body.long;
     let imageData = req.body.imageData;
+    let userId = req.body.userId
 
     await cloudinary.uploader.upload(imageData, async function (error, result) {
       if (result) {
         const arTagUrl = result.url
         try {
-          await Tag.create({ lat, long, arTagUrl })
+          await Tag.create({ lat, long, arTagUrl, userId })
         } catch (error) {
           next(error)
         }
