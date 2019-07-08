@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import {
   ActivityIndicator,
   AsyncStorage,
@@ -7,7 +7,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import { setUser } from '../store/user'
+import { setUser } from '../store/user';
 
 class AuthLoadingScreen extends React.Component {
   constructor(props) {
@@ -17,13 +17,16 @@ class AuthLoadingScreen extends React.Component {
 
   // Fetch the token from storage then navigate to our appropriate place
   _bootstrapAsync = async () => {
-    const userToken = await AsyncStorage.getItem('tagUserToken');
-
-    if (userToken) {
-      await this.props.setUser(parseInt(userToken))
-      this.props.navigation.navigate('App')
-    } else {
-      this.props.navigation.navigate('Auth')
+    try {
+      const userToken = await AsyncStorage.getItem('tagUserToken');
+      if (userToken) {
+        await this.props.setUser(parseInt(userToken));
+        this.props.navigation.navigate('App');
+      } else {
+        this.props.navigation.navigate('Auth');
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -39,7 +42,7 @@ class AuthLoadingScreen extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  setUser: (userId) => dispatch(setUser(userId)),
+  setUser: userId => dispatch(setUser(userId)),
 });
 
 export default connect(

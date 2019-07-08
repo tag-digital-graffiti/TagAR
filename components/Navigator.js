@@ -1,12 +1,11 @@
 /* eslint-disable react/no-multi-comp */
-
 import React from 'react';
 import { Text, View } from 'react-native';
 import {
   createBottomTabNavigator,
   createStackNavigator,
   createAppContainer,
-  createSwitchNavigator
+  createSwitchNavigator,
 } from 'react-navigation';
 import AntIcons from 'react-native-vector-icons/AntDesign';
 
@@ -14,10 +13,10 @@ import ARScreen from './EntryARScene';
 import HomeScreen from './Home';
 import DrawScreen from './Draw';
 import NearByTagsScreen from './NearByTags';
-import UploadScreen from './Upload'
-import AuthLoadingScreen from './AuthLoading'
-import SignInScreen from './SignIn'
-import SignUpScreen from './SignUp'
+import UploadScreen from './Upload';
+import AuthLoadingScreen from './AuthLoading';
+import SignInScreen from './SignIn';
+import SignUpScreen from './SignUp';
 
 const HomeNavigator = createStackNavigator({
   Home: {
@@ -25,8 +24,8 @@ const HomeNavigator = createStackNavigator({
     navigationOptions: () => ({
       title: `Home`,
     }),
-  }
-})
+  },
+});
 
 const DrawNavigator = createStackNavigator({
   Add: {
@@ -40,8 +39,8 @@ const DrawNavigator = createStackNavigator({
     navigationOptions: () => ({
       title: `Create`,
     }),
-  }
-})
+  },
+});
 
 const ARNavigator = createStackNavigator({
   NearByTags: {
@@ -55,55 +54,53 @@ const ARNavigator = createStackNavigator({
     navigationOptions: () => ({
       title: `Find a Wall`,
     }),
-  }
+  },
 });
 
-const AppNavigator = createBottomTabNavigator({
-  Home: HomeNavigator,
-  Explore: ARNavigator,
-  Add: {
-    screen: DrawNavigator,
-    navigationOptions: {
-      tabBarLabel: "Add",
-      tabBarIcon: () => (
-        <AntIcons name="plus" size={30} />
-      )
+const AppNavigator = createBottomTabNavigator(
+  {
+    Home: HomeNavigator,
+    Explore: ARNavigator,
+    Add: {
+      screen: DrawNavigator,
+      navigationOptions: {
+        tabBarLabel: 'Add',
+        tabBarIcon: () => <AntIcons name="plus" size={30} />,
+      },
     },
-  }
-},
+  },
   {
     tabBarOptions: {
       showIcon: true,
-      showLabel: true
-    }
-  },
+      showLabel: true,
+    },
+  }
 );
 
 const AuthNavigator = createStackNavigator({
   SignIn: {
     screen: SignInScreen,
     navigationOptions: {
-      title: "Sign In",
-
-    }
+      title: 'Sign In',
+    },
   },
   SignUp: {
     screen: SignUpScreen,
     navigationOptions: {
-      title: "Sign Up",
-    }
-  }
+      title: 'Sign Up',
+    },
+  },
 });
 
-
-export default createAppContainer(createSwitchNavigator(
-  {
-    AuthLoading: AuthLoadingScreen,
-    App: AppNavigator,
-    Auth: AuthNavigator,
-  },
-  {
-    initialRouteName: 'AuthLoading',
-  }
-));
-
+export default createAppContainer(
+  createSwitchNavigator(
+    {
+      AuthLoading: AuthLoadingScreen,
+      App: AppNavigator,
+      Auth: AuthNavigator,
+    },
+    {
+      initialRouteName: 'AuthLoading',
+    }
+  )
+);
