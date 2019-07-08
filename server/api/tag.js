@@ -66,16 +66,16 @@ router.post('/', async (req, res, next) => {
     let long = req.body.long;
     let imageData = req.body.imageData;
 
-    await cloudinary.uploader.upload(imageData, async function (error, result) {
+    await cloundinary.uploader(imageData, async function(error, result) {
       if (result) {
-        const arTagUrl = result.url
+        const arTagUrl = result.url;
         try {
-          await Tag.create({ lat, long, arTagUrl })
+          await Tag.create({ lat, long, arTagUrl });
         } catch (error) {
-          next(error)
+          next(error);
         }
       }
-    );
+    });
     res.end();
   } catch (error) {
     next(error);

@@ -2,7 +2,6 @@ target 'TagAR' do
   pod 'ViroReact', :path => '../node_modules/react-viro/ios/'
   pod 'ViroKit_static_lib', :path => '../node_modules/react-viro/ios/dist/ViroRenderer/static_lib'
   platform :ios, '12.0'
-  # pod 'react-native-maps', :path => '../node_modules/react-native-maps'
   
   rn_path = '../node_modules/react-native'
   rn_maps_path = '../node_modules/react-native-maps'
