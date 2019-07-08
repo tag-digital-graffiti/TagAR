@@ -13,6 +13,7 @@ import ARScreen from './EntryARScene';
 import HomeScreen from './Home';
 import DrawScreen from './Draw';
 import NearByTagsScreen from './NearByTags';
+import MapNavigator from './Map'
 import SingleTagScreen from './SingleTag';
 import UploadScreen from './Upload';
 
@@ -61,10 +62,12 @@ const ARNavigator = createStackNavigator({
   }
 });
 
+
 const TabNavigator = createBottomTabNavigator(
   {
     Home: HomeNavigator,
     Explore: ARNavigator,
+    Map: MapNavigator,
     Add: {
       screen: DrawNavigator,
       navigationOptions: {
