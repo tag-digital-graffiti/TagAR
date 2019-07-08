@@ -1,9 +1,7 @@
 import axios from 'axios';
 
-
 // const server = 'http://tag-sever-ar.herokuapp.com';
-const server = 'http://192.168.0.110:8080';
-
+const server = 'http://172.16.26.173:8080';
 
 const GET_NEARBY_TAGS = 'GET_NEARBY_TAG';
 const GET_SELECTED_TAG = 'GET_SELECTED_TAG';
@@ -29,7 +27,8 @@ export const getNearbyTags = (lat, long) => {
       let { data } = await axios.get(
         `${server}/api/tags/?lat=${lat}&long=${long}`
       );
-      dispatch(gotNearbyTags(data));
+      const reversedTags = data.reverse();
+      dispatch(gotNearbyTags(reversedTags));
     } catch (error) {
       console.warn(error);
     }
@@ -47,7 +46,7 @@ export const getSelectedTag = id => {
   };
 };
 
-export default function (state = initialState, action) {
+export default function(state = initialState, action) {
   switch (action.type) {
     case GET_NEARBY_TAGS:
       return { ...state, nearByTags: action.tags };
