@@ -11,7 +11,6 @@ Tag.belongsTo(User)
 User.hasMany(Tag)
 
 module.exports = {
-
   User,
   Tag
 }

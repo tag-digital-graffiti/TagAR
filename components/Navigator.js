@@ -6,6 +6,8 @@ import {
   createStackNavigator,
   createAppContainer,
   createSwitchNavigator,
+  StackActions,
+  NavigationActions
 } from 'react-navigation';
 import AntIcons from 'react-native-vector-icons/AntDesign';
 
@@ -17,7 +19,7 @@ import UploadScreen from './Upload';
 import AuthLoadingScreen from './AuthLoading';
 import SignInScreen from './SignIn';
 import SignUpScreen from './SignUp';
-import MapNavigator from './Map';
+import MapScreen from './Map';
 import SingleTagScreen from './SingleTag';
 
 
@@ -26,6 +28,15 @@ const HomeNavigator = createStackNavigator({
     screen: HomeScreen,
     navigationOptions: () => ({
       title: `Home`
+    })
+  }
+});
+
+const MapNavigator = createStackNavigator({
+  Home: {
+    screen: MapScreen,
+    navigationOptions: () => ({
+      title: `Map`
     })
   }
 });
@@ -71,7 +82,6 @@ const AppNavigator = createBottomTabNavigator(
     Home: HomeNavigator,
     Explore: ARNavigator,
     Map: MapNavigator,
-
     Add: {
       screen: DrawNavigator,
       navigationOptions: {
@@ -79,6 +89,22 @@ const AppNavigator = createBottomTabNavigator(
         tabBarIcon: () => <AntIcons name='plus' size={30} />
       }
     }
+  }, {
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarOnPress: ({ navigation }) => {
+        const nextRoute = navigation.state.routeName
+        const previousRoute = navigation.state.routes[0].routeName
+
+        navigation.dispatch(NavigationActions.navigate({ routeName: nextRoute }))
+
+        navigation.dispatch(StackActions.reset({
+          index: 0,
+          actions: [
+            NavigationActions.navigate({ routeName: previousRoute }),
+          ],
+        }))
+      }
+    })
   },
   {
     tabBarOptions: {

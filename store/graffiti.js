@@ -65,7 +65,7 @@ export const getSelectedTag = id => {
   };
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case GET_NEARBY_TAGS:
       return { ...state, nearByTags: action.tags };
