@@ -2,39 +2,36 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import ImagePicker from 'react-native-image-picker';
-import axios from 'axios'
-import { connect } from 'react-redux'
-
+import axios from 'axios';
+import { connect } from 'react-redux';
 
 let styles = StyleSheet.create({
   button: {
-    marginBottom: 25
+    marginBottom: 25,
   },
   text: {
     fontSize: 40,
-    fontWeight: 'bold'
-  }
+    fontWeight: 'bold',
+  },
 });
 
 class Upload extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       deviceLat: 0,
       deviceLong: 0,
-      imageData: ''
-    }
+      imageData: '',
+    };
   }
 
   async componentDidMount() {
     await navigator.geolocation.getCurrentPosition(
       position => {
-        this.setState(
-          {
-            deviceLat: position.coords.latitude,
-            deviceLong: position.coords.longitude,
-          }
-        );
+        this.setState({
+          deviceLat: position.coords.latitude,
+          deviceLong: position.coords.longitude,
+        });
       },
       error => this.setState({ error: error.message }),
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
@@ -47,9 +44,9 @@ class Upload extends Component {
 
   _upLoad = async () => {
     const options = {
-      title: 'Select A Tag'
+      title: 'Select A Tag',
     };
-    ImagePicker.launchImageLibrary(options, async (response) => {
+    ImagePicker.launchImageLibrary(options, async response => {
       console.log('Response = ', response);
       if (response.didCancel) {
         console.log('User cancelled image picker');
@@ -58,26 +55,25 @@ class Upload extends Component {
       } else if (response.customButton) {
         console.log('User tapped custom button: ', response.customButton);
       } else {
-        const source = 'data:image/jpeg;base64,' + response.data
+        const source = 'data:image/jpeg;base64,' + response.data;
 
         this.setState({
           imageData: source,
         });
 
-        const server = 'http://192.168.0.110:8080'
+        const server = 'http://172.16.27.142:8080';
         const lat = this.state.deviceLat;
         const long = this.state.deviceLong;
-        const imageData = this.state.imageData
-        const userId = this.props.user.id
+        const imageData = this.state.imageData;
+        const userId = this.props.user.id;
 
-        const body = { lat, long, imageData, userId }
-        await axios.post(`${server}/api/tags`, body)
+        const body = { lat, long, imageData, userId };
+        await axios.post(`${server}/api/tags`, body);
 
-        this.props.navigation.navigate('Home')
+        this.props.navigation.navigate('Home');
       }
-    })
-
-  }
+    });
+  };
 
   render() {
     return (
@@ -88,22 +84,14 @@ class Upload extends Component {
           style={styles.button}
           onPress={this._upLoad}
         />
-        <Button
-          title="Create"
-          type="outline"
-          onPress={this._toDraw}
-        />
+        <Button title="Create" type="outline" onPress={this._toDraw} />
       </View>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
 });
 
-
-
-export default connect(
-  mapStateToProps
-)(Upload);
+export default connect(mapStateToProps)(Upload);
