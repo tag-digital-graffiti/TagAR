@@ -2,31 +2,38 @@ import axios from 'axios';
 
 // const server = 'http://tag-sever-ar.herokuapp.com';
 
-const server = 'http://172.16.26.173:8080';
+const server = 'http://172.16.27.142:8080';
 
 const GET_NEARBY_TAGS = 'GET_NEARBY_TAG';
 const GET_ALL_TAGS = 'GET_ALL_TAGS';
 const GET_SELECTED_TAG = 'GET_SELECTED_TAG';
-
+const ADD_LIKES = 'ADD_LIKES';
+const REMOVE_LIKES = 'REMOVE_LIKES';
 const initialState = {
   nearByTags: [],
   selectedTag: {},
-  allTags: []
+  allTags: [],
+  likes: 0,
 };
 
+const gotAddedLikes = () => ({
+  type: ADD_LIKES,
+});
 const gotNearbyTags = tags => ({
   type: GET_NEARBY_TAGS,
-  tags
+  tags,
 });
-
+const gotRemoveLikes = () => ({
+  type: REMOVE_LIKES,
+});
 const gotAllTags = tags => ({
   type: GET_ALL_TAGS,
-  tags
+  tags,
 });
 
 const gotSelectedTag = tag => ({
   type: GET_SELECTED_TAG,
-  tag
+  tag,
 });
 
 export const getNearbyTags = (lat, long) => {
@@ -54,6 +61,27 @@ export const getAllTags = () => {
   };
 };
 
+export const getAddedLike = likeId => {
+  return async dispatch => {
+    try {
+      await axios.post(`${server}/api/tags/${likeId}/like`);
+      dispatch(gotAddedLikes());
+    } catch (error) {
+      console.warn(error);
+    }
+  };
+};
+export const getRemoveLike = likeId => {
+  return async dispatch => {
+    try {
+      await axios.post(`${server}/api/tags/${likeId}/dislike`);
+      dispatch(gotRemoveLikes());
+    } catch (error) {
+      console.warn(error);
+    }
+  };
+};
+
 export const getSelectedTag = id => {
   return async dispatch => {
     try {
@@ -73,6 +101,10 @@ export default function(state = initialState, action) {
       return { ...state, allTags: action.tags };
     case GET_SELECTED_TAG:
       return { ...state, selectedTag: action.tag };
+    case ADD_LIKES:
+      return { ...state, likes: state.likes + 1 };
+    case REMOVE_LIKES:
+      return { ...state, likes: state.likes - 1 };
     default:
       return state;
   }
