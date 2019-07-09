@@ -35,7 +35,7 @@ class Draw extends Component {
 
   onSave = async (success, path) => {
     if (!success) return;
-    const server = 'http://172.16.25.113:8080';
+    const server = 'http://172.16.26.218:8080';
     // const server = 'http://tag-sever-ar.herokuapp.com';
 
     const lat = this.state.deviceLat;
