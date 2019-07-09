@@ -17,7 +17,7 @@ import UploadScreen from './Upload';
 import AuthLoadingScreen from './AuthLoading';
 import SignInScreen from './SignIn';
 import SignUpScreen from './SignUp';
-import MapNavigator from './Map';
+import GoogleMap from './Map';
 import SingleTagScreen from './SingleTag';
 
 
@@ -70,7 +70,7 @@ const AppNavigator = createBottomTabNavigator(
   {
     Home: HomeNavigator,
     Explore: ARNavigator,
-    Map: MapNavigator,
+    Map: GoogleMap,
 
     Add: {
       screen: DrawNavigator,
