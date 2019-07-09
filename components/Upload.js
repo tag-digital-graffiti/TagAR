@@ -61,7 +61,7 @@ class Upload extends Component {
           imageData: source,
         });
 
-        const server = 'http://172.16.27.142:8080';
+        const server = 'http://172.16.26.218:8080';
         const lat = this.state.deviceLat;
         const long = this.state.deviceLong;
         const imageData = this.state.imageData;
