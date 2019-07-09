@@ -71,7 +71,6 @@ class SignIn extends Component {
           buttonStyle={{ backgroundColor: 'grey' }}
           containerStyle={{ paddingTop: 30 }}
           onPress={() => this.props.navigation.navigate('SignUp')}
-          disabled={!this.state.username || !this.state.password}
         />
       </View>
     );

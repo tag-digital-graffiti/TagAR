@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 // const server = 'http://tag-sever-ar.herokuapp.com';
-
 const server = 'http://172.16.26.218:8080';
 
 const GET_NEARBY_TAGS = 'GET_NEARBY_TAG';
@@ -66,7 +65,7 @@ export const getSelectedTag = id => {
   };
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case GET_NEARBY_TAGS:
       return { ...state, nearByTags: action.tags };
