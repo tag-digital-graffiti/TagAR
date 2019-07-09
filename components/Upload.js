@@ -7,12 +7,12 @@ import { connect } from 'react-redux';
 
 let styles = StyleSheet.create({
   button: {
-    marginBottom: 25,
+    marginBottom: 25
   },
   text: {
     fontSize: 40,
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'
+  }
 });
 
 class Upload extends Component {
@@ -21,7 +21,7 @@ class Upload extends Component {
     this.state = {
       deviceLat: 0,
       deviceLong: 0,
-      imageData: '',
+      imageData: ''
     };
   }
 
@@ -30,7 +30,7 @@ class Upload extends Component {
       position => {
         this.setState({
           deviceLat: position.coords.latitude,
-          deviceLong: position.coords.longitude,
+          deviceLong: position.coords.longitude
         });
       },
       error => this.setState({ error: error.message }),
@@ -44,7 +44,7 @@ class Upload extends Component {
 
   _upLoad = async () => {
     const options = {
-      title: 'Select A Tag',
+      title: 'Select A Tag'
     };
     ImagePicker.launchImageLibrary(options, async response => {
       console.log('Response = ', response);
@@ -58,10 +58,10 @@ class Upload extends Component {
         const source = 'data:image/jpeg;base64,' + response.data;
 
         this.setState({
-          imageData: source,
+          imageData: source
         });
 
-        const server = 'http://172.16.27.142:8080';
+        const server = 'http://172.16.26.173:8080';
         const lat = this.state.deviceLat;
         const long = this.state.deviceLong;
         const imageData = this.state.imageData;
@@ -79,19 +79,19 @@ class Upload extends Component {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Button
-          title="Upload"
-          type="outline"
+          title='Upload'
+          type='outline'
           style={styles.button}
           onPress={this._upLoad}
         />
-        <Button title="Create" type="outline" onPress={this._toDraw} />
+        <Button title='Create' type='outline' onPress={this._toDraw} />
       </View>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  user: state.user,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Upload);

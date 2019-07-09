@@ -9,7 +9,7 @@ class SignIn extends Component {
     super();
     this.state = {
       username: '',
-      password: '',
+      password: ''
     };
   }
 
@@ -36,11 +36,11 @@ class SignIn extends Component {
           alignItems: 'center',
           bottom: 100,
           marginLeft: 30,
-          marginRight: 30,
+          marginRight: 30
         }}
       >
         <Input
-          placeholder="Username"
+          placeholder='Username'
           leftIcon={{ type: 'antdesign', name: 'user' }}
           leftIconContainerStyle={{ paddingRight: 25 }}
           containerStyle={{ padding: 10 }}
@@ -48,8 +48,8 @@ class SignIn extends Component {
           onChangeText={text => this.setState({ username: text })}
         />
         <Input
-          name="password"
-          placeholder="Password"
+          name='password'
+          placeholder='Password'
           leftIcon={{ type: 'antdesign', name: 'lock' }}
           leftIconContainerStyle={{ paddingRight: 25 }}
           containerStyle={{ padding: 10 }}
@@ -59,7 +59,7 @@ class SignIn extends Component {
         />
 
         <Button
-          title="Sign In"
+          title='Sign In'
           buttonStyle={{ backgroundColor: 'black' }}
           containerStyle={{ paddingTop: 50 }}
           onPress={this._handleLogIn}
@@ -67,11 +67,11 @@ class SignIn extends Component {
         />
 
         <Button
-          title="Sign Up"
+          title='Sign Up'
           buttonStyle={{ backgroundColor: 'grey' }}
           containerStyle={{ paddingTop: 30 }}
           onPress={() => this.props.navigation.navigate('SignUp')}
-          disabled={!this.state.username || !this.state.password}
+          // disabled={!this.state.username || !this.state.password}
         />
       </View>
     );
@@ -79,11 +79,11 @@ class SignIn extends Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user,
+  user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({
-  auth: (username, password) => dispatch(auth(username, password)),
+  auth: (username, password) => dispatch(auth(username, password))
 });
 
 export default connect(

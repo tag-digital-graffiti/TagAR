@@ -65,13 +65,13 @@ router.post('/', async (req, res, next) => {
     let lat = req.body.lat;
     let long = req.body.long;
     let imageData = req.body.imageData;
-    let userId = req.body.userId
+    let userId = req.body.userId;
 
     await cloundinary.uploader(imageData, async function(error, result) {
       if (result) {
         const arTagUrl = result.url;
         try {
-          await Tag.create({ lat, long, arTagUrl, userId })
+          await Tag.create({ lat, long, arTagUrl, userId });
         } catch (error) {
           next(error);
         }
@@ -82,4 +82,24 @@ router.post('/', async (req, res, next) => {
     next(error);
   }
 });
+
+router.post('/:id/like', async (req, res, next) => {
+  try {
+    const selectedTag = await Tag.findByPk(req.params.id);
+    selectedTag.increment('likeCount', { by: 1 });
+    res.send();
+  } catch (error) {
+    next(error);
+  }
+});
+router.post('/:id/dislike', async (req, res, next) => {
+  try {
+    const selectedTag = await Tag.findByPk(req.params.id);
+    selectedTag.decrement('likeCount', { by: 1 });
+    res.send();
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
