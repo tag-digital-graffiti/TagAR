@@ -85,7 +85,7 @@ export default class NearbyTags extends Component {
                 <TouchableHighlight onPress={() => this._toDetails(item.id)}>
                   <Card containerStyle={styles.cardContainer}>
                     <View style={styles.cardHeader}>
-                      <Text style={styles.cardText}>USER ID</Text>
+                      <Text style={styles.cardText}>Artist: {item.user.username}</Text>
                     </View>
                     <Image
                       style={styles.cardImage}
