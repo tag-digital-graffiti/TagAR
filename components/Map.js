@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Image } from 'react-native';
 import { getAllTags } from '../store/graffiti';
 import { connect } from 'react-redux';
 
@@ -19,7 +19,6 @@ export default class GoogleMap extends Component {
   }
 
   render() {
-    console.log(this.props)
     if (this.props.allTags.length) {
       return (
         <View style={styles.container}>
@@ -33,15 +32,21 @@ export default class GoogleMap extends Component {
               longitudeDelta: 0.0421
             }}
           >
-            {this.props.allTags.map(marker => (
-              <Marker
-                key={marker.id}
-                coordinate={{
-                  latitude: marker.lat,
-                  longitude: marker.long
-                }}
-              />
-            ))}
+            {this.props.allTags.map(marker => {
+              return (
+                <Marker
+                  key={marker.id}
+                  coordinate={{
+                    latitude: marker.lat,
+                    longitude: marker.long,
+                  }}
+                >
+                  <View style={{ borderRadius: 50, overflow: "hidden", borderWidth: 0.5, borderColor: "#b2b2b2" }}>
+                    <Image source={{ url: marker.arTagUrl }} style={{ height: 25, width: 25 }} />
+                  </View>
+                </Marker>
+              )
+            })}
           </MapView>
         </View>
       );

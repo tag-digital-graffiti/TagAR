@@ -37,6 +37,7 @@ const HomeNavigator = createStackNavigator({
           type="material-community"
           color="#000000"
           onPress={() => navigation.navigate('Map')}
+          size={30}
         />
       ),
     })
@@ -83,6 +84,7 @@ const ARNavigator = createStackNavigator({
           type="material-community"
           color="#000000"
           onPress={() => navigation.navigate('Map')}
+          size={30}
         />
       )
     })
