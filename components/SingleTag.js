@@ -56,7 +56,7 @@ export default class SingleTag extends Component {
           <View>
             <Card containerStyle={styles.cardContainer}>
               <View style={styles.cardHeader}>
-                <Text style={styles.cardText}>USER ID</Text>
+                <Text style={styles.cardText}>Artist: {this.props.selectedTag.user.username}</Text>
               </View>
               <Image
                 style={styles.cardImage}

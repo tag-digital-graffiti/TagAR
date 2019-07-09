@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // const server = 'http://tag-sever-ar.herokuapp.com';
-const server = 'http://172.16.26.218:8080';
+const server = 'http://172.16.25.113:8080';
 
 const GET_USER = 'GET_USER'
 const GET_ERROR = 'GET_ERROR'

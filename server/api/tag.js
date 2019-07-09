@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Tag } = require('../db/models');
+const { Tag, User } = require('../db/models');
 const sequelize = require('sequelize');
 const cloudinary = require('cloudinary').v2;
 
@@ -22,7 +22,10 @@ router.get('/', async (req, res, next) => {
         long: {
           [Op.between]: [long - 0.002, long + 0.002]
         }
-      }
+      },
+      include: [{
+        model: User
+      }]
     });
     res.json(getNearByTag);
   } catch (error) {
@@ -48,7 +51,10 @@ router.get('/:id', async (req, res, next) => {
     const selectedTag = await Tag.findOne({
       where: {
         id: req.params.id
-      }
+      },
+      include: [{
+        model: User
+      }]
     });
     if (selectedTag) {
       res.json(selectedTag);
@@ -67,7 +73,7 @@ router.post('/', async (req, res, next) => {
     let imageData = req.body.imageData;
     let userId = req.body.userId
 
-    await cloundinary.uploader(imageData, async function(error, result) {
+    await cloudinary.uploader.upload(imageData, async function (error, result) {
       if (result) {
         const arTagUrl = result.url;
         try {
