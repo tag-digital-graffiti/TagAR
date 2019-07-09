@@ -13,10 +13,6 @@ let styles = StyleSheet.create({
 });
 
 export default class Home extends Component {
-  _logout = async () => {
-    await AsyncStorage.clear()
-    this.props.navigation.navigate('Auth');
-  }
 
   render() {
     return (
@@ -31,7 +27,6 @@ export default class Home extends Component {
             }}
             source={require('./tagLogo.png')}
           />
-          <Button title="Logout" onPress={this._logout}></Button>
         </View>
       </View>
     );
