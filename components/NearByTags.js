@@ -6,7 +6,7 @@ import {
   StyleSheet,
   FlatList,
   TouchableHighlight,
-  Modal,
+  Modal
 } from 'react-native';
 import { Card } from 'react-native-elements';
 import { getNearbyTags, getSelectedTag } from '../store/graffiti';
@@ -21,7 +21,7 @@ export default class NearbyTags extends Component {
       deviceLat: 0,
       deviceLong: 0,
       loaded: false,
-      modalVisible: true,
+      modalVisible: true
     };
     this._closeModal = this._closeModal.bind(this);
   }
@@ -33,7 +33,7 @@ export default class NearbyTags extends Component {
           {
             deviceLat: position.coords.latitude,
             deviceLong: position.coords.longitude,
-            error: null,
+            error: null
           },
           () => {
             this.props.getNearbyTags(
@@ -66,7 +66,7 @@ export default class NearbyTags extends Component {
       return (
         <View style={styles.modalContainer}>
           <Modal
-            animationType="slide"
+            animationType='slide'
             backdropOpacity={0.1}
             transparent={true}
             visible={this.state.modalVisible}
@@ -94,8 +94,7 @@ export default class NearbyTags extends Component {
                     />
                   </Card>
                 </TouchableHighlight>
-                <Like />
-                <Text>{`${item.likeCount} Likes`}</Text>
+                <Like item={item} />
               </View>
             )}
             keyExtractor={item => {
@@ -118,7 +117,7 @@ let styles = StyleSheet.create({
     alignItems: 'center',
     width: 400,
     height: 100,
-    backgroundColor: '#DCDCDC',
+    backgroundColor: '#DCDCDC'
   },
   modalText: {
     textAlign: 'center',
@@ -126,12 +125,12 @@ let styles = StyleSheet.create({
     padding: 10,
     color: 'white',
     width: 225,
-    fontSize: 20,
+    fontSize: 20
   },
   flatListContainer: {
     flexDirection: 'row',
     paddingVertical: 5,
-    paddingHorizontal: 30,
+    paddingHorizontal: 30
   },
   cardContainer: {
     borderRadius: 10,
@@ -139,39 +138,39 @@ let styles = StyleSheet.create({
     shadowColor: '#808080',
     shadowOffset: {
       width: 0,
-      height: 4,
+      height: 4
     },
     shadowRadius: 5,
-    shadowOpacity: 1.0,
+    shadowOpacity: 1.0
   },
   cardHeader: {
     backgroundColor: '#DCDCDC',
     padding: 15,
     borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
+    borderTopRightRadius: 10
   },
   cardText: {
-    color: 'white',
+    color: 'white'
   },
   cardImage: {
     width: 280,
-    height: 280,
+    height: 280
   },
   basicBacground: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F0F0F0',
-  },
+    backgroundColor: '#F0F0F0'
+  }
 });
 
 const mapStateToProps = state => ({
-  tags: state.graffiti.nearByTags,
+  tags: state.graffiti.nearByTags
 });
 
 const mapDispatchToProps = dispatch => ({
   getNearbyTags: (lat, long) => dispatch(getNearbyTags(lat, long)),
-  getSelectedTag: id => dispatch(getSelectedTag(id)),
+  getSelectedTag: id => dispatch(getSelectedTag(id))
 });
 
 module.exports = connect(

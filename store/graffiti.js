@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // const server = 'http://tag-sever-ar.herokuapp.com';
 
-const server = 'http://172.16.27.142:8080';
+const server = 'http://172.16.26.173:8080';
 
 const GET_NEARBY_TAGS = 'GET_NEARBY_TAG';
 const GET_ALL_TAGS = 'GET_ALL_TAGS';
@@ -13,27 +13,27 @@ const initialState = {
   nearByTags: [],
   selectedTag: {},
   allTags: [],
-  likes: 0,
+  likes: 0
 };
 
 const gotAddedLikes = () => ({
-  type: ADD_LIKES,
+  type: ADD_LIKES
 });
 const gotNearbyTags = tags => ({
   type: GET_NEARBY_TAGS,
-  tags,
+  tags
 });
 const gotRemoveLikes = () => ({
-  type: REMOVE_LIKES,
+  type: REMOVE_LIKES
 });
 const gotAllTags = tags => ({
   type: GET_ALL_TAGS,
-  tags,
+  tags
 });
 
 const gotSelectedTag = tag => ({
   type: GET_SELECTED_TAG,
-  tag,
+  tag
 });
 
 export const getNearbyTags = (lat, long) => {
@@ -62,6 +62,7 @@ export const getAllTags = () => {
 };
 
 export const getAddedLike = likeId => {
+  console.log(likeId, 'like id in get added like');
   return async dispatch => {
     try {
       await axios.post(`${server}/api/tags/${likeId}/like`);
