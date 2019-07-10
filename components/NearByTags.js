@@ -13,6 +13,12 @@ import { getNearbyTags, getSelectedTag } from '../store/graffiti';
 import { connect } from 'react-redux';
 
 export default class NearbyTags extends Component {
+  static navigationOptions = {
+    headerStyle: {
+      backgroundColor: '#262525'
+    },
+    headerTintColor: '#A89898'
+  };
   constructor(props) {
     super(props);
 
@@ -57,19 +63,20 @@ export default class NearbyTags extends Component {
   _closeModal = () => {
     setTimeout(() => {
       this.setState({ modalVisible: false });
-    }, 1200);
+    }, 200);
   };
 
   render() {
     if (this.props.tags.length) {
       return (
-        <View style={styles.modalContainer}>
+        <View style={styles.main}>
           <Modal
-            animationType='slide'
+            animationType="fade"
             backdropOpacity={0.1}
             transparent={true}
             visible={this.state.modalVisible}
             onShow={this._closeModal}
+            borderRadius={10}
           >
             <View style={styles.modalInnerContainer}>
               <Text style={styles.modalText}>
@@ -85,7 +92,9 @@ export default class NearbyTags extends Component {
                 <TouchableHighlight onPress={() => this._toDetails(item.id)}>
                   <Card containerStyle={styles.cardContainer}>
                     <View style={styles.cardHeader}>
-                      <Text style={styles.cardText}>Artist: {item.user.username}</Text>
+                      <Text style={styles.cardText}>
+                        Artist: {item.user.username}
+                      </Text>
                     </View>
                     <Image
                       style={styles.cardImage}
@@ -108,22 +117,25 @@ export default class NearbyTags extends Component {
 }
 
 let styles = StyleSheet.create({
-  modalContainer: { flex: 1 },
+  main: {
+    backgroundColor: '#262525',
+    flex: 1
+  },
   modalInnerContainer: {
     marginTop: 26,
     justifyContent: 'flex-start',
     alignItems: 'center',
     width: 400,
-    height: 100,
-    backgroundColor: '#DCDCDC'
+    height: 80,
+    backgroundColor: '#262525'
   },
   modalText: {
     textAlign: 'center',
     justifyContent: 'center',
     padding: 10,
-    color: 'white',
+    color: '#A89898',
     width: 225,
-    fontSize: 20
+    fontSize: 16
   },
   flatListContainer: {
     flexDirection: 'row',
@@ -133,19 +145,19 @@ let styles = StyleSheet.create({
   cardContainer: {
     borderRadius: 10,
     padding: 0,
-    shadowColor: '#808080',
+    shadowColor: '#A89898',
     shadowOffset: {
-      width: 0,
+      width: 3,
       height: 4
     },
-    shadowRadius: 5,
+    // shadowRadius: 5,
     shadowOpacity: 1.0
   },
   cardHeader: {
-    backgroundColor: '#DCDCDC',
+    backgroundColor: '#81466a',
     padding: 15,
     borderTopLeftRadius: 10,
-    borderTopRightRadius: 10
+    borderTopRightRadius: 10,
   },
   cardText: {
     color: 'white'
