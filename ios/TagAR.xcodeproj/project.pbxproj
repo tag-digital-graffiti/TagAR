@@ -1594,7 +1594,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "TagAR-GH-1904-talia";
+				PRODUCT_BUNDLE_IDENTIFIER = "TagAR-Wei";
 				PRODUCT_NAME = TagAR;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1623,7 +1623,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "TagAR-GH-1904-talia";
+				PRODUCT_BUNDLE_IDENTIFIER = "TagAR-Wei";
 				PRODUCT_NAME = TagAR;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";

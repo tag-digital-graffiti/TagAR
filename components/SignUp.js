@@ -46,6 +46,9 @@ const styles = StyleSheet.create({
   buttonContainerTop: {
     padding: 10,
     marginTop: 30
+  },
+  error: {
+    color: '#A89898'
   }
 });
 
@@ -63,7 +66,8 @@ class SignUp extends Component {
     super();
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      error: ''
     };
   }
 
@@ -74,9 +78,15 @@ class SignUp extends Component {
 
     try {
       await this.props.signUpUser(username, password);
+      if (this.props.user.id) {
+        await AsyncStorage.setItem('tagUserToken', this.props.user.id.toString());
+        this.props.navigation.navigate('App');
+      } else {
+        this.setState({
+          error: this.props.error
+        })
+      }
 
-      await AsyncStorage.setItem('tagUserToken', this.props.user.id.toString());
-      this.props.navigation.navigate('App');
     } catch (error) {
       console.error(error);
     }
@@ -89,10 +99,9 @@ class SignUp extends Component {
           <Image
             style={styles.logoImage}
             source={require('../public/taglogoUpdate2.png')}
-
-            // source={require('../public/tagLogoUpdate.png')}
           />
         </View>
+        <View><Text style={styles.error}>{this.state.error}</Text></View>
         <View style={styles.inputContainer}>
           <View style={styles.inputStyle}>
             <Input
@@ -155,7 +164,8 @@ class SignUp extends Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user.currentUser,
+  error: state.user.error
 });
 
 const mapDispatchToProps = dispatch => ({

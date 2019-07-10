@@ -126,7 +126,7 @@ class Upload extends Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user.currentUser
 });
 
 export default connect(mapStateToProps)(Upload);

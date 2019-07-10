@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-  user: state.user,
+  user: state.user.currentUser,
 });
 
 const mapDispatchToProps = dispatch => ({

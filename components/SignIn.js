@@ -47,6 +47,14 @@ const styles = StyleSheet.create({
   buttonContainerTop: {
     padding: 10,
     marginTop: 30
+  },
+  error: {
+    color: '#A89898'
+  },
+  footer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly'
   }
 });
 
@@ -65,7 +73,8 @@ class SignIn extends Component {
     super();
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      error: ''
     };
   }
 
@@ -76,8 +85,14 @@ class SignIn extends Component {
 
     try {
       await this.props.auth(username, password);
-      await AsyncStorage.setItem('tagUserToken', this.props.user.id.toString());
-      this.props.navigation.navigate('App');
+      if (this.props.user.id) {
+        await AsyncStorage.setItem('tagUserToken', this.props.user.id.toString());
+        this.props.navigation.navigate('App');
+      } else {
+        this.setState({
+          error: this.props.error
+        })
+      }
     } catch (error) {
       console.error(error);
     }
@@ -90,10 +105,9 @@ class SignIn extends Component {
           <Image
             style={styles.logoImage}
             source={require('../public/taglogoUpdate2.png')}
-
-            // source={require('../public/tagLogoUpdate.png')}
           />
         </View>
+        <View><Text style={styles.error}>{this.state.error}</Text></View>
         <View style={styles.inputContainer}>
           <View style={styles.inputStyle}>
             <Input
@@ -103,7 +117,7 @@ class SignIn extends Component {
               leftIcon={{ type: 'antdesign', name: 'user', color: '#A89898' }}
               leftIconContainerStyle={{ paddingRight: 25 }}
               value={this.state.username}
-              onChangeText={text => this.setState({ username: text })}
+              onChangeText={text => this.setState({ username: text, error: '' })}
             />
           </View>
           <View style={styles.inputStyle}>
@@ -115,7 +129,7 @@ class SignIn extends Component {
               leftIcon={{ type: 'antdesign', name: 'lock', color: '#A89898' }}
               leftIconContainerStyle={{ paddingRight: 25 }}
               value={this.state.password}
-              onChangeText={text => this.setState({ password: text })}
+              onChangeText={text => this.setState({ password: text, error: '' })}
               secureTextEntry={true}
             />
           </View>
@@ -152,14 +166,12 @@ class SignIn extends Component {
           }}
         />
         <View style={styles.footer}>
-          <Text style={{ color: '#A89898' }}>
-            Don't have an account?
-            <Text
-              style={{ color: '#A89898' }}
-              onPress={() => this.props.navigation.navigate('SignUp')}
-            >
-              Register Now!
-            </Text>
+          <Text style={{ color: '#A89898' }}>Don't have an account? </Text>
+          <Text
+            style={{ color: '#A89898' }}
+            onPress={() => this.props.navigation.navigate('SignUp')}
+          >
+            Register Now!
           </Text>
         </View>
       </View>
@@ -168,7 +180,8 @@ class SignIn extends Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user.currentUser,
+  error: state.user.error
 });
 
 const mapDispatchToProps = dispatch => ({
