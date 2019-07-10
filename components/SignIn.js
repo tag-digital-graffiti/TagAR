@@ -132,7 +132,7 @@ class SignIn extends Component {
             }}
             disabledStyle={{
               width: WIDTH - 97,
-              padding: 15,
+              height: 40,
               backgroundColor: '#27413D'
             }}
             raised={true}
