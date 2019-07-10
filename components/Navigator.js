@@ -10,6 +10,7 @@ import {
   StackActions,
   NavigationActions
 } from 'react-navigation';
+
 import Entypo from 'react-native-vector-icons/Entypo'
 import FW5 from 'react-native-vector-icons/FontAwesome5'
 
@@ -24,7 +25,6 @@ import SignUpScreen from './SignUp';
 import MapScreen from './Map';
 import SingleTagScreen from './SingleTag';
 import ProfileScreen from './Profile'
-
 
 const HomeNavigator = createStackNavigator({
   Home: {
@@ -159,22 +159,31 @@ const AppNavigator = createBottomTabNavigator(
 
     })
   },
-
+  {
+    tabBarOptions: {
+      showIcon: true,
+      showLabel: true,
+      activeTintColor: '#A89898',
+      inactiveTintColor: '#262525'
+    }
+  }
 );
 
 const AuthNavigator = createStackNavigator({
   SignIn: {
     screen: SignInScreen,
     navigationOptions: {
-      title: 'Sign In',
+      title: 'Log In'
     },
+    initialRouteName: 'SignInScreen',
+    headerMode: null
   },
   SignUp: {
     screen: SignUpScreen,
     navigationOptions: {
-      title: 'Sign Up',
-    },
-  },
+      title: 'Register'
+    }
+  }
 });
 
 export default createAppContainer(
@@ -182,11 +191,10 @@ export default createAppContainer(
     {
       AuthLoading: AuthLoadingScreen,
       App: AppNavigator,
-      Auth: AuthNavigator,
+      Auth: AuthNavigator
     },
     {
-      initialRouteName: 'AuthLoading',
+      initialRouteName: 'AuthLoading'
     }
   )
 );
-

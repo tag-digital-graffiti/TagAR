@@ -1,8 +1,24 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Image, Button, AsyncStorage } from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  Button,
+  AsyncStorage
+} from 'react-native';
 
 let styles = StyleSheet.create({
-  outer: {
+  main: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#262525'
+  },
+  logoutButton: {
+    color: '#A89898'
+  },
+  imageContainer: {
     fontSize: 20,
     fontWeight: 'bold'
   },
@@ -13,11 +29,25 @@ let styles = StyleSheet.create({
 });
 
 export default class Home extends Component {
+  static navigationOptions = {
+    headerStyle: {
+      backgroundColor: '#262525'
+    },
+    headerTintColor: '#A89898',
+  };
+
+  _logout = async () => {
+    await AsyncStorage.clear();
+    this.props.navigation.navigate('Auth');
+  };
 
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <View style={styles.outer}>
+      <View style={styles.main}>
+        <View style={styles.logoutButton}>
+          <Button title="Logout" onPress={this._logout} />
+        </View>
+        <View style={styles.imageContainer}>
           <Image
             style={{
               width: 315,
@@ -25,7 +55,7 @@ export default class Home extends Component {
               borderRadius: 25,
               backgroundColor: '#FFFFFF'
             }}
-            source={require('./tagLogo.png')}
+            source={require('../public/tagLogoUpdate.png')}
           />
         </View>
       </View>
