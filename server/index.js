@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8082;
 const app = express();
 
 const createApp = () => {
@@ -14,10 +14,10 @@ const createApp = () => {
 
   // auth and api routes
   app.use('/api', require('./api'));
-  app.use('/auth', require('./auth'))
+  app.use('/auth', require('./auth'));
 
   // static file-serving middleware
-  app.use(express.static(path.join(__dirname, '..', 'res')))
+  app.use(express.static(path.join(__dirname, '..', 'res')));
 
   // sends index.html
   // app.use('*', (req, res) => {

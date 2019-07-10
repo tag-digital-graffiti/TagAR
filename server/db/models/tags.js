@@ -3,21 +3,21 @@ const db = require('../db');
 
 const Tag = db.define('tag', {
   lat: {
-    type: Sequelize.FLOAT
+    type: Sequelize.FLOAT,
   },
   long: {
-    type: Sequelize.FLOAT
+    type: Sequelize.FLOAT,
   },
   assetUrl: {
-    type: Sequelize.TEXT
+    type: Sequelize.TEXT,
   },
   arTagUrl: {
-    type: Sequelize.TEXT
+    type: Sequelize.TEXT,
   },
   likeCount: {
     type: Sequelize.INTEGER,
-    defaultValue: 0
-  }
+    defaultValue: 0,
+  },
 });
 
 module.exports = Tag;
