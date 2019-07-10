@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   inputStyle: {
-    marginTop: 12
+    marginTop: 10
   },
   logoImage: {
     width: 150,
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
 });
 
 const { width: WIDTH } = Dimensions.get('window');
+const { height: HEIGHT} = Dimensions.get('window')
 
 class SignIn extends Component {
   static navigationOptions = {
@@ -139,7 +140,7 @@ class SignIn extends Component {
             disabled={!this.state.username || !this.state.password}
           />
         </View>
-        <View style={{ height: 190 }} />
+        <View style={{ height: 155}} />
         <Divider
           style={{
             backgroundColor: '#e1e8ee',

@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   inputStyle: {
-    marginTop: 12
+    marginTop: 10
   },
   logoImage: {
     width: 150,
