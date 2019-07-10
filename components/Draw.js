@@ -6,8 +6,7 @@ import axios from 'axios';
 import RNSketchCanvas from '@terrylinla/react-native-sketch-canvas';
 import RNFetchBlob from 'react-native-fetch-blob';
 import { getNearbyTags } from '../store/graffiti';
-const { SERVER_URL } = require('../constants')
-
+const { SERVER_URL } = require('../constants');
 
 class Draw extends Component {
   constructor() {
@@ -138,6 +137,7 @@ class Draw extends Component {
                     type="material-community"
                     color="#39579A"
                   />
+                  <Text>save</Text>
                 </View>
               }
               savePreference={() => {
