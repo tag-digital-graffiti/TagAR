@@ -137,7 +137,7 @@ class Profile extends Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user,
+  user: state.user.currentUser,
   artistTags: state.graffiti.artistTags
 });
 
