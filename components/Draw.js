@@ -15,7 +15,7 @@ class Draw extends Component {
       deviceLong: 0,
       loaded: false,
       error: null,
-      color: null
+      color: null,
     };
   }
 
@@ -24,7 +24,7 @@ class Draw extends Component {
       position => {
         this.setState({
           deviceLat: position.coords.latitude,
-          deviceLong: position.coords.longitude
+          deviceLong: position.coords.longitude,
         });
       },
       error => this.setState({ error: error.message }),
@@ -35,7 +35,7 @@ class Draw extends Component {
 
   onSave = async (success, path) => {
     if (!success) return;
-    const server = 'http://172.16.26.173:8080';
+    const server = 'http://172.16.27.142:8082';
     // const server = 'http://tag-sever-ar.herokuapp.com';
 
     const lat = this.state.deviceLat;
@@ -76,24 +76,24 @@ class Draw extends Component {
                 <View style={styles.functionButton}>
                   <Icon
                     raised
-                    name='undo-variant'
-                    type='material-community'
-                    color='#39579A'
+                    name="undo-variant"
+                    type="material-community"
+                    color="#39579A"
                   />
                 </View>
               }
               clearComponent={
                 <View style={styles.functionButton}>
-                  <Icon raised name='clear' type='material' color='#39579A' />
+                  <Icon raised name="clear" type="material" color="#39579A" />
                 </View>
               }
               eraseComponent={
                 <View style={styles.functionButton}>
                   <Icon
                     raised
-                    name='eraser'
-                    type='material-community'
-                    color='#39579A'
+                    name="eraser"
+                    type="material-community"
+                    color="#39579A"
                   />
                 </View>
               }
@@ -108,7 +108,7 @@ class Draw extends Component {
                   <View
                     style={[
                       { backgroundColor: color, borderWidth: 2 },
-                      styles.strokeColorButton
+                      styles.strokeColorButton,
                     ]}
                   />
                 );
@@ -122,7 +122,7 @@ class Draw extends Component {
                         marginHorizontal: 1,
                         width: Math.sqrt(w / 3) * 10,
                         height: Math.sqrt(w / 3) * 10,
-                        borderRadius: (Math.sqrt(w / 3) * 10) / 2
+                        borderRadius: (Math.sqrt(w / 3) * 10) / 2,
                       }}
                     />
                   </View>
@@ -132,9 +132,9 @@ class Draw extends Component {
                 <View style={styles.functionButton}>
                   <Icon
                     raised
-                    name='content-save'
-                    type='material-community'
-                    color='#39579A'
+                    name="content-save"
+                    type="material-community"
+                    color="#39579A"
                   />
                 </View>
               }
@@ -142,7 +142,7 @@ class Draw extends Component {
                 return {
                   filename: String(Math.ceil(Math.random() * 100000000)),
                   transparent: true,
-                  imageType: 'png'
+                  imageType: 'png',
                 };
               }}
               onSketchSaved={this.onSave}
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
     flex: 0,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    backgroundColor: '#F5FCFF',
   },
   strokeColorButton: {
     marginHorizontal: 2,
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 15,
     borderColor: '#E6ECF0',
-    borderWidth: 1
+    borderWidth: 1,
   },
   strokeWidthButton: {
     marginHorizontal: 1,
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     height: 30,
     borderRadius: 15,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   functionButton: {
     marginHorizontal: 1,
@@ -194,16 +194,16 @@ const styles = StyleSheet.create({
     width: 60,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 5
-  }
+    borderRadius: 5,
+  },
 });
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
 });
 
 const mapDispatchToProps = dispatch => ({
-  getNearbyTags: (lat, long) => dispatch(getNearbyTags(lat, long))
+  getNearbyTags: (lat, long) => dispatch(getNearbyTags(lat, long)),
 });
 
 export default connect(
