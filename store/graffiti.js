@@ -7,11 +7,13 @@ const { SERVER_URL } = require('../constants')
 const GET_NEARBY_TAGS = 'GET_NEARBY_TAG';
 const GET_ALL_TAGS = 'GET_ALL_TAGS';
 const GET_SELECTED_TAG = 'GET_SELECTED_TAG';
+const GET_TAGS_BY_ARTIST = 'GET_TAGS_BY_ARTIST'
 
 const initialState = {
   nearByTags: [],
   selectedTag: {},
-  allTags: []
+  allTags: [],
+  artistTags: []
 };
 
 const gotNearbyTags = tags => ({
@@ -28,6 +30,11 @@ const gotSelectedTag = tag => ({
   type: GET_SELECTED_TAG,
   tag
 });
+
+const gotTagsByArtist = tags => ({
+  type: GET_TAGS_BY_ARTIST,
+  tags
+})
 
 export const getNearbyTags = (lat, long) => {
   return async dispatch => {
@@ -66,6 +73,18 @@ export const getSelectedTag = id => {
   };
 };
 
+export const getTagsByArtist = userId => {
+  return async dispatch => {
+    try {
+      let { data } = await axios.get(`${SERVER_URL}/api/tags/user/${userId}`);
+      dispatch(gotTagsByArtist(data));
+    } catch (error) {
+      console.warn(error);
+    }
+  };
+};
+
+
 export default function (state = initialState, action) {
   switch (action.type) {
     case GET_NEARBY_TAGS:
@@ -74,6 +93,8 @@ export default function (state = initialState, action) {
       return { ...state, allTags: action.tags };
     case GET_SELECTED_TAG:
       return { ...state, selectedTag: action.tag };
+    case GET_TAGS_BY_ARTIST:
+      return { ...state, artistTags: action.tags }
     default:
       return state;
   }
