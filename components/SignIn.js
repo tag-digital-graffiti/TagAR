@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
 });
 
 const { width: WIDTH } = Dimensions.get('window');
-const { height: HEIGHT} = Dimensions.get('window')
+const { height: HEIGHT } = Dimensions.get('window');
 
 class SignIn extends Component {
   static navigationOptions = {
@@ -59,7 +59,7 @@ class SignIn extends Component {
       backgroundColor: '#262525'
     },
     headerTintColor: '#A89898'
-  }
+  };
 
   constructor() {
     super();
@@ -89,15 +89,17 @@ class SignIn extends Component {
         <View style={styles.imageContainer}>
           <Image
             style={styles.logoImage}
-            source={require('../public/tagLogoUpdate.png')}
+            source={require('../public/taglogoUpdate2.png')}
+
+            // source={require('../public/tagLogoUpdate.png')}
           />
         </View>
         <View style={styles.inputContainer}>
           <View style={styles.inputStyle}>
             <Input
               style={styles.input}
-              placeholder="Username"
-              placeholderTextColor="#A89898"
+              placeholder='Username'
+              placeholderTextColor='#A89898'
               leftIcon={{ type: 'antdesign', name: 'user', color: '#A89898' }}
               leftIconContainerStyle={{ paddingRight: 25 }}
               value={this.state.username}
@@ -107,9 +109,9 @@ class SignIn extends Component {
           <View style={styles.inputStyle}>
             <Input
               style={styles.input}
-              name="password"
-              placeholder="Password"
-              placeholderTextColor="#A89898"
+              name='password'
+              placeholder='Password'
+              placeholderTextColor='#A89898'
               leftIcon={{ type: 'antdesign', name: 'lock', color: '#A89898' }}
               leftIconContainerStyle={{ paddingRight: 25 }}
               value={this.state.password}
@@ -124,7 +126,7 @@ class SignIn extends Component {
               fontSize: 12,
               fontWeight: 400
             }}
-            title="Log in"
+            title='Log in'
             buttonStyle={{
               width: WIDTH - 97,
               height: 40,
@@ -140,7 +142,7 @@ class SignIn extends Component {
             disabled={!this.state.username || !this.state.password}
           />
         </View>
-        <View style={{ height: 155}} />
+        <View style={{ height: 155 }} />
         <Divider
           style={{
             backgroundColor: '#e1e8ee',

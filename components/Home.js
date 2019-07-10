@@ -33,29 +33,22 @@ export default class Home extends Component {
     headerStyle: {
       backgroundColor: '#262525'
     },
-    headerTintColor: '#A89898',
-  };
-
-  _logout = async () => {
-    await AsyncStorage.clear();
-    this.props.navigation.navigate('Auth');
+    headerTintColor: '#A89898'
   };
 
   render() {
     return (
       <View style={styles.main}>
-        <View style={styles.logoutButton}>
-          <Button title="Logout" onPress={this._logout} />
-        </View>
         <View style={styles.imageContainer}>
           <Image
             style={{
               width: 315,
               height: 315,
               borderRadius: 25,
-              backgroundColor: '#FFFFFF'
+              backgroundColor: '#262525'
             }}
-            source={require('../public/tagLogoUpdate.png')}
+            source={require('../public/taglogoUpdate2.png')}
+            // source={require('../public/tagLogoUpdate.png')}
           />
         </View>
       </View>

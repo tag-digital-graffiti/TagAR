@@ -88,15 +88,17 @@ class SignUp extends Component {
         <View style={styles.imageContainer}>
           <Image
             style={styles.logoImage}
-            source={require('../public/tagLogoUpdate.png')}
+            source={require('../public/taglogoUpdate2.png')}
+
+            // source={require('../public/tagLogoUpdate.png')}
           />
         </View>
         <View style={styles.inputContainer}>
           <View style={styles.inputStyle}>
             <Input
               style={styles.input}
-              placeholder="Username"
-              placeholderTextColor="#A89898"
+              placeholder='Username'
+              placeholderTextColor='#A89898'
               leftIcon={{ type: 'antdesign', name: 'user' }}
               leftIconContainerStyle={{ paddingRight: 25 }}
               containerStyle={{ padding: 10 }}
@@ -109,9 +111,9 @@ class SignUp extends Component {
           <View style={styles.inputStyle}>
             <Input
               style={styles.input}
-              name="password"
-              placeholder="Password"
-              placeholderTextColor="#A89898"
+              name='password'
+              placeholder='Password'
+              placeholderTextColor='#A89898'
               leftIcon={{ type: 'antdesign', name: 'lock' }}
               leftIconContainerStyle={{ paddingRight: 25 }}
               containerStyle={{ padding: 10 }}
@@ -129,7 +131,7 @@ class SignUp extends Component {
               fontSize: 12,
               fontWeight: 400
             }}
-            title="Register"
+            title='Register'
             buttonStyle={{
               width: WIDTH - 97,
               height: 40,
