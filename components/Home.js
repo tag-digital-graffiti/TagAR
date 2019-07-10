@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Image, Button, AsyncStorage } from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  Button,
+  AsyncStorage
+} from 'react-native';
 
 let styles = StyleSheet.create({
-  outer: {
+  main: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#262525',
+  },
+  imageContainer: {
     fontSize: 20,
     fontWeight: 'bold'
   },
@@ -14,14 +27,14 @@ let styles = StyleSheet.create({
 
 export default class Home extends Component {
   _logout = async () => {
-    await AsyncStorage.clear()
+    await AsyncStorage.clear();
     this.props.navigation.navigate('Auth');
-  }
+  };
 
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <View style={styles.outer}>
+      <View style={styles.main}>
+        <View style={styles.imageContainer}>
           <Image
             style={{
               width: 315,
@@ -31,7 +44,7 @@ export default class Home extends Component {
             }}
             source={require('./tagLogo.png')}
           />
-          <Button title="Logout" onPress={this._logout}></Button>
+          <Button title="Logout" onPress={this._logout} />
         </View>
       </View>
     );

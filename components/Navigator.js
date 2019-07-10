@@ -5,7 +5,7 @@ import {
   createBottomTabNavigator,
   createStackNavigator,
   createAppContainer,
-  createSwitchNavigator,
+  createSwitchNavigator
 } from 'react-navigation';
 import AntIcons from 'react-native-vector-icons/AntDesign';
 
@@ -19,7 +19,6 @@ import SignInScreen from './SignIn';
 import SignUpScreen from './SignUp';
 import GoogleMap from './Map';
 import SingleTagScreen from './SingleTag';
-
 
 const HomeNavigator = createStackNavigator({
   Home: {
@@ -61,9 +60,9 @@ const ARNavigator = createStackNavigator({
   EntryARScene: {
     screen: ARScreen,
     navigationOptions: () => ({
-      title: `Find a Wall`,
-    }),
-  },
+      title: `Find a Wall`
+    })
+  }
 });
 
 const AppNavigator = createBottomTabNavigator(
@@ -76,15 +75,15 @@ const AppNavigator = createBottomTabNavigator(
       screen: DrawNavigator,
       navigationOptions: {
         tabBarLabel: 'Add',
-        tabBarIcon: () => <AntIcons name='plus' size={30} />
+        tabBarIcon: () => <AntIcons name="plus" size={30} />
       }
     }
   },
   {
     tabBarOptions: {
       showIcon: true,
-      showLabel: true,
-    },
+      showLabel: true
+    }
   }
 );
 
@@ -92,15 +91,17 @@ const AuthNavigator = createStackNavigator({
   SignIn: {
     screen: SignInScreen,
     navigationOptions: {
-      title: 'Sign In',
+      title: 'Log In'
     },
+    initialRouteName: 'SignInScreen',
+    headerMode: null
   },
   SignUp: {
     screen: SignUpScreen,
     navigationOptions: {
-      title: 'Sign Up',
-    },
-  },
+      title: 'Register'
+    }
+  }
 });
 
 export default createAppContainer(
@@ -108,11 +109,10 @@ export default createAppContainer(
     {
       AuthLoading: AuthLoadingScreen,
       App: AppNavigator,
-      Auth: AuthNavigator,
+      Auth: AuthNavigator
     },
     {
-      initialRouteName: 'AuthLoading',
+      initialRouteName: 'AuthLoading'
     }
   )
 );
-
