@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { ViroARSceneNavigator } from 'react-viro';
 import { View, Text, Dimensions, StyleSheet } from 'react-native'
 import { Overlay } from 'react-native-elements'
-/*
- TODO: Insert your API key below
- */
+
 var sharedProps = {
   apiKey: '40506D80-B1B9-4AB5-837E-38B7645B5E92'
 };
@@ -35,7 +33,7 @@ export default class EntryARScene extends Component {
           initialScene={{ scene: InitialARScene }}
         />
         {this.state.visible && (<View style={styles.instructions}>
-          <Text>Find a Textured Surface and Hold Still</Text>
+          <Text>Tip: Find a wall and hold still</Text>
         </View>)}
 
       </View>

@@ -10,19 +10,29 @@ import { connect } from 'react-redux';
 import { Card } from 'react-native-elements';
 
 let styles = StyleSheet.create({
+  main: {
+    backgroundColor: '#262525',
+    padding: 25,
+    height: '100%'
+  },
+  clickText: {
+    alignItems: 'center',
+    padding: 10,
+    marginTop: 10
+  },
   cardContainer: {
     borderRadius: 10,
     padding: 0,
-    shadowColor: '#808080',
+    shadowColor: '#A89898',
     shadowOffset: {
-      width: 0,
+      width: 3,
       height: 4
     },
-    shadowRadius: 5,
+    // shadowRadius: 5,
     shadowOpacity: 1.0
   },
   cardHeader: {
-    backgroundColor: '#DCDCDC',
+    backgroundColor: '#81466a',
     padding: 15,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10
@@ -47,23 +57,23 @@ export default class SingleTag extends Component {
 
   render() {
     return (
-      <View
-        style={{
-          padding: 25
-        }}
-      >
+      <View style={styles.main}>
         <TouchableHighlight onPress={() => this._toAR()}>
           <View>
             <Card containerStyle={styles.cardContainer}>
               <View style={styles.cardHeader}>
-                <Text style={styles.cardText}>Artist: {this.props.selectedTag.user.username}</Text>
+                <Text style={styles.cardText}>
+                  Artist: {this.props.selectedTag.user.username}
+                </Text>
               </View>
               <Image
                 style={styles.cardImage}
                 source={{ uri: `${this.props.selectedTag.arTagUrl}` }}
               />
-              <Text> Click to add artwork to wall</Text>
             </Card>
+            <View style={styles.clickText}>
+              <Text style={{color: '#A89898'}}> Click tag to add to wall</Text>
+            </View>
           </View>
         </TouchableHighlight>
       </View>

@@ -34,13 +34,13 @@ const HomeNavigator = createStackNavigator({
       title: `Home`,
       headerRight: (
         <Icon
-          name='map'
-          type='font-awesome'
-          color='#A89898'
+          name="globe"
+          type="font-awesome"
+          color="#A89898"
           onPress={() => navigation.navigate('Map')}
-          size={20}
+          size={22}
           iconStyle={{
-            paddingRight: 15
+            paddingRight: 27
           }}
         />
       )
@@ -82,13 +82,13 @@ const ARNavigator = createStackNavigator({
       title: `Select a Tag`,
       headerRight: (
         <Icon
-          name='map'
-          type='font-awesome'
-          color='#A89898'
+          name="globe"
+          type="font-awesome"
+          color="#A89898"
           onPress={() => navigation.navigate('Map')}
-          size={20}
+          size={22}
           iconStyle={{
-            paddingRight: 15
+            paddingRight: 27
           }}
         />
       )
@@ -125,7 +125,7 @@ const AppNavigator = createMaterialBottomTabNavigator(
             type={'font-awesome'}
           />
         ),
-        barStyle: { backgroundColor: '#775DA2' }
+        barStyle: { backgroundColor: '#BE5941' }
       }
     },
     Explore: {
@@ -140,7 +140,7 @@ const AppNavigator = createMaterialBottomTabNavigator(
             type={'entypo'}
           />
         ),
-        barStyle: { backgroundColor: '#BE5941' }
+        barStyle: { backgroundColor: '#88A25D' }
       }
     },
     Add: {
@@ -155,7 +155,7 @@ const AppNavigator = createMaterialBottomTabNavigator(
             type={'entypo'}
           />
         ),
-        barStyle: { backgroundColor: '#88A25D' }
+        barStyle: { backgroundColor: '#775DA2' }
       }
     },
     Profile: {
