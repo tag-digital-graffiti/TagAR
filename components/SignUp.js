@@ -108,15 +108,13 @@ class SignUp extends Component {
               style={styles.input}
               placeholder="Username"
               placeholderTextColor="#A89898"
-              leftIcon={{ type: 'antdesign', name: 'user' }}
+              leftIcon={{ type: 'antdesign', name: 'user',color: '#A89898' }}
               leftIconContainerStyle={{ paddingRight: 25 }}
               containerStyle={{ padding: 10 }}
               value={this.state.username}
               onChangeText={text => this.setState({ username: text })}
               maxLength={20}
-              inputStyle={{
-                color: 'A89898'
-              }}
+              inputStyle={{color:'#A89898'}}
               onBlur={Keyboard.dismiss}
             />
           </View>
@@ -126,13 +124,14 @@ class SignUp extends Component {
               name="password"
               placeholder="Password"
               placeholderTextColor="#A89898"
-              leftIcon={{ type: 'antdesign', name: 'lock' }}
+              leftIcon={{ type: 'antdesign', name: 'lock',color: '#A89898' }}
               leftIconContainerStyle={{ paddingRight: 25 }}
               containerStyle={{ padding: 10 }}
               value={this.state.password}
               onChangeText={text => this.setState({ password: text })}
               secureTextEntry
               maxLength={20}
+              inputStyle={{color:'#A89898'}}
               onBlur={Keyboard.dismiss}
             />
           </View>

@@ -117,6 +117,7 @@ class SignIn extends Component {
               leftIcon={{ type: 'antdesign', name: 'user', color: '#A89898' }}
               leftIconContainerStyle={{ paddingRight: 25 }}
               value={this.state.username}
+              inputStyle={{color:'#A89898'}}
               onChangeText={text => this.setState({ username: text, error: '' })}
             />
           </View>
@@ -130,6 +131,7 @@ class SignIn extends Component {
               leftIconContainerStyle={{ paddingRight: 25 }}
               value={this.state.password}
               onChangeText={text => this.setState({ password: text, error: '' })}
+              inputStyle={{color:'#A89898'}}
               secureTextEntry={true}
             />
           </View>
