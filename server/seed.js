@@ -31,6 +31,22 @@ const seed = async () => {
     arTagUrl: 'https://i.imgur.com/p99IbXG.png'
   });
 
+  const tagSeven = await Tag.create({
+    imageUrl: '75 Wall St',
+    lat: 40.7049444,
+    long: -74.0091772,
+    assetUrl: 'https://i.imgur.com/qUS6CBj.jpg',
+    arTagUrl: 'https://i.imgur.com/p99IbXG.png'
+  });
+
+  const tagEight = await Tag.create({
+    imageUrl: '75 Wall St',
+    lat: 40.7049444,
+    long: -74.0091773,
+    assetUrl: 'https://i.imgur.com/qUS6CBj.jpg',
+    arTagUrl: 'https://i.imgur.com/p99IbXG.png'
+  });
+
   const tagTwo = await Tag.create({
     imageUrl: '75 Wall St',
     lat: 40.716006,
