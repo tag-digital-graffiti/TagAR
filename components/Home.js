@@ -75,7 +75,7 @@ export default class Home extends Component {
   render() {
     return (
       <View style={styles.main}>
-        <View style={styles.modalView}>
+        {/* <View style={styles.modalView}>
           <Modal
             animationType="fade"
             backdropOpacity={0.1}
@@ -91,7 +91,7 @@ export default class Home extends Component {
               </Text>
             </View>
           </Modal>
-        </View>
+        </View> */}
         <View style={styles.imageContainer}>
           <Image
             style={{

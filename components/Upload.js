@@ -4,6 +4,7 @@ import { Button } from 'react-native-elements';
 import ImagePicker from 'react-native-image-picker';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { getNearbyTags } from '../store/graffiti';
 const { SERVER_URL } = require('../constants')
 
 let styles = StyleSheet.create({
@@ -84,8 +85,10 @@ class Upload extends Component {
 
         const body = { lat, long, imageData, userId };
         await axios.post(`${SERVER_URL}/api/tags`, body);
-
-        this.props.navigation.navigate('Home');
+        
+        await this.props.getNearbyTags(this.state.deviceLat, this.state.deviceLong);
+        console.log('hi')
+        this.props.navigation.navigate('Explore');
       }
     });
   };
@@ -129,4 +132,8 @@ const mapStateToProps = state => ({
   user: state.user.currentUser
 });
 
-export default connect(mapStateToProps)(Upload);
+const mapDispatchToProps = dispatch => ({
+  getNearbyTags: (lat, long) => dispatch(getNearbyTags(lat, long)),
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(Upload);
