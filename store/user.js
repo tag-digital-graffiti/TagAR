@@ -1,19 +1,11 @@
 import axios from 'axios';
 const { SERVER_URL } = require('../constants')
 
-// const server = 'http://tag-sever-ar.herokuapp.com';
-// const server = 'http://172.16.25.113:8080';
-
 const GET_USER = 'GET_USER'
-const GET_ERROR = 'GET_ERROR'
-
 
 const initialState = {}
 
-
 const getUser = user => ({ type: GET_USER, user })
-
-
 
 export const auth = (username, password) => async dispatch => {
   try {
