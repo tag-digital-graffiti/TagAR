@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   },
   headerView: {
     backgroundColor: "white",
-    height: 297,
+    height: 250,
     marginTop: 60,
     alignItems: "center",
   },
@@ -59,21 +59,21 @@ const styles = StyleSheet.create({
   },
   photosFlatListViewWrapper: {
     alignSelf: "stretch",
-    height: 122,
+    height: 180,
     marginTop: 13,
   },
   photosView: {
     backgroundColor: "transparent",
-    width: 122,
-    height: 122,
+    width: 180,
+    height: 180,
     justifyContent: "center",
     alignItems: "flex-start",
   },
   photosImage: {
     backgroundColor: "transparent",
     resizeMode: "center",
-    width: 122,
-    height: 122,
+    width: 180,
+    height: 180,
   },
 })
 
@@ -124,7 +124,7 @@ class Profile extends Component {
                     source={{ uri: item.arTagUrl }}
                     style={styles.photosImage} />
                 </View>)}
-              itemDimension={122}
+              itemDimension={180}
               horizontal={true}
               spacing={10}
               style={styles.photosFlatList} />) :
