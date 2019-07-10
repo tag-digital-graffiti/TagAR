@@ -21,7 +21,7 @@ const User = db.define('user', {
   },
   imageUrl: {
     type: Sequelize.STRING,
-    defaultValue: 'user-default-image.png'
+    defaultValue: 'https://ryanacademy.ie/wp-content/uploads/2017/04/user-placeholder.png'
   }
 })
 
