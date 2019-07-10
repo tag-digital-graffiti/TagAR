@@ -49,6 +49,24 @@ router.get('/tags', async (req, res, next) => {
   }
 });
 
+router.get('/user/:userId', async (req, res, next) => {
+  try {
+    const allUserTags = await Tag.findAll({
+      where: {
+        userId: req.params.userId
+      }
+    }
+    )
+    if (allUserTags) {
+      res.send(allUserTags);
+    } else {
+      next();
+    }
+  } catch (error) {
+    next(error)
+  }
+})
+
 router.get('/:id', async (req, res, next) => {
   try {
     const selectedTag = await Tag.findOne({
