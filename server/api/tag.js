@@ -2,11 +2,14 @@ const router = require('express').Router();
 const { Tag, User } = require('../db/models');
 const sequelize = require('sequelize');
 const cloudinary = require('cloudinary').v2;
+const { CLOUDINARY_API_KEY } = require('../../constants')
+const { CLOUDINARY_API_SECRET } = require('../../constants')
+
 
 cloudinary.config({
   cloud_name: 'coolcaps',
-  api_key: '851696833748766',
-  api_secret: '6xc3M9VoKgFxcLO2apfGdu6e0xs'
+  api_key: CLOUDINARY_API_KEY,
+  api_secret: CLOUDINARY_API_SECRET
 });
 
 const Op = sequelize.Op;
