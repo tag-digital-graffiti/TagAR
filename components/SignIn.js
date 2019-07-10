@@ -50,6 +50,11 @@ const styles = StyleSheet.create({
   },
   error: {
     color: '#A89898'
+  },
+  footer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly'
   }
 });
 
@@ -161,14 +166,12 @@ class SignIn extends Component {
           }}
         />
         <View style={styles.footer}>
-          <Text style={{ color: '#A89898' }}>
-            Don't have an account?
-            <Text
-              style={{ color: '#A89898' }}
-              onPress={() => this.props.navigation.navigate('SignUp')}
-            >
-              Register Now!
-            </Text>
+          <Text style={{ color: '#A89898' }}>Don't have an account? </Text>
+          <Text
+            style={{ color: '#A89898' }}
+            onPress={() => this.props.navigation.navigate('SignUp')}
+          >
+            Register Now!
           </Text>
         </View>
       </View>
