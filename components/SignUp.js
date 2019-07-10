@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   inputStyle: {
-    marginTop: 10
+    marginTop: 10,
   },
   logoImage: {
     width: 150,
@@ -106,23 +106,26 @@ class SignUp extends Component {
           <View style={styles.inputStyle}>
             <Input
               style={styles.input}
-              placeholder='Username'
-              placeholderTextColor='#A89898'
+              placeholder="Username"
+              placeholderTextColor="#A89898"
               leftIcon={{ type: 'antdesign', name: 'user' }}
               leftIconContainerStyle={{ paddingRight: 25 }}
               containerStyle={{ padding: 10 }}
               value={this.state.username}
               onChangeText={text => this.setState({ username: text })}
               maxLength={20}
+              inputStyle={{
+                color: 'A89898'
+              }}
               onBlur={Keyboard.dismiss}
             />
           </View>
           <View style={styles.inputStyle}>
             <Input
               style={styles.input}
-              name='password'
-              placeholder='Password'
-              placeholderTextColor='#A89898'
+              name="password"
+              placeholder="Password"
+              placeholderTextColor="#A89898"
               leftIcon={{ type: 'antdesign', name: 'lock' }}
               leftIconContainerStyle={{ paddingRight: 25 }}
               containerStyle={{ padding: 10 }}
@@ -140,7 +143,7 @@ class SignUp extends Component {
               fontSize: 12,
               fontWeight: 400
             }}
-            title='Register'
+            title="Register"
             buttonStyle={{
               width: WIDTH - 97,
               height: 40,
