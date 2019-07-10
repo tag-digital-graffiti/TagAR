@@ -13,7 +13,10 @@ let styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#262525',
+    backgroundColor: '#262525'
+  },
+  logoutButton: {
+    color: '#A89898'
   },
   imageContainer: {
     fontSize: 20,
@@ -26,6 +29,21 @@ let styles = StyleSheet.create({
 });
 
 export default class Home extends Component {
+  static navigationOptions = {
+    headerStyle: {
+      backgroundColor: '#262525'
+    },
+    headerTintColor: '#A89898',
+    // headerRight: (
+    //   <Button
+    //     onPress={this._logout}
+    //     title="Logout"
+    //     color="#A89898"
+    //     fontWeight="bold"
+    //   />
+    // )
+  };
+
   _logout = async () => {
     await AsyncStorage.clear();
     this.props.navigation.navigate('Auth');
@@ -34,6 +52,9 @@ export default class Home extends Component {
   render() {
     return (
       <View style={styles.main}>
+        <View style={styles.logoutButton}>
+          <Button title="Logout" onPress={this._logout} />
+        </View>
         <View style={styles.imageContainer}>
           <Image
             style={{
@@ -42,9 +63,8 @@ export default class Home extends Component {
               borderRadius: 25,
               backgroundColor: '#FFFFFF'
             }}
-            source={require('./tagLogo.png')}
+            source={require('../public/tagLogoUpdate.png')}
           />
-          <Button title="Logout" onPress={this._logout} />
         </View>
       </View>
     );
