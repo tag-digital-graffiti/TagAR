@@ -48,7 +48,6 @@ export default class Home extends Component {
               backgroundColor: '#262525'
             }}
             source={require('../public/taglogoUpdate2.png')}
-            // source={require('../public/tagLogoUpdate.png')}
           />
         </View>
       </View>
