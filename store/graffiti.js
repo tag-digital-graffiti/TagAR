@@ -1,17 +1,19 @@
 import axios from 'axios';
+const { SERVER_URL } = require('../constants')
 
 // const server = 'http://tag-sever-ar.herokuapp.com';
-
-const server = 'http://172.16.26.218:8080';
+// const server = 'http://172.16.25.113:8080';
 
 const GET_NEARBY_TAGS = 'GET_NEARBY_TAG';
 const GET_ALL_TAGS = 'GET_ALL_TAGS';
 const GET_SELECTED_TAG = 'GET_SELECTED_TAG';
+const GET_TAGS_BY_ARTIST = 'GET_TAGS_BY_ARTIST'
 
 const initialState = {
   nearByTags: [],
   selectedTag: {},
-  allTags: []
+  allTags: [],
+  artistTags: []
 };
 
 const gotNearbyTags = tags => ({
@@ -29,11 +31,16 @@ const gotSelectedTag = tag => ({
   tag
 });
 
+const gotTagsByArtist = tags => ({
+  type: GET_TAGS_BY_ARTIST,
+  tags
+})
+
 export const getNearbyTags = (lat, long) => {
   return async dispatch => {
     try {
       let { data } = await axios.get(
-        `${server}/api/tags/?lat=${lat}&long=${long}`
+        `${SERVER_URL}/api/tags/?lat=${lat}&long=${long}`
       );
       const reversedTags = data.reverse();
       dispatch(gotNearbyTags(reversedTags));
@@ -47,7 +54,7 @@ export const getAllTags = () => {
   return async dispatch => {
     try {
       console.log('hello')
-      let { data } = await axios.get(`${server}/api/tags/tags`);
+      let { data } = await axios.get(`${SERVER_URL}/api/tags/tags`);
       dispatch(gotAllTags(data));
     } catch (error) {
       console.warn(error);
@@ -58,7 +65,7 @@ export const getAllTags = () => {
 export const getSelectedTag = id => {
   return async dispatch => {
     try {
-      let { data } = await axios.get(`${server}/api/tags/${id}`);
+      let { data } = await axios.get(`${SERVER_URL}/api/tags/${id}`);
       dispatch(gotSelectedTag(data));
     } catch (error) {
       console.warn(error);
@@ -66,7 +73,19 @@ export const getSelectedTag = id => {
   };
 };
 
-export default function(state = initialState, action) {
+export const getTagsByArtist = userId => {
+  return async dispatch => {
+    try {
+      let { data } = await axios.get(`${SERVER_URL}/api/tags/user/${userId}`);
+      dispatch(gotTagsByArtist(data));
+    } catch (error) {
+      console.warn(error);
+    }
+  };
+};
+
+
+export default function (state = initialState, action) {
   switch (action.type) {
     case GET_NEARBY_TAGS:
       return { ...state, nearByTags: action.tags };
@@ -74,6 +93,8 @@ export default function(state = initialState, action) {
       return { ...state, allTags: action.tags };
     case GET_SELECTED_TAG:
       return { ...state, selectedTag: action.tag };
+    case GET_TAGS_BY_ARTIST:
+      return { ...state, artistTags: action.tags }
     default:
       return state;
   }

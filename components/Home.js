@@ -34,14 +34,6 @@ export default class Home extends Component {
       backgroundColor: '#262525'
     },
     headerTintColor: '#A89898',
-    // headerRight: (
-    //   <Button
-    //     onPress={this._logout}
-    //     title="Logout"
-    //     color="#A89898"
-    //     fontWeight="bold"
-    //   />
-    // )
   };
 
   _logout = async () => {

@@ -177,21 +177,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(SignIn);
-
-{
-  /* <Button
-  title="Register Now"
-  buttonStyle={{
-    width: 150,
-    backgroundColor: '#70C1B3',
-    borderRadius: 10
-  }}
-  disabledStyle={{
-    width: 150,
-    padding: 15,
-    backgroundColor: 'orange',
-    marginBottom: 15
-  }}
-  onPress={() => this.props.navigation.navigate('SignUp')}
-/>; */
-}

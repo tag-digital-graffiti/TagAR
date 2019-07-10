@@ -4,6 +4,7 @@ import { Button } from 'react-native-elements';
 import ImagePicker from 'react-native-image-picker';
 import axios from 'axios';
 import { connect } from 'react-redux';
+const { SERVER_URL } = require('../constants')
 
 let styles = StyleSheet.create({
   main: {
@@ -76,14 +77,13 @@ class Upload extends Component {
           imageData: source
         });
 
-        const server = 'http://172.16.26.218:8080';
         const lat = this.state.deviceLat;
         const long = this.state.deviceLong;
         const imageData = this.state.imageData;
         const userId = this.props.user.id;
 
         const body = { lat, long, imageData, userId };
-        await axios.post(`${server}/api/tags`, body);
+        await axios.post(`${SERVER_URL}/api/tags`, body);
 
         this.props.navigation.navigate('Home');
       }

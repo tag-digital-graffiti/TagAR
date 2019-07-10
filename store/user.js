@@ -1,23 +1,15 @@
 import axios from 'axios';
-
-// const server = 'http://tag-sever-ar.herokuapp.com';
-const server = 'http://172.16.26.218:8080';
-
+const { SERVER_URL } = require('../constants')
 
 const GET_USER = 'GET_USER'
-const GET_ERROR = 'GET_ERROR'
-
 
 const initialState = {}
 
-
 const getUser = user => ({ type: GET_USER, user })
-
-
 
 export const auth = (username, password) => async dispatch => {
   try {
-    let { data } = await axios.post(`${server}/auth/login`, { username, password })
+    let { data } = await axios.post(`${SERVER_URL}/auth/login`, { username, password })
     if (typeof data == 'object') {
       try {
         dispatch(getUser(data))
@@ -32,7 +24,7 @@ export const auth = (username, password) => async dispatch => {
 
 export const setUser = (userId) => async dispatch => {
   try {
-    let { data } = await axios.get(`${server}/api/user/${userId}`)
+    let { data } = await axios.get(`${SERVER_URL}/api/user/${userId}`)
     dispatch(getUser(data))
   } catch (error) {
     console.error(error)
@@ -41,7 +33,7 @@ export const setUser = (userId) => async dispatch => {
 
 export const signUpUser = (username, password) => async dispatch => {
   try {
-    let { data } = await axios.post(`${server}/auth/signup`, { username, password })
+    let { data } = await axios.post(`${SERVER_URL}/auth/signup`, { username, password })
     if (typeof data == 'object') {
       try {
         dispatch(getUser(data))

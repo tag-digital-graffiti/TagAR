@@ -1,13 +1,18 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Button } from 'react-native';
+import { Icon } from 'react-native-elements'
 import {
   createBottomTabNavigator,
   createStackNavigator,
   createAppContainer,
-  createSwitchNavigator
+  createSwitchNavigator,
+  StackActions,
+  NavigationActions
 } from 'react-navigation';
-import AntIcons from 'react-native-vector-icons/AntDesign';
+
+import Entypo from 'react-native-vector-icons/Entypo'
+import FW5 from 'react-native-vector-icons/FontAwesome5'
 
 import ARScreen from './EntryARScene';
 import HomeScreen from './Home';
@@ -17,17 +22,32 @@ import UploadScreen from './Upload';
 import AuthLoadingScreen from './AuthLoading';
 import SignInScreen from './SignIn';
 import SignUpScreen from './SignUp';
-import GoogleMap from './Map';
+import MapScreen from './Map';
 import SingleTagScreen from './SingleTag';
+import ProfileScreen from './Profile'
 
 const HomeNavigator = createStackNavigator({
   Home: {
     screen: HomeScreen,
-    navigationOptions: () => ({
-      title: `Home`
+    navigationOptions: ({ navigation }) => ({
+      title: `Home`,
+      headerRight: (
+        <Icon
+          name="map-outline"
+          type="material-community"
+          color="#000000"
+          onPress={() => navigation.navigate('Map')}
+          size={30}
+        />
+      ),
     })
+
+  },
+  Map: {
+    screen: MapScreen
   }
 });
+
 
 const DrawNavigator = createStackNavigator({
   Add: {
@@ -44,11 +64,29 @@ const DrawNavigator = createStackNavigator({
   }
 });
 
+const ProfileNavigator = createStackNavigator({
+  Profile: {
+    screen: ProfileScreen,
+    navigationOptions: () => ({
+      title: `Profile`
+    })
+  }
+});
+
 const ARNavigator = createStackNavigator({
   NearByTags: {
     screen: NearByTagsScreen,
-    navigationOptions: () => ({
-      title: `Select a Tag`
+    navigationOptions: ({ navigation }) => ({
+      title: `Select a Tag`,
+      headerRight: (
+        <Icon
+          name="map-outline"
+          type="material-community"
+          color="#000000"
+          onPress={() => navigation.navigate('Map')}
+          size={30}
+        />
+      )
     })
   },
   SingleTagScreen: {
@@ -60,24 +98,66 @@ const ARNavigator = createStackNavigator({
   EntryARScene: {
     screen: ARScreen,
     navigationOptions: () => ({
-      title: `Find a Wall`
-    })
+      title: `Find a Wall`,
+    }),
+  },
+  Map: {
+    screen: MapScreen
   }
 });
 
 const AppNavigator = createBottomTabNavigator(
   {
-    Home: HomeNavigator,
-    Explore: ARNavigator,
-    Map: GoogleMap,
-
+    Home: {
+      screen: HomeNavigator,
+      navigationOptions: {
+        tabBarLabel: 'Home',
+        tabBarIcon: () => <Entypo name='home' size={30} />
+      }
+    },
+    Explore: {
+      screen: ARNavigator,
+      navigationOptions: {
+        tabBarLabel: 'Nearby',
+        tabBarIcon: () => <Entypo name='eye' size={30} />
+      }
+    },
     Add: {
       screen: DrawNavigator,
       navigationOptions: {
         tabBarLabel: 'Add',
-        tabBarIcon: () => <AntIcons name="plus" size={30} />
+        tabBarIcon: () => <Entypo name='pencil' size={30} />
+      }
+    },
+    Profile: {
+      screen: ProfileNavigator,
+      navigationOptions: {
+        tabBarLabel: 'Profile',
+        tabBarIcon: () => <FW5 name='user-alt' size={25} />
       }
     }
+  }, {
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarOnPress: ({ navigation }) => {
+        const nextRoute = navigation.state.routeName
+        const previousRoute = navigation.state.routes[0].routeName
+
+        navigation.dispatch(NavigationActions.navigate({ routeName: nextRoute }))
+
+        navigation.dispatch(StackActions.reset({
+          index: 0,
+          actions: [
+            NavigationActions.navigate({ routeName: previousRoute }),
+          ],
+        }))
+      },
+
+      tabBarOptions: {
+        showIcon: true,
+        showLabel: false,
+      },
+
+    })
   },
   {
     tabBarOptions: {

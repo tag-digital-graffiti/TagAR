@@ -1,12 +1,15 @@
 const router = require('express').Router();
-const { Tag } = require('../db/models');
+const { Tag, User } = require('../db/models');
 const sequelize = require('sequelize');
 const cloudinary = require('cloudinary').v2;
+const { CLOUDINARY_API_KEY } = require('../../constants')
+const { CLOUDINARY_API_SECRET } = require('../../constants')
+
 
 cloudinary.config({
   cloud_name: 'coolcaps',
-  api_key: '851696833748766',
-  api_secret: '6xc3M9VoKgFxcLO2apfGdu6e0xs'
+  api_key: CLOUDINARY_API_KEY,
+  api_secret: CLOUDINARY_API_SECRET
 });
 
 const Op = sequelize.Op;
@@ -22,7 +25,10 @@ router.get('/', async (req, res, next) => {
         long: {
           [Op.between]: [long - 0.002, long + 0.002]
         }
-      }
+      },
+      include: [{
+        model: User
+      }]
     });
     res.json(getNearByTag);
   } catch (error) {
@@ -43,12 +49,33 @@ router.get('/tags', async (req, res, next) => {
   }
 });
 
+router.get('/user/:userId', async (req, res, next) => {
+  try {
+    const allUserTags = await Tag.findAll({
+      where: {
+        userId: req.params.userId
+      }
+    }
+    )
+    if (allUserTags) {
+      res.send(allUserTags);
+    } else {
+      next();
+    }
+  } catch (error) {
+    next(error)
+  }
+})
+
 router.get('/:id', async (req, res, next) => {
   try {
     const selectedTag = await Tag.findOne({
       where: {
         id: req.params.id
-      }
+      },
+      include: [{
+        model: User
+      }]
     });
     if (selectedTag) {
       res.json(selectedTag);
@@ -67,7 +94,7 @@ router.post('/', async (req, res, next) => {
     let imageData = req.body.imageData;
     let userId = req.body.userId
 
-    await cloundinary.uploader(imageData, async function(error, result) {
+    await cloudinary.uploader.upload(imageData, async function (error, result) {
       if (result) {
         const arTagUrl = result.url;
         try {

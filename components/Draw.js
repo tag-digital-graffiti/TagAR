@@ -6,6 +6,8 @@ import axios from 'axios';
 import RNSketchCanvas from '@terrylinla/react-native-sketch-canvas';
 import RNFetchBlob from 'react-native-fetch-blob';
 import { getNearbyTags } from '../store/graffiti';
+const { SERVER_URL } = require('../constants')
+
 
 class Draw extends Component {
   constructor() {
@@ -35,7 +37,7 @@ class Draw extends Component {
 
   onSave = async (success, path) => {
     if (!success) return;
-    const server = 'http://172.16.26.218:8080';
+    //const server = 'http://172.16.25.113:8080';
     // const server = 'http://tag-sever-ar.herokuapp.com';
 
     const lat = this.state.deviceLat;
@@ -47,7 +49,7 @@ class Draw extends Component {
       const userId = this.props.user.id;
       const body = { lat, long, imageData, userId };
       try {
-        await axios.post(`${server}/api/tags`, body);
+        await axios.post(`${SERVER_URL}/api/tags`, body);
       } catch (e) {
         console.error(e);
       }
@@ -57,7 +59,7 @@ class Draw extends Component {
 
     await this.props.getNearbyTags(this.state.deviceLat, this.state.deviceLong);
     this.currentCanvas.clear();
-    this.props.navigation.navigate('Home');
+    this.props.navigation.navigate('Explore');
   };
   render() {
     if (this.state.loaded) {
