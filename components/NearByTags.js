@@ -91,11 +91,11 @@ export default class NearbyTags extends Component {
               <View style={styles.flatListContainer}>
                 <TouchableHighlight onPress={() => this._toDetails(item.id)}>
                   <Card containerStyle={styles.cardContainer}>
-                    <View style={styles.cardHeader}>
+                    {/* <View style={styles.cardHeader}>
                       <Text style={styles.cardText}>
                         Artist: {item.user.username}
                       </Text>
-                    </View>
+                    </View> */}
                     <Image
                       style={styles.cardImage}
                       source={{ uri: `${item.arTagUrl}` }}

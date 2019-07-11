@@ -128,21 +128,6 @@ const AppNavigator = createMaterialBottomTabNavigator(
         barStyle: { backgroundColor: '#BE5941' }
       }
     },
-    Explore: {
-      screen: ARNavigator,
-      navigationOptions: {
-        tabBarLabel: 'Nearby',
-        tabBarIcon: ({ tintColor }) => (
-          <Icon
-            style={[{ color: tintColor }]}
-            size={25}
-            name={'eye'}
-            type={'entypo'}
-          />
-        ),
-        barStyle: { backgroundColor: '#88A25D' }
-      }
-    },
     Add: {
       screen: DrawNavigator,
       navigationOptions: {
@@ -156,6 +141,20 @@ const AppNavigator = createMaterialBottomTabNavigator(
           />
         ),
         barStyle: { backgroundColor: '#775DA2' }
+      }
+    }, Explore: {
+      screen: ARNavigator,
+      navigationOptions: {
+        tabBarLabel: 'Nearby',
+        tabBarIcon: ({ tintColor }) => (
+          <Icon
+            style={[{ color: tintColor }]}
+            size={25}
+            name={'eye'}
+            type={'entypo'}
+          />
+        ),
+        barStyle: { backgroundColor: '#88A25D' }
       }
     },
     Profile: {
