@@ -4,22 +4,22 @@
 
 
 
-###This repository contains the front end source code, built using ViroReact, Redux, and React Native. There is a separate git project deployed to Heroku which serves as the backend server(https://github.com/tag-digital-graffiti/tag-server)
+### This repository contains the front end source code, built using ViroReact, Redux, and React Native. There is a separate git project deployed to Heroku which serves as the backend server(https://github.com/tag-digital-graffiti/tag-server)
 
-#Prerequisites 
+# Prerequisites 
 1. A mac computer and an IOS Device 
 2. An Iphone that can support version of 10.10 and higher  
 
 # Installation 
-# Follow the installation guide below to set up and run this source code locally on Mac.
+Follow the installation guide below to set up and run this source code locally on Mac.
 
-#Clone Repo
+# Clone Repo
 git clone https://github.com/tag-digital-graffiti/TagAR cd TagAR
 
-#Install and setup dependencies
+# Install and setup dependencies
 npm install npm start (starts serving the app from the laptop to the mobile testbed app)
 
-#Running the Application 
+# Running the Application 
 1. Open up your Xcode 
 2. Setup your account if one is not already set up for you
 3. Click on the play button on the left hand side of Xcode 
