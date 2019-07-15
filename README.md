@@ -7,8 +7,8 @@
 This repository contains the front end source code, built using ViroReact, Redux, and React Native. There is a separate git project deployed to Heroku which serves as the backend server(https://github.com/tag-digital-graffiti/tag-server)
 
 # Prerequisites 
-1. A mac computer and an IOS Device 
-2. An Iphone that can support version of 10.10 and higher  
+1. A mac computer and an iOS Device 
+2. An iPhone that can support version of 10.10 and higher  
 
 # Installation 
 Follow the installation guide below to set up and run this source code locally on Mac.
