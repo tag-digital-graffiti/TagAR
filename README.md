@@ -1,4 +1,4 @@
-# TagAR
+# Tag - an Overview
 
 TagAR is a digital graffiti application that allows users to upload or create an image and project it in augmented reality. This project is built in React-Native using the ViroAR library. The backend is built with Express and PostgresSQL, using Cloudinary as a database to store our user images. Please note our server code is in a separate repository on this project.
 
