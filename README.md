@@ -1,6 +1,10 @@
 # TagAR
 
-TagAR is a digital graffiti application, that allows users to upload and create a digital graffiti tag and leave it at any location, and view it in augmented reality. We initially started creating our application on ViroReact platform. We soon realized that this was not the approach we wanted. So as a group we decided to use React-Native. This is the old link to our old github page(https://github.com/tag-digital-graffiti/tag-react-native).
+TagAR is a digital graffiti application that allows users to upload or create an image and project it in augmented reality. This project is built in React-Native using the ViroAR library. The backend is built with Express and PostgresSQL, using Cloudinary as a database to store our user images. Please note our server code is in a separate repository on this project.
+
+To get a full picture of our commits as a team, you may visit: https://github.com/tag-digital-graffiti/tag-react-native. We created this new repo to include a Podfile so that we may incorporate multiple libraries (React-Native Sketch Canvas and React-Native Google Maps) into our project.
+
+Below are screenshots of the user flow of the mobile application and further down are instructions on how you can locally run this application on your Mac/iPhone.
 
 
 ![App Front End](https://i.imgur.com/08WkiJl.png)
@@ -24,8 +28,8 @@ npm install npm start (starts serving the app from the laptop to the mobile test
 # Running the Application 
 1. Open up your Xcode 
 2. Setup your account if one is not already set up for you
-3. Click on the play button on the left hand side of Xcode 
-4. Wait for a successful build and then you should see A “Tag”  appear on your on your phone 
+3. Click on the Run button on the left hand side of Xcode 
+4. Wait for a successful build and then you should be able to walk through our application
  
  
 
