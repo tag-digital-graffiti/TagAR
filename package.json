@@ -10,7 +10,7 @@
     "@terrylinla/react-native-sketch-canvas": "^0.8.0",
     "axios": "^0.19.0",
     "cloudinary": "^1.14.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "morgan": "^1.9.1",
     "path": "^0.12.7",
     "pg": "^7.11.0",
